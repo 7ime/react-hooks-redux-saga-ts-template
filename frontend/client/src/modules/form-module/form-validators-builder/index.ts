@@ -1,7 +1,7 @@
-import IFormValidatorsBuilder from './model';
-import IFormValidators from '../form-validators/model';
+import IFormValidatorsBuilder from './model'
+import IFormValidators from '../form-validators/model'
 
-import {EValidatorsRules, IFormRule} from '../shared';
+import {EValidatorsRules, IFormRule} from '../shared'
 
 export default abstract class FormValidatorsBuilder {
     static minLength(count: number, prompt: string): IFormRule<IFormValidators.MinLengthParams> {
@@ -11,7 +11,7 @@ export default abstract class FormValidatorsBuilder {
             params: {
                 count
             }
-        };
+        }
     }
 
     static maxLength(count: number, prompt: string): IFormRule<IFormValidators.MaxLengthParams> {
@@ -21,7 +21,7 @@ export default abstract class FormValidatorsBuilder {
             params: {
                 count
             }
-        };
+        }
     }
 
     static match(withField: string, prompt: string): IFormRule<IFormValidatorsBuilder.MatchParams> {
@@ -31,20 +31,20 @@ export default abstract class FormValidatorsBuilder {
             params: {
                 withField
             }
-        };
+        }
     }
 
     static required(prompt: string): IFormRule {
         return {
             type: EValidatorsRules.required,
             prompt
-        };
+        }
     }
 
     static email(prompt: string): IFormRule {
         return {
             type: EValidatorsRules.email,
             prompt
-        };
+        }
     }
 }

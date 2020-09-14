@@ -1,12 +1,12 @@
-import PeopleService from './people-service';
-import {IService} from './model';
+import PeopleService from './people-service'
+import {IService} from './model'
 
 class Service implements IService {
-    public peopleService = new PeopleService();
+    public peopleService = new PeopleService()
 }
 
-const service = new Service();
+const service = new Service()
 
-const getService = () => service;
+const getService = () => service
 
-export default getService;
+export default getService

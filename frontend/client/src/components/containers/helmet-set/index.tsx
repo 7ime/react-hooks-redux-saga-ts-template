@@ -1,5 +1,5 @@
-import * as React from 'react';
-import {Helmet} from 'react-helmet';
+import * as React from 'react'
+import {Helmet} from 'react-helmet'
 
 const HelmetSet = () => {
     return (
@@ -13,7 +13,7 @@ const HelmetSet = () => {
                 }
             ]}
         />
-    );
-};
+    )
+}
 
-export default HelmetSet;
+export default HelmetSet

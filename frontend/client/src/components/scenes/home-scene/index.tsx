@@ -1,12 +1,12 @@
-import * as React from 'react';
-import {Helmet} from 'react-helmet';
+import * as React from 'react'
+import {Helmet} from 'react-helmet'
 
-import './index.scss';
-import BemShaper from '../../../bem/bem-shaper';
-import {EBemClassNames} from '../../../bem/bem-class-names';
-import HomePresentation from './components/presentional/home-presentation';
+import './index.scss'
+import BemShaper from '../../../bem/bem-shaper'
+import {EBemClassNames} from '../../../bem/bem-class-names'
+import HomePresentation from './components/presentional/home-presentation'
 
-const bem = new BemShaper(EBemClassNames.homeScene);
+const bem = new BemShaper(EBemClassNames.homeScene)
 
 export default class HomeScene extends React.Component {
 
@@ -14,7 +14,7 @@ export default class HomeScene extends React.Component {
         const classNames = [
             EBemClassNames.scene,
             bem.block
-        ].join(' ').trim();
+        ].join(' ').trim()
 
         return (
             <React.Fragment>
@@ -25,6 +25,6 @@ export default class HomeScene extends React.Component {
                     <HomePresentation/>
                 </div>
             </React.Fragment>
-        );
+        )
     }
 }

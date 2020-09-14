@@ -1,6 +1,6 @@
-import * as React from 'react';
-import {Helmet} from 'react-helmet';
-import Hooks from '../../containers/hooks';
+import * as React from 'react'
+import {Helmet} from 'react-helmet'
+import Hooks from '../../containers/hooks'
 
 export default class HooksScene extends React.Component {
     render() {
@@ -13,6 +13,6 @@ export default class HooksScene extends React.Component {
                     <Hooks/>
                 </div>
             </React.Fragment>
-        );
+        )
     }
 }

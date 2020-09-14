@@ -1,10 +1,10 @@
-import * as React from 'react';
-import {EBemClassNames} from '../../../../../bem/bem-class-names';
-import BemShaper from '../../../../../bem/bem-shaper';
-import {v4 as uuid} from 'uuid';
-import {IRadio} from '../../model';
+import * as React from 'react'
+import {EBemClassNames} from '../../../../../bem/bem-class-names'
+import BemShaper from '../../../../../bem/bem-shaper'
+import {v4 as uuid} from 'uuid'
+import {IRadio} from '../../model'
 
-const bem = new BemShaper(EBemClassNames.radio);
+const bem = new BemShaper(EBemClassNames.radio)
 
 const Radio = (props: IRadio.RadioProps) => {
     const {
@@ -16,7 +16,7 @@ const Radio = (props: IRadio.RadioProps) => {
         onChange,
         value,
         label
-    } = props;
+    } = props
 
     const classNames = [
         bem.block,
@@ -24,9 +24,9 @@ const Radio = (props: IRadio.RadioProps) => {
         bem.mixes(mixes),
         checked && bem.is('checked'),
         disabled && bem.is('disabled')
-    ].join(' ').trim();
+    ].join(' ').trim()
 
-    const uuidRadio = uuid();
+    const uuidRadio = uuid()
 
     return (
         <div className={classNames}>
@@ -44,7 +44,7 @@ const Radio = (props: IRadio.RadioProps) => {
                 <div className={bem.elem('description')}>{label}</div>
             </label>
         </div>
-    );
-};
+    )
+}
 
-export default Radio;
+export default Radio

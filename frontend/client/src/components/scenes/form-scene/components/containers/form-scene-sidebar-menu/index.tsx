@@ -1,40 +1,40 @@
-import * as React from 'react';
-import './index.scss';
-import BemShaper from '../../../../../../bem/bem-shaper';
-import {EBemClassNames} from '../../../../../../bem/bem-class-names';
-import {NavLink} from 'react-router-dom';
-import {PATH_FORM_SCENE_ROUTES} from '../../../routes';
+import * as React from 'react'
+import './index.scss'
+import BemShaper from '../../../../../../bem/bem-shaper'
+import {EBemClassNames} from '../../../../../../bem/bem-class-names'
+import {NavLink} from 'react-router-dom'
+import Routes from '../../../../../../navigation/routes'
 
-const bem = new BemShaper(EBemClassNames.formSceneSidebarMenu);
+const bem = new BemShaper(EBemClassNames.formSceneSidebarMenu)
 
 interface IProps {
-    mixes?: string[];
+    mixes?: string[]
 }
 
 const links = [
     {
-        link: PATH_FORM_SCENE_ROUTES.firstExample,
+        link: Routes.form.firstExample(),
         title: 'Form First Example'
     },
     {
-        link: PATH_FORM_SCENE_ROUTES.secondExample,
+        link: Routes.form.secondExample(),
         title: 'Form Second Example'
     },
     {
-        link: PATH_FORM_SCENE_ROUTES.thirdExample,
+        link: Routes.form.thirdExample(),
         title: 'Form Third Example'
     }
-];
+]
 
 const FormSceneSidebarMenu = (props: IProps) => {
     const {
         mixes = []
-    } = props;
+    } = props
 
     const classNames = [
         bem.block,
         bem.mixes(mixes)
-    ].join(' ').trim();
+    ].join(' ').trim()
 
     return (
         <div className={classNames}>
@@ -47,11 +47,11 @@ const FormSceneSidebarMenu = (props: IProps) => {
                                  activeClassName={bem.is('active')}
                                  className={bem.elem('link')}
                         >{item.title}</NavLink>
-                    );
+                    )
                 })}
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default FormSceneSidebarMenu;
+export default FormSceneSidebarMenu

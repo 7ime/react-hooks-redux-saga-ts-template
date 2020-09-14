@@ -1,27 +1,27 @@
-import * as React from 'react';
+import * as React from 'react'
 
-import './index.scss';
-import FormBuilder from '../../../../../../modules/form-module/form-builder';
-import {EFormShowErrors, IFormControl} from '../../../../../../modules/form-module/shared';
-import FormValidatorsBuilder from '../../../../../../modules/form-module/form-validators-builder';
-import FormContainer from '../../../../../../modules/form-module/form-container';
-import FormControlContainer from '../../../../../../modules/form-module/form-control-container';
-import Button from '../../../../../ui/buttons/components/button';
-import BemShaper from '../../../../../../bem/bem-shaper';
-import {EBemClassNames} from '../../../../../../bem/bem-class-names';
-import Input from '../../../../../ui/textfields/components/input';
-import Textarea from '../../../../../ui/textfields/components/textarea';
+import './index.scss'
+import FormBuilder from '../../../../../../modules/form-module/form-builder'
+import {EFormShowErrors, IFormControl} from '../../../../../../modules/form-module/shared'
+import FormValidatorsBuilder from '../../../../../../modules/form-module/form-validators-builder'
+import FormContainer from '../../../../../../modules/form-module/form-container'
+import FormControlContainer from '../../../../../../modules/form-module/form-control-container'
+import Button from '../../../../../ui/buttons/components/button'
+import BemShaper from '../../../../../../bem/bem-shaper'
+import {EBemClassNames} from '../../../../../../bem/bem-class-names'
+import Input from '../../../../../ui/textfields/components/input'
+import Textarea from '../../../../../ui/textfields/components/textarea'
 
-const bem = new BemShaper(EBemClassNames.formSecondExample);
+const bem = new BemShaper(EBemClassNames.formSecondExample)
 
 interface IProps {
-    mixes?: string[];
+    mixes?: string[]
 }
 
 interface IControls {
-    username: string;
-    email: string;
-    description: string;
+    username: string
+    email: string
+    description: string
 }
 
 class FormSecondExample extends React.Component<IProps, {}> {
@@ -50,26 +50,26 @@ class FormSecondExample extends React.Component<IProps, {}> {
         }
     }, {
         updateFormCb: this.updateForm
-    });
+    })
 
     updateForm(initiatorControl: IFormControl<IControls> | null): void {
-        console.log(initiatorControl);
+        console.log(initiatorControl)
     }
 
     onSubmit = (event: React.SyntheticEvent) => {
-        console.log(this.form.valid);
-        console.log(this.form.serialize);
+        console.log(this.form.valid)
+        console.log(this.form.serialize)
     }
 
     render() {
         const {
             mixes = []
-        } = this.props;
+        } = this.props
 
         const classNames = [
             bem.block,
             bem.mixes(mixes)
-        ].join(' ').trim();
+        ].join(' ').trim()
 
         return (
             <div className={classNames}>
@@ -99,8 +99,8 @@ class FormSecondExample extends React.Component<IProps, {}> {
                     >Submit</Button>
                 </FormContainer>
             </div>
-        );
+        )
     }
 }
 
-export default FormSecondExample;
+export default FormSecondExample

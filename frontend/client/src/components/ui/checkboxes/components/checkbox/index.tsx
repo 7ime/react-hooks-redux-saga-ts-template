@@ -1,41 +1,41 @@
-import * as React from 'react';
-import {ICheckbox} from '../../model';
-import {EBemClassNames} from '../../../../../bem/bem-class-names';
-import BemShaper from '../../../../../bem/bem-shaper';
-import {v4 as uuid} from 'uuid';
+import * as React from 'react'
+import {ICheckbox} from '../../model'
+import {EBemClassNames} from '../../../../../bem/bem-class-names'
+import BemShaper from '../../../../../bem/bem-shaper'
+import {v4 as uuid} from 'uuid'
 
-const bem = new BemShaper(EBemClassNames.checkbox);
+const bem = new BemShaper(EBemClassNames.checkbox)
 
 interface IState {
-    value: boolean;
+    value: boolean
 }
 
 class Checkbox extends React.PureComponent<ICheckbox.Props, IState> {
     state = {
         value: typeof this.props.value === 'boolean' ? this.props.value : false
-    };
+    }
 
     static getDerivedStateFromProps(props: ICheckbox.Props, state: IState) {
         if (props.externalManage) {
             return {
                 value: props.externalManage.value ? props.externalManage.value : false
-            };
+            }
         }
 
-        return null;
+        return null
     }
 
     private handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        this.setValue(event.target.checked);
+        this.setValue(event.target.checked)
     }
 
     private setValue = (newValue: boolean) => {
         if (this.props.externalManage) {
-            this.props.externalManage.onUpdateValue(newValue);
+            this.props.externalManage.onUpdateValue(newValue)
         } else {
             this.setState({
                 value: newValue
-            });
+            })
         }
     }
 
@@ -46,9 +46,9 @@ class Checkbox extends React.PureComponent<ICheckbox.Props, IState> {
             mixes = [],
             disabled,
             error
-        } = this.props;
+        } = this.props
 
-        const {value} = this.state;
+        const {value} = this.state
 
         const classNames = [
             bem.block,
@@ -57,9 +57,9 @@ class Checkbox extends React.PureComponent<ICheckbox.Props, IState> {
             value && bem.is('checked'),
             error && bem.is('error'),
             disabled && bem.is('disabled')
-        ].join(' ').trim();
+        ].join(' ').trim()
 
-        const uuidCheckbox = uuid();
+        const uuidCheckbox = uuid()
 
         return (
             <div className={classNames}>
@@ -75,8 +75,8 @@ class Checkbox extends React.PureComponent<ICheckbox.Props, IState> {
                 </label>
                 {error && <div className={bem.elem('error-container')}>{error}</div>}
             </div>
-        );
+        )
     }
 }
 
-export default Checkbox;
+export default Checkbox

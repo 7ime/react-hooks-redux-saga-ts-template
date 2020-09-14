@@ -1,16 +1,16 @@
-import * as React from 'react';
-import BemShaper from '../../../bem/bem-shaper';
-import {EBemClassNames} from '../../../bem/bem-class-names';
-import Loader from '../../ui/loaders/components/loader';
+import * as React from 'react'
+import BemShaper from '../../../bem/bem-shaper'
+import {EBemClassNames} from '../../../bem/bem-class-names'
+import Loader from '../../ui/loaders/components/loader'
 
-import './index.scss';
+import './index.scss'
 
-const bem = new BemShaper(EBemClassNames.loaderWithInfo);
+const bem = new BemShaper(EBemClassNames.loaderWithInfo)
 
 interface IProps {
-    title: string;
-    description?: string;
-    mixes?: string[];
+    title: string
+    description?: string
+    mixes?: string[]
 }
 
 const LoaderWithInfo = (props: IProps) => {
@@ -18,12 +18,12 @@ const LoaderWithInfo = (props: IProps) => {
         title,
         description,
         mixes = []
-    } = props;
+    } = props
 
     const classNames = [
         bem.block,
         bem.mixes(mixes)
-    ].join(' ').trim();
+    ].join(' ').trim()
 
     return (
         <div className={classNames}>
@@ -35,7 +35,7 @@ const LoaderWithInfo = (props: IProps) => {
 
             {description && <div className={bem.elem('description')}>{description}</div>}
         </div>
-    );
-};
+    )
+}
 
-export default LoaderWithInfo;
+export default LoaderWithInfo

@@ -1,74 +1,74 @@
-import * as React from 'react';
-import {EBemClassNames} from '../../../../../bem/bem-class-names';
-import BemShaper from '../../../../../bem/bem-shaper';
-import {ITextField} from '../../model';
+import * as React from 'react'
+import {EBemClassNames} from '../../../../../bem/bem-class-names'
+import BemShaper from '../../../../../bem/bem-shaper'
+import {ITextField} from '../../model'
 
-const bem = new BemShaper(EBemClassNames.textfield);
+const bem = new BemShaper(EBemClassNames.textfield)
 
 interface IState {
-    isFocused: boolean;
-    isBlur: boolean;
-    value: string;
+    isFocused: boolean
+    isBlur: boolean
+    value: string
 }
 
 class Textarea extends React.Component<ITextField.TextareaProps, IState> {
-    controlRef = React.createRef<HTMLTextAreaElement>();
+    controlRef = React.createRef<HTMLTextAreaElement>()
 
     state = {
         isFocused: false,
         isBlur: true,
         value: typeof this.props.defaultValue === 'string' ? this.props.defaultValue : ''
-    };
+    }
 
     static getDerivedStateFromProps(props: ITextField.TextareaProps, state: IState) {
         if (props.externalManage) {
             return {
                 value: props.externalManage.value ? props.externalManage.value : ''
-            };
+            }
         }
 
-        return null;
+        return null
     }
 
     handleFocus = () => {
-        const textfieldNode = this.controlRef.current;
+        const textfieldNode = this.controlRef.current
 
         if (textfieldNode) {
-            textfieldNode.focus();
+            textfieldNode.focus()
         }
 
         this.setState({
             isFocused: true,
             isBlur: false
-        });
-    };
+        })
+    }
 
     handleBlur = () => {
-        const textfieldNode = this.controlRef.current;
+        const textfieldNode = this.controlRef.current
 
-        let isBlur = true;
+        let isBlur = true
 
         if (textfieldNode && textfieldNode.value) {
-            isBlur = false;
+            isBlur = false
         }
 
         this.setState({
             isBlur,
             isFocused: false
-        });
-    };
+        })
+    }
 
     handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-        this.setValue(event.target.value);
-    };
+        this.setValue(event.target.value)
+    }
 
     private setValue = (newValue: string) => {
         if (this.props.externalManage) {
-            this.props.externalManage.onUpdateValue(newValue);
+            this.props.externalManage.onUpdateValue(newValue)
         } else {
             this.setState({
                 value: newValue
-            });
+            })
         }
     }
 
@@ -78,9 +78,9 @@ class Textarea extends React.Component<ITextField.TextareaProps, IState> {
             mods = [],
             mixes = [],
             error
-        } = this.props;
+        } = this.props
 
-        const {isBlur, isFocused, value} = this.state;
+        const {isBlur, isFocused, value} = this.state
 
         const classNames = [
             bem.block,
@@ -89,7 +89,7 @@ class Textarea extends React.Component<ITextField.TextareaProps, IState> {
             isFocused && bem.is('focused'),
             isBlur && !value && bem.is('blur'),
             error && bem.is('error')
-        ].join(' ').trim();
+        ].join(' ').trim()
 
         return (
             <div className={classNames}>
@@ -118,8 +118,8 @@ class Textarea extends React.Component<ITextField.TextareaProps, IState> {
                 </div>
                 {error && <div className={bem.elem('error-container')}>{error}</div>}
             </div>
-        );
+        )
     }
 }
 
-export default Textarea;
+export default Textarea

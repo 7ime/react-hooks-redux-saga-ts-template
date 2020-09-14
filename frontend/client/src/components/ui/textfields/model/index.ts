@@ -1,27 +1,27 @@
-import * as React from 'react';
-import {Maybe} from '../../../../toolbox/custom-types';
-import {IFormExternalManage} from '../../../../modules/form-module/shared';
+import * as React from 'react'
+import {Maybe} from '../../../../toolbox/custom-types'
+import {IFormExternalManage} from '../../../../modules/form-module/shared'
 
 export namespace ITextField {
     export interface BaseProps {
-        label: string;
+        label: string
 
-        mods?: string[];
-        mixes?: string[];
+        mods?: string[]
+        mixes?: string[]
 
-        externalManage?: IFormExternalManage<string>;
+        externalManage?: IFormExternalManage<string>
 
-        disabled?: boolean;
+        disabled?: boolean
 
-        error?: string | null;
+        error?: string | null
     }
 
     export interface TextareaProps extends BaseProps {
-        defaultValue?: string;
+        defaultValue?: string
     }
 
     export interface InputBaseProps extends BaseProps {
-        value?: string;
+        value?: string
     }
 
     export interface InputProps extends InputBaseProps {
@@ -33,11 +33,11 @@ export namespace ITextField {
     }
     
     export interface InputInjectPropsBase {
-        innerRef: React.RefObject<HTMLInputElement>;
-        value: string;
-        onChange(event: React.ChangeEvent<HTMLInputElement>): unknown;
-        isFocused: boolean;
-        clearValue(): unknown;
+        innerRef: React.RefObject<HTMLInputElement>
+        value: string
+        onChange(event: React.ChangeEvent<HTMLInputElement>): unknown
+        isFocused: boolean
+        clearValue(): unknown
     }
 
     export interface InputInjectProps extends InputInjectPropsBase {

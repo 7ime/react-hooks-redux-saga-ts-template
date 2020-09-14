@@ -1,1 +1,1 @@
-export const isNumber = (n: number | string | null | undefined) => (!isNaN(parseFloat(n as string)) && !isNaN(n as any - 0));
+export const isNumber = (n: number | string | null | undefined) => (!isNaN(parseFloat(n as string)) && !isNaN(n as any - 0))

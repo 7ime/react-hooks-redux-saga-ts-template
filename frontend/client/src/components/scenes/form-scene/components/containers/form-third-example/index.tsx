@@ -1,46 +1,46 @@
-import * as React from 'react';
-import {toNumber} from 'lodash';
-import './index.scss';
-import FormBuilder from '../../../../../../modules/form-module/form-builder';
-import {EFormShowErrors, EFormTypesControl, IForm, IFormControl} from '../../../../../../modules/form-module/shared';
-import FormValidatorsBuilder from '../../../../../../modules/form-module/form-validators-builder';
-import FormContainer from '../../../../../../modules/form-module/form-container';
-import FormControlContainer from '../../../../../../modules/form-module/form-control-container';
-import Button from '../../../../../ui/buttons/components/button';
-import BemShaper from '../../../../../../bem/bem-shaper';
-import {EBemClassNames} from '../../../../../../bem/bem-class-names';
-import Input from '../../../../../ui/textfields/components/input';
-import {isNumber} from '../../../../../../helpers/is-number';
-import {delay} from '../../../../../../helpers/delay';
-import {ELoaderPosition} from '../../../../../../constants/shared';
-import {IRadio} from '../../../../../ui/radios/model';
-import RadioGroup from '../../../../../ui/radios/components/radio-group';
+import * as React from 'react'
+import {toNumber} from 'lodash'
+import './index.scss'
+import FormBuilder from '../../../../../../modules/form-module/form-builder'
+import {EFormShowErrors, EFormTypesControl, IForm, IFormControl} from '../../../../../../modules/form-module/shared'
+import FormValidatorsBuilder from '../../../../../../modules/form-module/form-validators-builder'
+import FormContainer from '../../../../../../modules/form-module/form-container'
+import FormControlContainer from '../../../../../../modules/form-module/form-control-container'
+import Button from '../../../../../ui/buttons/components/button'
+import BemShaper from '../../../../../../bem/bem-shaper'
+import {EBemClassNames} from '../../../../../../bem/bem-class-names'
+import Input from '../../../../../ui/textfields/components/input'
+import {isNumber} from '../../../../../../helpers/is-number'
+import {delay} from '../../../../../../helpers/delay'
+import {ELoaderPosition} from '../../../../../../constants/shared'
+import {IRadio} from '../../../../../ui/radios/model'
+import RadioGroup from '../../../../../ui/radios/components/radio-group'
 
-const bem = new BemShaper(EBemClassNames.formThirdExample);
+const bem = new BemShaper(EBemClassNames.formThirdExample)
 
-type ITypeOperation = '+' | '*' | '-' | '/';
+type ITypeOperation = '+' | '*' | '-' | '/'
 
 interface IState {
-    isDisabledSubmit: boolean;
-    isSending: boolean;
+    isDisabledSubmit: boolean
+    isSending: boolean
 }
 
 interface IProps {
-    mixes?: string[];
+    mixes?: string[]
 }
 
 interface IControls {
-    calcResult: '';
-    firstValue: string;
-    secondValue: string;
-    typeOperation: ITypeOperation | null;
+    calcResult: ''
+    firstValue: string
+    secondValue: string
+    typeOperation: ITypeOperation | null
 }
 
 class FormThirdExample extends React.Component<IProps, IState> {
     state = {
         isDisabledSubmit: true,
         isSending: false
-    };
+    }
 
     form: IForm<IControls> = new FormBuilder<IControls>({
         showErrors: EFormShowErrors.immediately,
@@ -70,7 +70,7 @@ class FormThirdExample extends React.Component<IProps, IState> {
         }
     }, {
         updateFormCb: this.updateForm.bind(this)
-    });
+    })
 
     updateForm(initiatorControl: IFormControl<IControls> | null): void {
         if (initiatorControl && (
@@ -78,81 +78,81 @@ class FormThirdExample extends React.Component<IProps, IState> {
             initiatorControl.name === 'secondValue' ||
             initiatorControl.name === 'typeOperation'
         )) {
-            const {firstValue, secondValue, typeOperation} = this.form.controls;
+            const {firstValue, secondValue, typeOperation} = this.form.controls
 
             if (isNumber(firstValue.currentValue) && isNumber(secondValue.currentValue)) {
-                let result: number = '' as any;
+                let result: number = '' as any
 
                 switch (typeOperation.currentValue) {
                     case '*': {
-                        result = toNumber(firstValue.currentValue) * toNumber(secondValue.currentValue);
-                        break;
+                        result = toNumber(firstValue.currentValue) * toNumber(secondValue.currentValue)
+                        break
                     }
                     case '/': {
-                        result = toNumber(firstValue.currentValue) / toNumber(secondValue.currentValue);
-                        break;
+                        result = toNumber(firstValue.currentValue) / toNumber(secondValue.currentValue)
+                        break
                     }
                     case '-': {
-                        result = toNumber(firstValue.currentValue) - toNumber(secondValue.currentValue);
-                        break;
+                        result = toNumber(firstValue.currentValue) - toNumber(secondValue.currentValue)
+                        break
                     }
                     case '+': {
-                        result = toNumber(firstValue.currentValue) + toNumber(secondValue.currentValue);
-                        break;
+                        result = toNumber(firstValue.currentValue) + toNumber(secondValue.currentValue)
+                        break
                     }
                     default:
-                        break;
+                        break
                 }
 
                 this.form.patchValue({
                     calcResult: result.toString() as any
-                }, {emit: false});
+                }, {emit: false})
             } else {
                 this.form.patchValue({
                     calcResult: ''
-                }, {emit: false});
+                }, {emit: false})
             }
         }
 
         if (this.form && this.form.valid && this.state.isDisabledSubmit) {
             this.setState({
                 isDisabledSubmit: false
-            });
+            })
         } else if (this.form && !this.form.valid && !this.state.isDisabledSubmit) {
             this.setState({
                 isDisabledSubmit: true
-            });
+            })
         }
     }
 
     onSubmit = async(event: React.SyntheticEvent) => {
         this.setState({
             isSending: true
-        });
+        })
 
-        await delay(2000);
+        await delay(2000)
 
         this.setState({
             isSending: false
-        });
+        })
     }
 
     render() {
         const {
             mixes = []
-        } = this.props;
+        } = this.props
 
         const classNames = [
             bem.block,
             bem.mixes(mixes)
-        ].join(' ').trim();
+        ].join(' ').trim()
 
         const radioGroupValues: IRadio.RadioGroupValue<ITypeOperation>[] = [
             {value: '+', label: 'Plus'},
             {value: '/', label: 'Divided by'},
             {value: '*', label: 'Times'},
             {value: '-', label: 'Minus'}
-        ];
+        ]
 
         return (
             <div className={classNames}>
@@ -200,8 +200,8 @@ class FormThirdExample extends React.Component<IProps, IState> {
                     >Send</Button>
                 </FormContainer>
             </div>
-        );
+        )
     }
 }
 
-export default FormThirdExample;
+export default FormThirdExample

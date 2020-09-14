@@ -1,47 +1,47 @@
-import * as React from 'react';
-import {IMapServicesToProps, withService} from '../../hoc-helpers/with-service';
-import {IService} from '../../../services/model';
-import {Link } from 'react-router-dom';
-import {withRouter, useHistory} from 'react-router';
-import * as qs from 'query-string';
-import {useSelector} from 'react-redux';
-import {selectPeopleByGender} from '../../../store/selectors/people.selectors';
-import {IAppState} from '../../../store/state/app.state';
+import * as React from 'react'
+import {IMapServicesToProps, withService} from '../../hoc-helpers/with-service'
+import {IService} from '../../../services/model'
+import {Link } from 'react-router-dom'
+import {withRouter, useHistory} from 'react-router'
+import * as qs from 'query-string'
+import {useSelector} from 'react-redux'
+import {selectPeopleByGender} from '../../../store/selectors/people.selectors'
+import {IAppState} from '../../../store/state/app.state'
 
 interface IProps {
 
 }
 
 const useCustomHooks = () => {
-    const [gender, setGender] = React.useState('male');
+    const [gender, setGender] = React.useState('male')
 
     React.useEffect(() => {
         setTimeout(() => {
-            setGender('female');
-        }, 1000);
-    }, []);
+            setGender('female')
+        }, 1000)
+    }, [])
 
-    return gender;
-};
+    return gender
+}
 
 const Hooks = (props: IProps) => {
-    const [count, setCount] = React.useState(0);
-    const [status, setStatus] = React.useState(false);
+    const [count, setCount] = React.useState(0)
+    const [status, setStatus] = React.useState(false)
 
-    const peopleByGender = useSelector((state: IAppState) => selectPeopleByGender(state, 'male'));
+    const peopleByGender = useSelector((state: IAppState) => selectPeopleByGender(state, 'male'))
 
-    const history = useHistory();
+    const history = useHistory()
 
-    const gender = useCustomHooks();
+    const gender = useCustomHooks()
 
     React.useEffect(() => {
-        setStatus(!status);
-    }, [count]);
+        setStatus(!status)
+    }, [count])
 
     const addedOptionalParametersInUrl = () => {
-        const result = qs.parse(history.location.search);
-        history.push(`${history.location.pathname}?pageID=${6}`);
-    };
+        const result = qs.parse(history.location.search)
+        history.push(`${history.location.pathname}?pageID=${6}`)
+    }
 
     return (
         <div>
@@ -55,9 +55,9 @@ const Hooks = (props: IProps) => {
             <button onClick={addedOptionalParametersInUrl}>change url</button>
             <div>{gender}</div>
         </div>
-    );
-};
+    )
+}
 
-const mapServicesToProps: IMapServicesToProps = ({ peopleService }: IService) => ({ peopleService });
+const mapServicesToProps: IMapServicesToProps = ({ peopleService }: IService) => ({ peopleService })
 
-export default withService(mapServicesToProps)(Hooks);
+export default withService(mapServicesToProps)(Hooks)

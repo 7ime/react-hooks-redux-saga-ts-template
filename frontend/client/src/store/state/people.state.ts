@@ -1,11 +1,11 @@
-import {Maybe} from '../../toolbox/custom-types';
-import {IPeople} from '../../entities/people.entity';
+import {Maybe} from '../../toolbox/custom-types'
+import {IPeople} from '../../entities/people.entity'
 
 export interface IPeopleState {
-    list: Maybe<IPeople.Model[]>;
-    isFetchError: boolean;
-    human: Maybe<IPeople.Model>;
-    isFetchHumanError: boolean;
+    list: Maybe<IPeople.Model[]>
+    isFetchError: boolean
+    human: Maybe<IPeople.Model>
+    isFetchHumanError: boolean
 }
 
 export const initialPeopleState: IPeopleState = {
@@ -13,4 +13,4 @@ export const initialPeopleState: IPeopleState = {
     isFetchError: false,
     human: null,
     isFetchHumanError: false,
-};
+}

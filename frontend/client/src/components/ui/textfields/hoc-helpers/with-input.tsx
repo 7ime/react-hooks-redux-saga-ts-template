@@ -1,79 +1,79 @@
-import * as React from 'react';
-import BemShaper from '../../../../bem/bem-shaper';
-import {EBemClassNames} from '../../../../bem/bem-class-names';
-import {ITextField} from '../model';
+import * as React from 'react'
+import BemShaper from '../../../../bem/bem-shaper'
+import {EBemClassNames} from '../../../../bem/bem-class-names'
+import {ITextField} from '../model'
 
-const bem = new BemShaper(EBemClassNames.textfield);
+const bem = new BemShaper(EBemClassNames.textfield)
 
 interface IState {
-    isFocused: boolean;
-    isBlur: boolean;
-    value: string;
+    isFocused: boolean
+    isBlur: boolean
+    value: string
 }
 
 const withInput = <T extends ITextField.InputBaseProps>(Wrapped: any) => {
     return class extends React.Component<T, IState> {
-        controlRef = React.createRef<HTMLInputElement>();
+        controlRef = React.createRef<HTMLInputElement>()
 
         state = {
             isFocused: false,
             isBlur: true,
             value: typeof this.props.value === 'string' ? this.props.value : ''
-        };
+        }
 
         static getDerivedStateFromProps(props: T, state: IState) {
             if (props.externalManage) {
                 return {
                     value: props.externalManage.value ? props.externalManage.value : ''
-                };
+                }
             }
 
-            return null;
+            return null
         }
 
         handleFocus = () => {
-            const textfieldNode = this.controlRef.current;
+            const textfieldNode = this.controlRef.current
 
             if (textfieldNode) {
-                textfieldNode.focus();
+                textfieldNode.focus()
             }
 
             this.setState({
                 isFocused: true,
                 isBlur: false
-            });
-        };
+            })
+        }
 
         handleBlur = () => {
-            const textfieldNode = this.controlRef.current;
+            const textfieldNode = this.controlRef.current
 
-            let isBlur = true;
+            let isBlur = true
 
             if (textfieldNode && textfieldNode.value) {
-                isBlur = false;
+                isBlur = false
             }
 
             this.setState({
                 isBlur,
                 isFocused: false
-            });
-        };
+            })
+        }
 
         handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-            this.setValue(event.target.value);
-        };
+            this.setValue(event.target.value)
+        }
 
         clearValue = () => {
-            this.setValue('');
-        };
+            this.setValue('')
+        }
 
         private setValue = (newValue: string) => {
             if (this.props.externalManage) {
-                this.props.externalManage.onUpdateValue(newValue);
+                this.props.externalManage.onUpdateValue(newValue)
             } else {
                 this.setState({
                     value: newValue
-                });
+                })
             }
         }
 
@@ -84,9 +84,9 @@ const withInput = <T extends ITextField.InputBaseProps>(Wrapped: any) => {
                 mixes = [],
                 disabled = false,
                 error
-            } = this.props;
+            } = this.props
 
-            const {isBlur, isFocused, value} = this.state;
+            const {isBlur, isFocused, value} = this.state
 
             const injectProps: ITextField.InputInjectPropsBase = {
                 isFocused,
@@ -94,7 +94,7 @@ const withInput = <T extends ITextField.InputBaseProps>(Wrapped: any) => {
                 innerRef: this.controlRef,
                 value: value,
                 onChange: this.handleChange,
-            };
+            }
 
             const classNames = [
                 bem.block,
@@ -104,7 +104,7 @@ const withInput = <T extends ITextField.InputBaseProps>(Wrapped: any) => {
                 disabled && bem.is('disabled'),
                 isBlur && !value && bem.is('blur'),
                 error && bem.is('error')
-            ].join(' ').trim();
+            ].join(' ').trim()
 
             return (
                 <div className={classNames}>
@@ -124,9 +124,9 @@ const withInput = <T extends ITextField.InputBaseProps>(Wrapped: any) => {
                     </div>
                     {error && <div className={bem.elem('error-container')}>{error}</div>}
                 </div>
-            );
+            )
         }
-    };
-};
+    }
+}
 
-export default withInput;
+export default withInput

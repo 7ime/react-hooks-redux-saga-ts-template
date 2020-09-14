@@ -1,8 +1,8 @@
-import axios, {AxiosInstance} from 'axios';
-import {IFetcher} from './model';
+import axios, {AxiosInstance} from 'axios'
+import {IFetcher} from './model'
 
 class Fetcher implements IFetcher{
-    private axios: AxiosInstance;
+    private axios: AxiosInstance
 
     constructor() {
         this.axios = axios.create({
@@ -13,34 +13,34 @@ class Fetcher implements IFetcher{
                 'X-Requested-With': 'XMLHttpRequest'
             },
             responseType: 'json'
-        });
+        })
     }
 
     public get = async(url: string, body: any = {}) => {
-        const result = await this.axios.get(url, body);
+        const result = await this.axios.get(url, body)
 
-        return result.data;
-    };
+        return result.data
+    }
 
     public post = async(url: string, body: any = {}) => {
-        const result = await this.axios.post(url, body);
+        const result = await this.axios.post(url, body)
 
-        return result.data;
-    };
+        return result.data
+    }
 
     public put = async(url: string, body: any = {}) => {
-        const result = await this.axios.put(url, body);
+        const result = await this.axios.put(url, body)
 
-        return result.data;
-    };
+        return result.data
+    }
 
     public delete = async(url: string, body: any = {}) => {
-        const result = await this.axios.delete(url, body);
+        const result = await this.axios.delete(url, body)
 
-        return result.data;
-    };
+        return result.data
+    }
 }
 
-const fetcher = new Fetcher();
+const fetcher = new Fetcher()
 
-export default fetcher;
+export default fetcher

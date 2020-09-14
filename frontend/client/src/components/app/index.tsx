@@ -1,13 +1,13 @@
-import * as React from 'react';
-import {Redirect, Route, Switch} from 'react-router-dom';
-import BemShaper from '../../bem/bem-shaper';
-import {EBemClassNames} from '../../bem/bem-class-names';
-import LoaderWithInfo from '../presentational/loader-with-info';
-import './index.scss';
-import Header from '../containers/header';
-import {INavigationRoute, rootRoutes} from '../../navigation/routes';
+import * as React from 'react'
+import {Redirect, Route, Switch} from 'react-router-dom'
+import BemShaper from '../../bem/bem-shaper'
+import {EBemClassNames} from '../../bem/bem-class-names'
+import LoaderWithInfo from '../presentational/loader-with-info'
+import './index.scss'
+import Header from '../containers/header'
+import {router, Router} from '../../navigation/router'
 
-const bem = new BemShaper(EBemClassNames.app);
+const bem = new BemShaper(EBemClassNames.app)
 
 export default class App extends React.Component {
 
@@ -20,37 +20,37 @@ export default class App extends React.Component {
                     mixes={[bem.block]}
                 />
             </div>
-        );
+        )
     }
 
     render() {
-        const isLogged = true;
+        const isLogged = true
 
         return(
             <div className={bem.block}>
                 <Header mixes={['app']}/>
                 <React.Suspense fallback={this.getLoaderElem()}>
                     <Switch>
-                        {rootRoutes.map((route: INavigationRoute) => {
+                        {router.map((route: Router) => {
                             const {
                                 component,
                                 path,
                                 exact,
                                 checkAuth = false
-                            } = route;
+                            } = route
 
                             if (!checkAuth || checkAuth && isLogged) {
                                 return (
                                     <Route key={path} path={path} exact={exact} component={component}/>
-                                );
+                                )
                             }
 
-                            return null;
+                            return null
                         })}
                         <Redirect from='*' to='/' exact/>
                     </Switch>
                 </React.Suspense>
             </div>
-        );
+        )
     }
 }

@@ -1,15 +1,15 @@
 namespace IFormValidators {
     export interface MinLengthParams {
-        count: number;
+        count: number
     }
 
     export interface MaxLengthParams {
-        count: number;
+        count: number
     }
 
     export interface MatchParams {
-        withValue: string;
+        withValue: string
     }
 }
 
-export default IFormValidators;
+export default IFormValidators

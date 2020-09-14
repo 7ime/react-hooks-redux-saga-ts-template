@@ -1,10 +1,10 @@
-import * as React from 'react';
+import * as React from 'react'
 
-import './index.scss';
-import BemShaper from '../../../../../../bem/bem-shaper';
-import {EBemClassNames} from '../../../../../../bem/bem-class-names';
+import './index.scss'
+import BemShaper from '../../../../../../bem/bem-shaper'
+import {EBemClassNames} from '../../../../../../bem/bem-class-names'
 
-const bem = new BemShaper(EBemClassNames.homePresentation);
+const bem = new BemShaper(EBemClassNames.homePresentation)
 
 const linksTechnologies = [
     {
@@ -31,7 +31,7 @@ const linksTechnologies = [
         link: 'https://webpack.js.org/',
         title: 'Webpack'
     }
-];
+]
 
 const HomePresentation = () => {
     return (
@@ -48,13 +48,13 @@ const HomePresentation = () => {
                                 <div key={item.link} className={bem.elem('item')}>
                                     <a href={item.link} target={'_blank'} className={bem.elem('link')}>{item.title}</a>
                                 </div>
-                            );
+                            )
                         })
                     }
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default HomePresentation;
+export default HomePresentation

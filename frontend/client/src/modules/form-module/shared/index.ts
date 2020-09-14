@@ -1,4 +1,4 @@
-import IFormBuilder from '../form-builder/model';
+import IFormBuilder from '../form-builder/model'
 
 export enum EValidatorsRules {
     minLength = 'minLength',
@@ -8,7 +8,7 @@ export enum EValidatorsRules {
     required = 'required'
 }
 
-export type IFormControlError = string | null;
+export type IFormControlError = string | null
 
 export enum EFormShowErrors {
     delayed = 'delayed',
@@ -26,7 +26,7 @@ export type IFormRule<T = undefined> = {
     prompt: string;
 } & (T extends undefined ? {} : {
     params: T;
-});
+})
 
 export type IFormInitControl<T extends {}, K = undefined> = {
     rules?: IFormRule[];
@@ -35,43 +35,43 @@ export type IFormInitControl<T extends {}, K = undefined> = {
     initValue: T[K];
 } : {
     initValue: string | boolean;
-});
+})
 
 export type IFormInitControls<T> = {
     [K in keyof T]: IFormInitControl<T, K>;
-};
+}
 
 export interface IFormControl<T> {
-    name: keyof T;
-    rules?: IFormRule[];
-    typeControl: EFormTypesControl;
-    initValue: T[keyof T];
-    currentValue: T[keyof T];
-    prevValue: T[keyof T];
-    error: IFormControlError;
-    forceUpdateCb?: any;
+    name: keyof T
+    rules?: IFormRule[]
+    typeControl: EFormTypesControl
+    initValue: T[keyof T]
+    currentValue: T[keyof T]
+    prevValue: T[keyof T]
+    error: IFormControlError
+    forceUpdateCb?: any
 }
 
 export type IFormControls<T extends {}> = {
-    [K in keyof T]: IFormControl<T>;
-};
+    [K in keyof T]: IFormControl<T>
+}
 
 export interface IFormInitConfig<T> {
-    showErrors?: EFormShowErrors;
-    controls: IFormInitControls<T>;
+    showErrors?: EFormShowErrors
+    controls: IFormInitControls<T>
 }
 
 export type IFormSerialize<T extends {}> = {
     [K in keyof T]: T[K];
-};
+}
 
 export interface IFormPatchValueConfig {
-    emit: boolean;
+    emit: boolean
 }
 
 export interface IFormExternalManage<T> {
-    onUpdateValue(newValue: T): unknown;
-    value: T;
+    onUpdateValue(newValue: T): unknown
+    value: T
 }
 
-export type IForm<T extends {}> = IFormBuilder.Impl<T>;
+export type IForm<T extends {}> = IFormBuilder.Impl<T>
