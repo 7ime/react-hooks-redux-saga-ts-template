@@ -10,6 +10,7 @@ export enum EBemClassNames {
     app = 'app',
     homeScene = 'home-scene',
     formScene = 'form-scene',
+    hooksScene = 'hooks-scene',
     formSceneSidebarMenu = 'form-scene-sidebar-menu',
     formFirstExample = 'form-first-example',
     formSecondExample = 'form-second-example',

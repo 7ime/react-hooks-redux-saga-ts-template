@@ -36,6 +36,10 @@ const Header = (props: IProps) => {
                              activeClassName={bem.is('active')}
                              className={bem.elem('link')}
                     >Form Page</NavLink>
+                    <NavLink to={Routes.hooks.root()}
+                             activeClassName={bem.is('active')}
+                             className={bem.elem('link')}
+                    >Hooks Page</NavLink>
                 </div>
             </div>
         </div>

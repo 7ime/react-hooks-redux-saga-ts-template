@@ -9,4 +9,8 @@ export default class Routes {
         static secondExample = () => '/form/example-2'
         static thirdExample = () => '/form/example-3'
     }
+
+    static hooks = class {
+        static root = () => '/hooks'
+    }
 }

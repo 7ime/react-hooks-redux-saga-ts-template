@@ -3,6 +3,7 @@ import Routes from './routes'
 
 const HomeScene = React.lazy(() => import('../components/scenes/home-scene'))
 const FormScene = React.lazy(() => import('../components/scenes/form-scene'))
+const HooksScene = React.lazy(() => import('../components/scenes/hooks-scene'))
 
 export interface Router {
     exact?: boolean
@@ -20,5 +21,9 @@ export const router: Router[] = [
     {
         path: Routes.form.root(),
         component: FormScene
+    },
+    {
+        path: Routes.hooks.root(),
+        component: HooksScene
     }
 ]
