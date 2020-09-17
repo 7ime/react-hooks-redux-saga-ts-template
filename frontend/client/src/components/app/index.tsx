@@ -1,36 +1,33 @@
 import * as React from 'react'
 import {Redirect, Route, Switch} from 'react-router-dom'
-import BemShaper from '../../bem/bem-shaper'
-import {EBemClassNames} from '../../bem/bem-class-names'
 import LoaderWithInfo from '../presentational/loader-with-info'
-import './index.scss'
 import Header from '../containers/header'
 import {routers} from '../../routing/router'
 import {IRouting} from '../../routing/model'
+import css from './index.module.scss'
+import Routes from '../../routing/routes'
 
-const bem = new BemShaper(EBemClassNames.app)
+const getLoaderElem = () => {
+    return (
+        <div>
+            <LoaderWithInfo
+                title={'Loading...'}
+                description={'Wait please when all data will be loaded'}
+            />
+        </div>
+    )
+}
 
-export default class App extends React.Component {
+const App = () => {
+    const isLogged = true
 
-    private getLoaderElem() {
-        return (
-            <div className={bem.elem('loader-with-info-wrap')}>
-                <LoaderWithInfo
-                    title={'Loading...'}
-                    description={'Wait please when all data will be loaded'}
-                    mixes={[bem.block]}
-                />
-            </div>
-        )
-    }
-
-    render() {
-        const isLogged = true
-
-        return(
-            <div className={bem.block}>
-                <Header mixes={['app']}/>
-                <React.Suspense fallback={this.getLoaderElem()}>
+    return (
+        <div className={css.app}>
+            <div className={css.content}>
+                <div className={css.header}>
+                    <Header />
+                </div>
+                <React.Suspense fallback={getLoaderElem()}>
                     <Switch>
                         {routers.map((router: IRouting.Router) => {
                             const {
@@ -48,10 +45,12 @@ export default class App extends React.Component {
 
                             return null
                         })}
-                        <Redirect from='*' to='/' exact/>
+                        <Redirect from='*' to={Routes.home.root()} exact/>
                     </Switch>
                 </React.Suspense>
             </div>
-        )
-    }
+        </div>
+    )
 }
+
+export default App

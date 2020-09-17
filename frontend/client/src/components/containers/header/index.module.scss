@@ -4,12 +4,12 @@
 .header {
   box-shadow: 0 0 2rem rgba($grey_dark_100, 0.2);
 
-  &__menu {
+  .menu {
     display: flex;
     border-left: 1px solid $grey_light_30;
   }
 
-  &__link {
+  .link {
     padding: 2rem 2rem;
     transition: $transition;
     font-weight: 600;
