@@ -1,0 +1,19 @@
+@import '~@styles/variables/colors.scss';
+@import '~@styles/variables/shared.scss';
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-auto-rows: 10rem;
+  grid-gap: 10px;
+
+  .item {
+    cursor: pointer;
+    user-select: none;
+    background-color: $blue_light_20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: $bdrs;
+  }
+}

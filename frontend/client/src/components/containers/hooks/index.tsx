@@ -27,7 +27,7 @@ const useCustomHooks = () => {
 }
 
 const Hooks = (props: IProps) => {
-    const [count, setCount] = React.useState(0)
+    const [count, setCount] = React.useState<number>(0)
     const [status, setStatus] = React.useState(false)
 
     const peopleByGender = useSelector((state: IAppState) => selectPeopleByGender(state, 'male'))

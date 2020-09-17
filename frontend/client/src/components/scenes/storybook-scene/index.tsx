@@ -1,7 +1,12 @@
 import * as React from 'react'
 import {Helmet} from 'react-helmet'
+import { Route, Switch } from 'react-router-dom'
+import { Redirect } from 'react-router'
 import css from './index.module.scss'
 import {IRouting} from '../../../routing/model'
+import Storybook from './components/storybook'
+import Routes from '../../../routing/routes'
+import StorybookVariables from './components/storybook-variables'
 
 interface IProps extends IRouting.Props {
 
@@ -16,23 +21,11 @@ const StorybookScene = (props: IProps) => {
             <div className={'container'}>
                 <div className={css.title}>Storybook</div>
 
-                <div className={css.list}>
-                    <div className={css.item}>Variables</div>
-                    <div className={css.item}>Typography</div>
-                    <div className={css.item}>Button</div>
-                    <div className={css.item}>Loader</div>
-                    <div className={css.item}>Paginator</div>
-                    <div className={css.item}>Modal</div>
-                    <div className={css.item}>Popup</div>
-                    <div className={css.item}>Textfield</div>
-                    <div className={css.item}>Radio</div>
-                    <div className={css.item}>Checkbox</div>
-                    <div className={css.item}>Toggle</div>
-                    <div className={css.item}>Select</div>
-                    <div className={css.item}>Dropdown</div>
-                    <div className={css.item}>Tooltip</div>
-                    <div className={css.item}>Tabs</div>
-                </div>
+                <Switch>
+                    <Route path={Routes.storybook.root()} exact component={Storybook} />
+                    <Route path={Routes.storybook.variables()} exact component={StorybookVariables} />
+                    <Redirect from='*' to={Routes.storybook.variables()}/>
+                </Switch>
             </div>
         </React.Fragment>
     )
