@@ -1,0 +1,27 @@
+@import '~@styles/variables/colors.module.scss';
+@import '~@styles/variables/shared.module.scss';
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  position: relative;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+
+  &:before {
+    position: absolute;
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: $green_light_50;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+}

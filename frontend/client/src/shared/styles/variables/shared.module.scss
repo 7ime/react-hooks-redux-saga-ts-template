@@ -1,0 +1,11 @@
+$font: 'Open Sans', sans-serif;
+
+$bdrs: 0.3rem;
+
+$transition: 0.15s ease-in-out;
+
+:export {
+  font: $font;
+  bdrs: $bdrs;
+  transition: $transition;
+}
