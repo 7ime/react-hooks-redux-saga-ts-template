@@ -8,12 +8,12 @@ import {EBemClassNames} from '../../../bem/bem-class-names'
 import FormSceneSidebarMenu from './components/containers/form-scene-sidebar-menu'
 import FormFirstExample from './components/containers/form-first-example'
 import FormSecondExample from './components/containers/form-second-example'
-import {IRouter} from '../../../models/router-model'
 import FormThirdExample from './components/containers/form-third-example'
-import Routes from '../../../navigation/routes'
+import Routes from '../../../routing/routes'
+import {IRouting} from '../../../routing/model'
 const bem = new BemShaper(EBemClassNames.formScene)
 
-interface IProps extends IRouter.Props {
+interface IProps extends IRouting.Props {
 
 }
 

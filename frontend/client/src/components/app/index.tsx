@@ -5,7 +5,8 @@ import {EBemClassNames} from '../../bem/bem-class-names'
 import LoaderWithInfo from '../presentational/loader-with-info'
 import './index.scss'
 import Header from '../containers/header'
-import {router, Router} from '../../navigation/router'
+import {routers} from '../../routing/router'
+import {IRouting} from '../../routing/model'
 
 const bem = new BemShaper(EBemClassNames.app)
 
@@ -31,13 +32,13 @@ export default class App extends React.Component {
                 <Header mixes={['app']}/>
                 <React.Suspense fallback={this.getLoaderElem()}>
                     <Switch>
-                        {router.map((route: Router) => {
+                        {routers.map((router: IRouting.Router) => {
                             const {
                                 component,
                                 path,
                                 exact,
                                 checkAuth = false
-                            } = route
+                            } = router
 
                             if (!checkAuth || checkAuth && isLogged) {
                                 return (

@@ -3,11 +3,11 @@ import {Helmet} from 'react-helmet'
 import Hooks from '../../containers/hooks'
 import BemShaper from '../../../bem/bem-shaper'
 import {EBemClassNames} from '../../../bem/bem-class-names'
-import {IRouter} from '../../../models/router-model'
+import {IRouting} from '../../../routing/model'
 
 const bem = new BemShaper(EBemClassNames.hooksScene)
 
-interface IProps extends IRouter.Props {
+interface IProps extends IRouting.Props {
 
 }
 

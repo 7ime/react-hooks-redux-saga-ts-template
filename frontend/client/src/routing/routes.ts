@@ -13,4 +13,8 @@ export default class Routes {
     static hooks = class {
         static root = () => '/hooks'
     }
+
+    static storybook = class {
+        static root = () => '/storybook'
+    }
 }

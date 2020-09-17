@@ -7,6 +7,8 @@ import * as qs from 'query-string'
 import {useSelector} from 'react-redux'
 import {selectPeopleByGender} from '../../../store/selectors/people.selectors'
 import {IAppState} from '../../../store/state/app.state'
+import css from './index.module.scss'
+import colors from '../../../shared/styles/variables/colors.module.scss'
 
 interface IProps {
 
@@ -44,9 +46,12 @@ const Hooks = (props: IProps) => {
     }
 
     return (
-        <div>
-            <p>You clicked {count} times</p>
-            <button onClick={() => setCount(count + 1)}>
+
+        <div className={css.test}>
+            <p className={'area'}>You clicked {count} times</p>
+            <button onClick={() => setCount(count + 1)} style={{
+                background: colors.yellowColor
+            }}>
                 Click me
             </button>
             <br/>

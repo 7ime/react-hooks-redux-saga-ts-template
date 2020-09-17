@@ -3,7 +3,7 @@ import './index.scss'
 import BemShaper from '../../../../../../bem/bem-shaper'
 import {EBemClassNames} from '../../../../../../bem/bem-class-names'
 import {NavLink} from 'react-router-dom'
-import Routes from '../../../../../../navigation/routes'
+import Routes from '../../../../../../routing/routes'
 
 const bem = new BemShaper(EBemClassNames.formSceneSidebarMenu)
 
