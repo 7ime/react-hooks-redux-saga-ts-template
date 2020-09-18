@@ -17,6 +17,7 @@ class Fetcher implements IFetcher{
     }
 
     public get = async(url: string, body: any = {}) => {
+        console.log(url)
         const result = await this.axios.get(url, body)
 
         return result.data

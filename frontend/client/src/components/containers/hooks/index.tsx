@@ -4,41 +4,27 @@ import {IService} from '../../../services/model'
 import {Link } from 'react-router-dom'
 import {withRouter, useHistory} from 'react-router'
 import * as qs from 'query-string'
-import {useSelector} from 'react-redux'
-import {selectPeopleByGender} from '../../../store/selectors/people.selectors'
+import {useDispatch, useSelector} from 'react-redux'
 import {IAppState} from '../../../store/state/app.state'
 import css from './index.module.scss'
 import colors from '../../../shared/styles/variables/colors.module.scss'
+import {jsonPlaceholderActionGetPosts} from '../../../store/actions/jsonplaceholder.action'
 
 interface IProps {
 
-}
-
-const useCustomHooks = () => {
-    const [gender, setGender] = React.useState('male')
-
-    React.useEffect(() => {
-        setTimeout(() => {
-            setGender('female')
-        }, 1000)
-    }, [])
-
-    return gender
 }
 
 const Hooks = (props: IProps) => {
     const [count, setCount] = React.useState<number>(0)
     const [status, setStatus] = React.useState(false)
 
-    const peopleByGender = useSelector((state: IAppState) => selectPeopleByGender(state, 'male'))
-
     const history = useHistory()
-
-    const gender = useCustomHooks()
+    const dispatch = useDispatch()
 
     React.useEffect(() => {
-        setStatus(!status)
-    }, [count])
+        console.log('OO')
+        dispatch(jsonPlaceholderActionGetPosts())
+    })
 
     const addedOptionalParametersInUrl = () => {
         const result = qs.parse(history.location.search)
@@ -58,11 +44,8 @@ const Hooks = (props: IProps) => {
             <div>{status ? 'online' : 'offline'}</div>
             <Link to={'/'}>Return to home page</Link>
             <button onClick={addedOptionalParametersInUrl}>change url</button>
-            <div>{gender}</div>
         </div>
     )
 }
 
-const mapServicesToProps: IMapServicesToProps = ({ peopleService }: IService) => ({ peopleService })
-
-export default withService(mapServicesToProps)(Hooks)
+export default Hooks

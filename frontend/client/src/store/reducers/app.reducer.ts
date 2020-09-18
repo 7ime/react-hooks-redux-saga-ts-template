@@ -1,8 +1,7 @@
 import {IAppState} from '../state/app.state'
-import {peopleReducer} from './people.reducer'
+import {jsonPlaceholderReducer} from './jsonplaceholder.reducer'
+import {combineReducers} from 'redux'
 
-export const appReducer = (state: IAppState = {} as IAppState, action: any): IAppState => {
-    return {
-        people: peopleReducer(state.people, action)
-    }
-}
+export const appReducer = combineReducers<IAppState>({
+    jsonPlaceholder: jsonPlaceholderReducer
+})

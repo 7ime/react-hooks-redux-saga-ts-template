@@ -1,5 +1,5 @@
-import {IPeopleState} from './people.state'
+import {IJsonPlaceholderState} from './jsonplaceholder.state'
 
 export interface IAppState {
-    people: IPeopleState
+    jsonPlaceholder: IJsonPlaceholderState
 }
