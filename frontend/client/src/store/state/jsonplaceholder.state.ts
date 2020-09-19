@@ -5,10 +5,12 @@ export interface IJsonPlaceholderState {
     posts: Maybe<IJsonPlaceholder.Model[]>
     isLoadingPosts: boolean
     isGetPostsError: boolean
+    post: Maybe<IJsonPlaceholder.Model>
 }
 
 export const initialJsonPlaceholderState: IJsonPlaceholderState = {
     posts: null,
     isGetPostsError: false,
-    isLoadingPosts: false
+    isLoadingPosts: false,
+    post: null
 }

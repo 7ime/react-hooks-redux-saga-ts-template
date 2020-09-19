@@ -8,7 +8,10 @@ import {useDispatch, useSelector} from 'react-redux'
 import {IAppState} from '../../../store/state/app.state'
 import css from './index.module.scss'
 import colors from '../../../shared/styles/variables/colors.module.scss'
-import {jsonPlaceholderActionGetPosts} from '../../../store/actions/jsonplaceholder.action'
+import {
+    jsonPlaceholderActionGetPost,
+    jsonPlaceholderActionGetPosts
+} from '../../../store/actions/jsonplaceholder.action'
 
 interface IProps {
 
@@ -22,8 +25,8 @@ const Hooks = (props: IProps) => {
     const dispatch = useDispatch()
 
     React.useEffect(() => {
-        console.log('OO')
         dispatch(jsonPlaceholderActionGetPosts())
+        dispatch(jsonPlaceholderActionGetPost(1))
     })
 
     const addedOptionalParametersInUrl = () => {

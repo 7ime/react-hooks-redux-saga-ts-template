@@ -24,6 +24,12 @@ export const jsonPlaceholderReducer = (state: IJsonPlaceholderState = initialJso
                 isGetPostsError: true
             }
         }
+        case EJsonPlaceholderActions.GetPostSuccess: {
+            return {
+                ...state,
+                post: action.payload
+            }
+        }
         default:
             return state
     }
