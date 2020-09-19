@@ -35,7 +35,7 @@ function* getPost(action: IJsonPlaceholderActionGetPost) {
 }
 
 function* getPostSaga() {
-    yield takeLatest(EJsonPlaceholderActions.GetPost, getPost)
+    yield takeEvery(EJsonPlaceholderActions.GetPost, getPost)
 }
 
 export default function* jsonPlaceholderRootSaga() {
