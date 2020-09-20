@@ -30,6 +30,9 @@ export const jsonPlaceholderReducer = (state: IJsonPlaceholderState = initialJso
                 post: action.payload
             }
         }
+        case EJsonPlaceholderActions.ResetState: {
+            return initialJsonPlaceholderState
+        }
         default:
             return state
     }

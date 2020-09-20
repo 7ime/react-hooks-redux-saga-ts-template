@@ -10,7 +10,7 @@ import css from './index.module.scss'
 import colors from '../../../shared/styles/variables/colors.module.scss'
 import {
     jsonPlaceholderActionGetPost,
-    jsonPlaceholderActionGetPosts
+    jsonPlaceholderActionGetPosts, jsonPlaceholderActionGetResetState
 } from '../../../store/actions/jsonplaceholder.action'
 
 interface IProps {
@@ -27,7 +27,11 @@ const Hooks = (props: IProps) => {
     React.useEffect(() => {
         dispatch(jsonPlaceholderActionGetPosts())
         dispatch(jsonPlaceholderActionGetPost(1))
-    })
+
+        return () => {
+            dispatch(jsonPlaceholderActionGetResetState())
+        }
+    }, [0])
 
     const addedOptionalParametersInUrl = () => {
         const result = qs.parse(history.location.search)

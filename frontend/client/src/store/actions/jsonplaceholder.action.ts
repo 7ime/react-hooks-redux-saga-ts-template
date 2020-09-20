@@ -6,7 +6,8 @@ export enum EJsonPlaceholderActions {
     GetPostsSuccess = '[JsonPlaceholder] GetPostsSuccess',
     GetPostsError = '[JsonPlaceholder] GetPostsError',
     GetPost = '[JsonPlaceholder] GetPost',
-    GetPostSuccess = '[JsonPlaceholder] GetPostSuccess'
+    GetPostSuccess = '[JsonPlaceholder] GetPostSuccess',
+    ResetState = '[JsonPlaceholder] ResetState'
 }
 
 export type IJsonPlaceholderActionGetPosts = IAction<EJsonPlaceholderActions.GetPosts>
@@ -52,10 +53,19 @@ export const jsonPlaceholderActionGetPostSuccess = (payload: IJsonPlaceholder.Mo
     }
 }
 
+export type IJsonPlaceholderActionResetState = IAction<EJsonPlaceholderActions.ResetState>
+
+export const jsonPlaceholderActionGetResetState = (): IJsonPlaceholderActionResetState => {
+    return {
+        type: EJsonPlaceholderActions.ResetState
+    }
+}
+
 export type IJsonPlaceholderActions =
     IJsonPlaceholderActionGetPosts |
     IJsonPlaceholderActionGetPostsSuccess |
     IJsonPlaceholderActionGetPostsError |
     IJsonPlaceholderActionGetPost |
-    IJsonPlaceholderActionGetPostSuccess
+    IJsonPlaceholderActionGetPostSuccess |
+    IJsonPlaceholderActionResetState
 
