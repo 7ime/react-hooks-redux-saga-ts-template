@@ -1,6 +1,6 @@
-import {Action, Dispatch, Middleware, Store} from 'redux'
+import {Action, Dispatch, Store} from 'redux'
 
-const crashDispatchLogger: any = (store: Store) => (next: Dispatch) => (action: Action) => {
+const crashDispatchLoggerMiddleware: any = (store: Store) => (next: Dispatch) => (action: Action) => {
     try {
         return next(action)
     } catch (error) {
@@ -10,4 +10,4 @@ const crashDispatchLogger: any = (store: Store) => (next: Dispatch) => (action: 
     }
 }
 
-export default crashDispatchLogger
+export default crashDispatchLoggerMiddleware
