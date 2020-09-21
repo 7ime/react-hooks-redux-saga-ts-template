@@ -3,3 +3,4 @@ export type IAction<T, P = undefined> = {
 } & (P extends undefined ? {} : {
     payload: P
 })
+
