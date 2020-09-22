@@ -28,6 +28,6 @@ module.exports = {
         "node",
     ],
     "collectCoverage": true,
-    "coverageReporters": ['clover'],
+    "coverageReporters": ['clover', 'text'],
     "coverageDirectory": './'
 };
