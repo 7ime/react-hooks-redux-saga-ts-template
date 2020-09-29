@@ -27,9 +27,9 @@ const LoaderWithInfo = (props: IProps) => {
 
     return (
         <div className={classNames}>
-            <div className={bem.elem('loader-wrap')}>
-                <Loader mixes={[bem.block]}/>
-            </div>
+            {/*<div className={bem.elem('loader-wrap')}>*/}
+            {/*    <Loader mixes={[bem.block]}/>*/}
+            {/*</div>*/}
 
             <div className={bem.elem('title')}>{title}</div>
 

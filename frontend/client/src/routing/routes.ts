@@ -17,5 +17,8 @@ export default class Routes {
     static storybook = class {
         static root = () => '/storybook'
         static variables = () => '/storybook/variables'
+        static buttons = () => '/storybook/buttons'
+        static loaders = () => '/storybook/loaders'
+        static typography = () => '/storybook/typography'
     }
 }

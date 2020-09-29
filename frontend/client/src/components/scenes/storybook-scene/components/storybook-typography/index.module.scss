@@ -1,0 +1,17 @@
+@import '~@styles/variables/colors.module.scss';
+@import '~@styles/variables/shared.module.scss';
+
+.content {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  margin-bottom: 1rem;
+}

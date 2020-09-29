@@ -9,19 +9,7 @@
 
 .subtitle {
   position: relative;
-  font-size: 1.6rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
-  padding-left: 1rem;
-
-  &:before {
-    position: absolute;
-    content: '';
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background-color: $green_light_50;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-  }
+  font-weight: 700;
 }

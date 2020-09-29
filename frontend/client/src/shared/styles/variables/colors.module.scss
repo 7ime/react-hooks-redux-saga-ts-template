@@ -51,48 +51,48 @@ $text_c: $grey_dark_100;
 
 :export {
   //purple
-  purple: $purple;
+  _purple: $purple;
 
   //orange
-  orange: $orange;
+  _orange: $orange;
 
   //yellow
-  yellow: $yellow;
+  _yellow: $yellow;
 
   //green
-  green: $green;
-  green_dark_50: $green_dark_50;
-  green_light_50: $green_light_50;
-  green_light_10: $green_light_10;
+  _green: $green;
+  _green_dark_50: $green_dark_50;
+  _green_light_50: $green_light_50;
+  _green_light_10: $green_light_10;
 
   //red
-  red: $red;
-  red_light_50: $red_light_50;
-  red_light_10: $red_light_10;
+  _red: $red;
+  _red_light_50: $red_light_50;
+  _red_light_10: $red_light_10;
 
   //blue
-  blue: $blue;
-  blue_dark_50: $blue_dark_50;
-  blue_light_50: $blue_light_50;
-  blue_light_20: $blue_light_20;
-  blue_light_10: $blue_light_10;
+  _blue: $blue;
+  _blue_dark_50: $blue_dark_50;
+  _blue_light_50: $blue_light_50;
+  _blue_light_20: $blue_light_20;
+  _blue_light_10: $blue_light_10;
 
   //grey
-  grey: $grey;
-  grey_dark_100: $grey_dark_100;
-  grey_dark_50: $grey_dark_50;
+  _grey: $grey;
+  _grey_dark_100: $grey_dark_100;
+  _grey_dark_50: $grey_dark_50;
 
-  grey_light_70: $grey_light_70;
-  grey_light_50: $grey_light_50;
-  grey_light_40: $grey_light_40;
-  grey_light_30: $grey_light_30;
-  grey_light_20: $grey_light_20;
-  grey_light_10: $grey_light_10;
+  _grey_light_70: $grey_light_70;
+  _grey_light_50: $grey_light_50;
+  _grey_light_40: $grey_light_40;
+  _grey_light_30: $grey_light_30;
+  _grey_light_20: $grey_light_20;
+  _grey_light_10: $grey_light_10;
 
   //other
-  primary: $primary;
-  secondary: $secondary;
-  warning: $warning;
+  _primary: $primary;
+  _secondary: $secondary;
+  _warning: $warning;
 
-  text_c: $text_c;
+  _text_c: $text_c;
 }

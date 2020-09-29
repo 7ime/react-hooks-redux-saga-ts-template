@@ -1,0 +1,24 @@
+@import '~@styles/variables/colors.module.scss';
+@import '~@styles/variables/shared.module.scss';
+
+.content {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+}
+
+.itemTitle {
+  margin-bottom: 1rem;
+}

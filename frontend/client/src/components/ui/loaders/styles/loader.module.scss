@@ -1,3 +1,6 @@
+@import '~@styles/variables/colors.module.scss';
+@import '~@styles/variables/shared.module.scss';
+
 $loader_size: 3em;
 
 .loader {
@@ -6,7 +9,27 @@ $loader_size: 3em;
   width: $loader_size;
   height: $loader_size;
 
-  &__circular {
+  &.small {
+    font-size: 0.5rem;
+  }
+
+  &.large {
+    font-size: 2rem;
+  }
+
+  &.primary {
+    .path {
+      stroke: $primary;
+    }
+  }
+
+  &.secondary {
+    .path {
+      stroke: $secondary;
+    }
+  }
+
+  .circular {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -19,11 +42,11 @@ $loader_size: 3em;
     transform-origin: center center;
   }
 
-  &__path {
+  .path {
     stroke-width: 4;
-    stroke: $primary;
     stroke-dasharray: 1, 200;
     stroke-dashoffset: 0;
+    stroke: $grey_light_70;
     animation: loader-dash 1.5s ease-in-out infinite;
     stroke-linecap: round;
   }

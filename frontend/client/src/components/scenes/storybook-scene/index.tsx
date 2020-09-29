@@ -7,23 +7,39 @@ import {IRouting} from '../../../routing/model'
 import Storybook from './components/storybook'
 import Routes from '../../../routing/routes'
 import StorybookVariables from './components/storybook-variables'
+import StorybookLoaders from './components/storybook-loaders'
+import StorybookTypography from './components/storybook-typography'
 
 interface IProps extends IRouting.Props {
 
 }
 
+const getSubTitle = (url: string) => {
+    switch (url) {
+        case Routes.storybook.root(): return ''
+        case Routes.storybook.variables(): return 'variables'
+        case Routes.storybook.buttons(): return 'buttons'
+        case Routes.storybook.loaders(): return 'loaders'
+        case Routes.storybook.typography(): return 'typography'
+    }
+}
+
 const StorybookScene = (props: IProps) => {
+    const subTitle = getSubTitle(props.location.pathname)
+
     return (
         <React.Fragment>
             <Helmet>
                 <title>Storybook</title>
             </Helmet>
             <div className={'container'}>
-                <div className={css.title}>Storybook</div>
+                <div className={css.title}>Storybook <span>{subTitle ? '- ' + subTitle : ''}</span></div>
 
                 <Switch>
                     <Route path={Routes.storybook.root()} exact component={Storybook} />
                     <Route path={Routes.storybook.variables()} exact component={StorybookVariables} />
+                    <Route path={Routes.storybook.typography()} exact component={StorybookTypography} />
+                    <Route path={Routes.storybook.loaders()} exact component={StorybookLoaders} />
                     <Redirect from='*' to={Routes.storybook.variables()}/>
                 </Switch>
             </div>

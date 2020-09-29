@@ -12,54 +12,50 @@ interface IProps {
 
 const StorybookVariables = (props: IProps) => {
     return (
-        <div>
-            <div className={cssCommon.title}>Variables:</div>
+        <div className={css.content}>
+            <div className={cssCommon.subtitle}>Colors:</div>
 
-            <div className={css.content}>
-                <div className={cssCommon.subtitle}>Colors:</div>
-
-                <div className={css.list}>
-                    {
-                        Object.entries(cssColorsVariables).map(([key, value]) => {
-                            return (
-                                <div className={css.item} key={key}>
-                                    <div className={css.variables}>
-                                        <div className={css.col}>
-                                            <div className={css.color} style={{
-                                                background: value
-                                            }} />
-                                            <div className={css.title}>{kebabCase(key)}:</div>
-                                        </div>
-                                        <div className={css.col}>
-                                            <div className={css.text}>{value}</div>
-                                        </div>
+            <div className={css.list}>
+                {
+                    Object.entries(cssColorsVariables).map(([key, value]) => {
+                        return (
+                            <div className={css.item} key={key}>
+                                <div className={css.variables}>
+                                    <div className={css.col}>
+                                        <div className={css.color} style={{
+                                            background: value
+                                        }} />
+                                        <div className={css.title}>{kebabCase(key)}:</div>
+                                    </div>
+                                    <div className={css.col}>
+                                        <div className={css.text}>{value}</div>
                                     </div>
                                 </div>
-                            )
-                        })
-                    }
-                </div>
+                            </div>
+                        )
+                    })
+                }
+            </div>
 
-                <div className={cssCommon.subtitle}>Others:</div>
+            <div className={cssCommon.subtitle}>Others:</div>
 
-                <div className={classnames(css.list, css.listOthers)}>
-                    {
-                        Object.entries(cssSharedVariables).map(([key, value]) => {
-                            return (
-                                <div className={css.item} key={key}>
-                                    <div className={css.variables}>
-                                        <div className={css.col}>
-                                            <div className={css.title}>{key}:</div>
-                                        </div>
-                                        <div className={css.col}>
-                                            <div className={css.text}>{value}</div>
-                                        </div>
+            <div className={classnames(css.list, css.listOthers)}>
+                {
+                    Object.entries(cssSharedVariables).map(([key, value]) => {
+                        return (
+                            <div className={css.item} key={key}>
+                                <div className={css.variables}>
+                                    <div className={css.col}>
+                                        <div className={css.title}>{kebabCase(key)}:</div>
+                                    </div>
+                                    <div className={css.col}>
+                                        <div className={css.text}>{value}</div>
                                     </div>
                                 </div>
-                            )
-                        })
-                    }
-                </div>
+                            </div>
+                        )
+                    })
+                }
             </div>
         </div>
     )

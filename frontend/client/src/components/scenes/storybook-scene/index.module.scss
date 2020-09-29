@@ -3,6 +3,13 @@
 
 .title {
   font-size: 3rem;
-  margin-bottom: 1rem;
+  padding-top: 2rem;
+  margin-bottom: 3rem;
   font-weight: 700;
+  text-transform: uppercase;
+
+  span {
+    text-transform: none;
+    color: $grey;
+  }
 }
