@@ -12,7 +12,7 @@ import {
 import {IJsonPlaceholder} from '../../entities/jsonplaceholder.entity'
 import MockJsonPlaceholder from '../../__tests__/mock/jsonplaceholder'
 
-describe('test jsonPlaceholder actions', () => {
+describe('jsonPlaceholder actions', () => {
 
     it('jsonPlaceholderActionGetPosts', () => {
 
