@@ -1,12 +1,12 @@
 import { call, put, all, takeLatest, takeEvery } from 'redux-saga/effects'
-import getService from '../../services'
-import {IService} from '../../services/model'
+import getService from '../../../services'
+import {IService} from '../../../services/model'
 import {
     EJsonPlaceholderActions, IJsonPlaceholderActionGetPost,
     IJsonPlaceholderActionGetPosts,
     jsonPlaceholderActionGetPostsError,
     jsonPlaceholderActionGetPostsSuccess, jsonPlaceholderActionGetPostSuccess
-} from './action'
+} from '../action'
 
 const service: IService = getService()
 

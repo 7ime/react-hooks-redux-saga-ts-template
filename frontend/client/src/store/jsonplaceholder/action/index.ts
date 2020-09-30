@@ -1,5 +1,5 @@
-import {IJsonPlaceholder} from '../../entities/jsonplaceholder.entity'
-import {IAction} from '../model'
+import {IJsonPlaceholder} from '../../../entities/jsonplaceholder.entity'
+import {IAction} from '../../model'
 
 export enum EJsonPlaceholderActions {
     GetPosts = '[JsonPlaceholder] GetPosts',

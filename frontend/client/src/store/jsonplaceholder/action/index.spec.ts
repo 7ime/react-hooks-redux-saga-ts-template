@@ -8,9 +8,9 @@ import {
     jsonPlaceholderActionGetPosts,
     jsonPlaceholderActionGetPostsError,
     jsonPlaceholderActionGetPostsSuccess, jsonPlaceholderActionGetPostSuccess, jsonPlaceholderActionGetResetState
-} from './action'
-import {IJsonPlaceholder} from '../../entities/jsonplaceholder.entity'
-import MockJsonPlaceholder from '../../__tests__/mock/jsonplaceholder'
+} from './index'
+import {IJsonPlaceholder} from '../../../entities/jsonplaceholder.entity'
+import MockJsonPlaceholder from '../../../__tests__/mock/jsonplaceholder'
 
 describe('jsonPlaceholder actions', () => {
 

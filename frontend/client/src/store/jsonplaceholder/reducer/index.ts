@@ -1,5 +1,5 @@
-import {IJsonPlaceholderState, initialJsonPlaceholderState} from './state'
-import {EJsonPlaceholderActions, IJsonPlaceholderActions} from './action'
+import {IJsonPlaceholderState, initialJsonPlaceholderState} from '../state'
+import {EJsonPlaceholderActions, IJsonPlaceholderActions} from '../action'
 
 export const jsonPlaceholderReducer = (state: IJsonPlaceholderState = initialJsonPlaceholderState,
                                        action: IJsonPlaceholderActions): IJsonPlaceholderState => {

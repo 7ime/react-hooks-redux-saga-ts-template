@@ -1,11 +1,11 @@
-import {jsonPlaceholderReducer} from './reducer'
-import {IJsonPlaceholderState, initialJsonPlaceholderState} from './state'
+import {jsonPlaceholderReducer} from './index'
+import {IJsonPlaceholderState, initialJsonPlaceholderState} from '../state'
 import {
     jsonPlaceholderActionGetPosts,
     jsonPlaceholderActionGetPostsSuccess,
     jsonPlaceholderActionGetResetState
-} from './action'
-import MockJsonPlaceholder from '../../__tests__/mock/jsonplaceholder'
+} from '../action'
+import MockJsonPlaceholder from '../../../__tests__/mock/jsonplaceholder'
 
 describe('jsonPlaceholder reducer', () => {
 
