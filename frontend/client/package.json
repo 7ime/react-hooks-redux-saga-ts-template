@@ -48,6 +48,7 @@
     "@types/react-redux": "^7.1.4",
     "@types/uuid": "^7.0.0",
     "args": "^5.0.1",
+    "axios-mock-adapter": "^1.18.2",
     "babel-loader": "^8.0.6",
     "babel-plugin-named-asset-import": "^0.3.6",
     "babel-preset-react-app": "^9.1.2",
