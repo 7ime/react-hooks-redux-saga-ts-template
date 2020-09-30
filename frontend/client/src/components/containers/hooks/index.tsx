@@ -5,13 +5,12 @@ import {Link } from 'react-router-dom'
 import {withRouter, useHistory} from 'react-router'
 import * as qs from 'query-string'
 import {useDispatch, useSelector} from 'react-redux'
-import {IAppState} from '../../../store/state/app.state'
 import css from './index.module.scss'
 import colors from '../../../shared/styles/variables/colors.module.scss'
 import {
     jsonPlaceholderActionGetPost,
     jsonPlaceholderActionGetPosts, jsonPlaceholderActionGetResetState
-} from '../../../store/actions/jsonplaceholder.action'
+} from '../../../store/jsonplaceholder/action'
 
 interface IProps {
 

@@ -6,7 +6,7 @@ import {
     IJsonPlaceholderActionGetPosts,
     jsonPlaceholderActionGetPostsError,
     jsonPlaceholderActionGetPostsSuccess, jsonPlaceholderActionGetPostSuccess
-} from '../actions/jsonplaceholder.action'
+} from './action'
 
 const service: IService = getService()
 

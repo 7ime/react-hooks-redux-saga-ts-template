@@ -68,4 +68,3 @@ export type IJsonPlaceholderActions =
     IJsonPlaceholderActionGetPost |
     IJsonPlaceholderActionGetPostSuccess |
     IJsonPlaceholderActionResetState
-
