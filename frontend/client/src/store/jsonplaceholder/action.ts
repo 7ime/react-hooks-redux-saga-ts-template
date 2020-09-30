@@ -44,9 +44,9 @@ export const jsonPlaceholderActionGetPost = (payload: number): IJsonPlaceholderA
     }
 }
 
-export type IJsonPlaceholderActionGetPostSuccess = IAction<EJsonPlaceholderActions.GetPostSuccess, IJsonPlaceholder.Model>
+export type IJsonPlaceholderActionGetPostSuccess = IAction<EJsonPlaceholderActions.GetPostSuccess, IJsonPlaceholder.ModelDTO>
 
-export const jsonPlaceholderActionGetPostSuccess = (payload: IJsonPlaceholder.Model): IJsonPlaceholderActionGetPostSuccess => {
+export const jsonPlaceholderActionGetPostSuccess = (payload: IJsonPlaceholder.ModelDTO): IJsonPlaceholderActionGetPostSuccess => {
     return {
         type: EJsonPlaceholderActions.GetPostSuccess,
         payload
