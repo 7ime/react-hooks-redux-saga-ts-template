@@ -10,7 +10,7 @@ import {
 
 const service: IService = getService()
 
-function* getPosts(action: IJsonPlaceholderActionGetPosts) {
+export function* getPosts(action: IJsonPlaceholderActionGetPosts) {
     try {
         const response = yield call(service.jsonPlaceholderService.getPosts)
 
@@ -24,7 +24,7 @@ function* getPostsSaga() {
     yield takeLatest(EJsonPlaceholderActions.GetPosts, getPosts)
 }
 
-function* getPost(action: IJsonPlaceholderActionGetPost) {
+export function* getPost(action: IJsonPlaceholderActionGetPost) {
     try {
         const response = yield call(service.jsonPlaceholderService.getPost, action.payload)
 

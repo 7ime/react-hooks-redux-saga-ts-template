@@ -1,21 +1,5 @@
-import axios, {AxiosInstance, AxiosRequestConfig} from 'axios'
-import MockAdapter from 'axios-mock-adapter'
+import axios, {AxiosInstance} from 'axios'
 import {IFetcher} from './model'
-import Paths from '../paths'
-import {IJsonPlaceholder} from '../../entities/jsonplaceholder.entity'
-
-const mock = new MockAdapter(axios, { onNoMatch: 'passthrough' })
-
-mock.onGet(Paths.JsonPlaceholder.getPosts()).reply<IJsonPlaceholder.ModelDTO[]>((config: AxiosRequestConfig) => {
-    return [200, [
-        {
-            id: 1,
-            title: 'John Smith2222222222',
-            body: '2',
-            userId: 2
-        }
-    ]]
-})
 
 class Fetcher implements IFetcher{
     private axios: AxiosInstance
