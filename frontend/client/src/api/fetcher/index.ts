@@ -1,5 +1,8 @@
 import axios, {AxiosInstance} from 'axios'
 import {IFetcher} from './model'
+import MockAdapter from 'axios-mock-adapter'
+
+export const axiosMockAdapter = new MockAdapter(axios, {onNoMatch: 'passthrough'})
 
 class Fetcher implements IFetcher{
     private axios: AxiosInstance

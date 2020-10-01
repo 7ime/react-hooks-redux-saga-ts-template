@@ -1,11 +1,12 @@
 import JsonPlaceholderService from './index'
 import {IJsonPlaceholder} from '../../entities/jsonplaceholder.entity'
+import Paths from '../../api/paths'
+import MockJsonPlaceholder from '../../__tests__/mock/jsonplaceholder'
+import {axiosMockAdapter} from '../../api/fetcher'
 
 const instanceService = new JsonPlaceholderService()
 
 describe('testing jsonPlaceholderService', () => {
-    jest.setTimeout(10000)
-
     const jsonPlaceholderMatcher: IJsonPlaceholder.ModelDTO = {
         id: expect.anything(),
         userId: expect.anything(),
@@ -13,14 +14,24 @@ describe('testing jsonPlaceholderService', () => {
         title: expect.anything()
     }
 
+    afterEach(() => {
+        axiosMockAdapter.reset()
+    })
+
     it('testing getPosts', async() => {
+        axiosMockAdapter.onGet(Paths.JsonPlaceholder.getPosts()).reply(200, [
+            MockJsonPlaceholder.modelDTO()
+        ])
+
         const response = await instanceService.getPosts()
 
         expect(response).toContainEqual(expect.objectContaining(jsonPlaceholderMatcher))
     })
 
     it('testing getPost', async() => {
-        const response = await instanceService.getPost(1)
+        axiosMockAdapter.onGet(Paths.JsonPlaceholder.getPost(3)).reply(200, MockJsonPlaceholder.modelDTO())
+
+        const response = await instanceService.getPost(3)
 
         expect(response).toMatchObject(jsonPlaceholderMatcher)
     })
