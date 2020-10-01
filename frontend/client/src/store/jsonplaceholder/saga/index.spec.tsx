@@ -1,13 +1,10 @@
 import {IJsonPlaceholder} from '../../../entities/jsonplaceholder.entity'
 import MockJsonPlaceholder from '../../../__tests__/mock/jsonplaceholder'
 import {expectSaga} from 'redux-saga-test-plan'
-import {getPost, getPosts} from './index'
 import getService from '../../../services'
 import {call} from 'redux-saga-test-plan/matchers'
-import {jsonPlaceholderReducer} from '../reducer'
-import {IJsonPlaceholderState, initialJsonPlaceholderState} from '../state'
-import {jsonPlaceholderActionGetPost, jsonPlaceholderActionGetPosts} from '../action'
 import {ISagaTestRunResult} from '../../../__tests__/model/shared'
+import {JsonPlaceholderAction, JsonPlaceholderState, JsonPlaceholderReducer, JsonPlaceholderSaga} from '../index'
 
 const service = getService()
 
@@ -16,25 +13,25 @@ describe('jsonPlaceholder saga', () => {
     it('getPosts', () => {
         const response: IJsonPlaceholder.ModelDTO[] = [MockJsonPlaceholder.modelDTO({id: 99})]
 
-        return expectSaga(getPosts, jsonPlaceholderActionGetPosts()).provide([
+        return expectSaga(JsonPlaceholderSaga.getPosts, JsonPlaceholderAction.getPosts()).provide([
             [call(service.jsonPlaceholderService.getPosts), response]
         ])
-            .withReducer<IJsonPlaceholderState>(jsonPlaceholderReducer, initialJsonPlaceholderState)
-            .dispatch(jsonPlaceholderActionGetPosts())
+            .withReducer<JsonPlaceholderState.IState>(JsonPlaceholderReducer.reducer, JsonPlaceholderState.initialState)
+            .dispatch(JsonPlaceholderAction.getPosts())
             .run()
-            .then((result: ISagaTestRunResult<IJsonPlaceholderState>) => expect(result.storeState.posts).toEqual(response))
+            .then((result: ISagaTestRunResult<JsonPlaceholderState.IState>) => expect(result.storeState.posts).toEqual(response))
     })
 
     it('getPost', () => {
         const id = 999
         const response: IJsonPlaceholder.ModelDTO = MockJsonPlaceholder.modelDTO({id})
 
-        return expectSaga(getPost, jsonPlaceholderActionGetPost(id)).provide([
+        return expectSaga(JsonPlaceholderSaga.getPost, JsonPlaceholderAction.getPost(id)).provide([
             [call(service.jsonPlaceholderService.getPost, id), response]
         ])
-            .withReducer<IJsonPlaceholderState>(jsonPlaceholderReducer, initialJsonPlaceholderState)
-            .dispatch(jsonPlaceholderActionGetPost(id))
+            .withReducer<JsonPlaceholderState.IState>(JsonPlaceholderReducer.reducer, JsonPlaceholderState.initialState)
+            .dispatch(JsonPlaceholderAction.getPost(id))
             .run()
-            .then((result: ISagaTestRunResult<IJsonPlaceholderState>) => expect(result.storeState.post).toEqual(response))
+            .then((result: ISagaTestRunResult<JsonPlaceholderState.IState>) => expect(result.storeState.post).toEqual(response))
     })
 })

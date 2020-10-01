@@ -1,44 +1,39 @@
 import { call, put, all, takeLatest, takeEvery } from 'redux-saga/effects'
 import getService from '../../../services'
 import {IService} from '../../../services/model'
-import {
-    EJsonPlaceholderActions, IJsonPlaceholderActionGetPost,
-    IJsonPlaceholderActionGetPosts,
-    jsonPlaceholderActionGetPostsError,
-    jsonPlaceholderActionGetPostsSuccess, jsonPlaceholderActionGetPostSuccess
-} from '../action'
+import {JsonPlaceholderAction} from '../index'
 
 const service: IService = getService()
 
-export function* getPosts(action: IJsonPlaceholderActionGetPosts) {
+export function* getPosts(action: JsonPlaceholderAction.IGetPosts) {
     try {
         const response = yield call(service.jsonPlaceholderService.getPosts)
 
-        yield put(jsonPlaceholderActionGetPostsSuccess(response))
+        yield put(JsonPlaceholderAction.getPostsSuccess(response))
     } catch (error) {
-        yield put(jsonPlaceholderActionGetPostsError())
+        yield put(JsonPlaceholderAction.getPostsError())
     }
 }
 
 function* getPostsSaga() {
-    yield takeLatest(EJsonPlaceholderActions.GetPosts, getPosts)
+    yield takeLatest(JsonPlaceholderAction.EActions.GetPosts, getPosts)
 }
 
-export function* getPost(action: IJsonPlaceholderActionGetPost) {
+export function* getPost(action: JsonPlaceholderAction.IGetPost) {
     try {
         const response = yield call(service.jsonPlaceholderService.getPost, action.payload)
 
-        yield put(jsonPlaceholderActionGetPostSuccess(response))
+        yield put(JsonPlaceholderAction.getPostSuccess(response))
     } catch (error) {
         console.log(error)
     }
 }
 
 function* getPostSaga() {
-    yield takeEvery(EJsonPlaceholderActions.GetPost, getPost)
+    yield takeEvery(JsonPlaceholderAction.EActions.GetPost, getPost)
 }
 
-export default function* jsonPlaceholderRootSaga() {
+export function* rootSaga() {
     yield all([
         getPostsSaga(),
         getPostSaga()

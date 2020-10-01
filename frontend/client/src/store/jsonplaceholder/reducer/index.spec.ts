@@ -1,46 +1,40 @@
-import {jsonPlaceholderReducer} from './index'
-import {IJsonPlaceholderState, initialJsonPlaceholderState} from '../state'
-import {
-    jsonPlaceholderActionGetPosts,
-    jsonPlaceholderActionGetPostsSuccess,
-    jsonPlaceholderActionGetResetState
-} from '../action'
+import {JsonPlaceholderAction, JsonPlaceholderState, JsonPlaceholderReducer} from '../index'
 import MockJsonPlaceholder from '../../../__tests__/mock/jsonplaceholder'
 
 describe('jsonPlaceholder reducer', () => {
 
     it('should return the initial state', () => {
-        expect(jsonPlaceholderReducer(undefined, {} as any)).toEqual(initialJsonPlaceholderState)
+        expect(JsonPlaceholderReducer.reducer(undefined, {} as any)).toEqual(JsonPlaceholderState.initialState)
     })
 
-    it('should handle EJsonPlaceholderActions.GetPosts', () => {
-        expect(jsonPlaceholderReducer(
-            initialJsonPlaceholderState,
-            jsonPlaceholderActionGetPosts()
-        )).toMatchObject<Partial<IJsonPlaceholderState>>({
+    it('should handle EActions.GetPosts', () => {
+        expect(JsonPlaceholderReducer.reducer(
+            JsonPlaceholderState.initialState,
+            JsonPlaceholderAction.getPosts()
+        )).toMatchObject<Partial<JsonPlaceholderState.IState>>({
             isLoadingPosts: true
         })
     })
 
-    it('should handle EJsonPlaceholderActions.GetPostsSuccess', () => {
+    it('should handle EActions.GetPostsSuccess', () => {
         const posts = [MockJsonPlaceholder.modelDTO()]
 
-        expect(jsonPlaceholderReducer(
-            initialJsonPlaceholderState,
-            jsonPlaceholderActionGetPostsSuccess(posts)
-        )).toMatchObject<Partial<IJsonPlaceholderState>>({
+        expect(JsonPlaceholderReducer.reducer(
+            JsonPlaceholderState.initialState,
+            JsonPlaceholderAction.getPostsSuccess(posts)
+        )).toMatchObject<Partial<JsonPlaceholderState.IState>>({
             isLoadingPosts: false,
             posts
         })
     })
 
-    it('should handle EJsonPlaceholderActions.ResetState', () => {
-        expect(jsonPlaceholderReducer(
+    it('should handle EActions.ResetState', () => {
+        expect(JsonPlaceholderReducer.reducer(
             {
-                ...initialJsonPlaceholderState,
+                ...JsonPlaceholderState.initialState,
                 isLoadingPosts: true
             },
-            jsonPlaceholderActionGetResetState()
-        )).toEqual(initialJsonPlaceholderState)
+            JsonPlaceholderAction.resetState()
+        )).toEqual(JsonPlaceholderState.initialState)
     })
 })

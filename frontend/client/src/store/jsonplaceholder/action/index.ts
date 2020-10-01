@@ -1,7 +1,7 @@
 import {IJsonPlaceholder} from '../../../entities/jsonplaceholder.entity'
 import {IAction} from '../../model'
 
-export enum EJsonPlaceholderActions {
+export enum EActions {
     GetPosts = '[JsonPlaceholder] GetPosts',
     GetPostsSuccess = '[JsonPlaceholder] GetPostsSuccess',
     GetPostsError = '[JsonPlaceholder] GetPostsError',
@@ -10,61 +10,61 @@ export enum EJsonPlaceholderActions {
     ResetState = '[JsonPlaceholder] ResetState'
 }
 
-export type IJsonPlaceholderActionGetPosts = IAction<EJsonPlaceholderActions.GetPosts>
+export type IGetPosts = IAction<EActions.GetPosts>
 
-export const jsonPlaceholderActionGetPosts = (): IJsonPlaceholderActionGetPosts => {
+export const getPosts = (): IGetPosts => {
     return {
-        type: EJsonPlaceholderActions.GetPosts
+        type: EActions.GetPosts
     }
 }
 
-export type IJsonPlaceholderActionGetPostsSuccess = IAction<EJsonPlaceholderActions.GetPostsSuccess, IJsonPlaceholder.ModelDTO[]>
+export type IGetPostsSuccess = IAction<EActions.GetPostsSuccess, IJsonPlaceholder.ModelDTO[]>
 
-export const jsonPlaceholderActionGetPostsSuccess = (payload: IJsonPlaceholder.ModelDTO[]): IJsonPlaceholderActionGetPostsSuccess => {
+export const getPostsSuccess = (payload: IJsonPlaceholder.ModelDTO[]): IGetPostsSuccess => {
     return {
-        type: EJsonPlaceholderActions.GetPostsSuccess,
+        type: EActions.GetPostsSuccess,
         payload
     }
 }
 
-export type IJsonPlaceholderActionGetPostsError = IAction<EJsonPlaceholderActions.GetPostsError>
+export type IGetPostsError = IAction<EActions.GetPostsError>
 
-export const jsonPlaceholderActionGetPostsError = (): IJsonPlaceholderActionGetPostsError => {
+export const getPostsError = (): IGetPostsError => {
     return {
-        type: EJsonPlaceholderActions.GetPostsError
+        type: EActions.GetPostsError
     }
 }
 
-export type IJsonPlaceholderActionGetPost = IAction<EJsonPlaceholderActions.GetPost, number>
+export type IGetPost = IAction<EActions.GetPost, number>
 
-export const jsonPlaceholderActionGetPost = (payload: number): IJsonPlaceholderActionGetPost => {
+export const getPost = (payload: number): IGetPost => {
     return {
-        type: EJsonPlaceholderActions.GetPost,
+        type: EActions.GetPost,
         payload
     }
 }
 
-export type IJsonPlaceholderActionGetPostSuccess = IAction<EJsonPlaceholderActions.GetPostSuccess, IJsonPlaceholder.ModelDTO>
+export type IGetPostSuccess = IAction<EActions.GetPostSuccess, IJsonPlaceholder.ModelDTO>
 
-export const jsonPlaceholderActionGetPostSuccess = (payload: IJsonPlaceholder.ModelDTO): IJsonPlaceholderActionGetPostSuccess => {
+export const getPostSuccess = (payload: IJsonPlaceholder.ModelDTO): IGetPostSuccess => {
     return {
-        type: EJsonPlaceholderActions.GetPostSuccess,
+        type: EActions.GetPostSuccess,
         payload
     }
 }
 
-export type IJsonPlaceholderActionResetState = IAction<EJsonPlaceholderActions.ResetState>
+export type IResetState = IAction<EActions.ResetState>
 
-export const jsonPlaceholderActionGetResetState = (): IJsonPlaceholderActionResetState => {
+export const resetState = (): IResetState => {
     return {
-        type: EJsonPlaceholderActions.ResetState
+        type: EActions.ResetState
     }
 }
 
-export type IJsonPlaceholderActions =
-    IJsonPlaceholderActionGetPosts |
-    IJsonPlaceholderActionGetPostsSuccess |
-    IJsonPlaceholderActionGetPostsError |
-    IJsonPlaceholderActionGetPost |
-    IJsonPlaceholderActionGetPostSuccess |
-    IJsonPlaceholderActionResetState
+export type IActions =
+    IGetPosts |
+    IGetPostsSuccess |
+    IGetPostsError |
+    IGetPost |
+    IGetPostSuccess |
+    IResetState

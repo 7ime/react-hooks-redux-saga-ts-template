@@ -7,10 +7,7 @@ import * as qs from 'query-string'
 import {useDispatch, useSelector} from 'react-redux'
 import css from './index.module.scss'
 import colors from '../../../shared/styles/variables/colors.module.scss'
-import {
-    jsonPlaceholderActionGetPost,
-    jsonPlaceholderActionGetPosts, jsonPlaceholderActionGetResetState
-} from '../../../store/jsonplaceholder/action'
+import {JsonPlaceholderAction} from '../../../store/jsonplaceholder'
 
 interface IProps {
 
@@ -24,11 +21,11 @@ const Hooks = (props: IProps) => {
     const dispatch = useDispatch()
 
     React.useEffect(() => {
-        dispatch(jsonPlaceholderActionGetPosts())
-        dispatch(jsonPlaceholderActionGetPost(1))
+        dispatch(JsonPlaceholderAction.getPosts())
+        dispatch(JsonPlaceholderAction.getPost(1))
 
         return () => {
-            dispatch(jsonPlaceholderActionGetResetState())
+            dispatch(JsonPlaceholderAction.resetState())
         }
     }, [0])
 

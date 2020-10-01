@@ -1,11 +1,10 @@
 import {combineReducers} from 'redux'
-import {IJsonPlaceholderState} from './jsonplaceholder/state'
-import {jsonPlaceholderReducer} from './jsonplaceholder/reducer'
+import {JsonPlaceholderState, JsonPlaceholderReducer} from './jsonplaceholder'
 
 export interface IAppState {
-    jsonPlaceholder: IJsonPlaceholderState
+    jsonPlaceholder: JsonPlaceholderState.IState
 }
 
 export const appReducer = combineReducers<IAppState>({
-    jsonPlaceholder: jsonPlaceholderReducer
+    jsonPlaceholder: JsonPlaceholderReducer.reducer
 })

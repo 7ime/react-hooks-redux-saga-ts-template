@@ -1,77 +1,67 @@
-import {
-    EJsonPlaceholderActions,
-    IJsonPlaceholderActionGetPost,
-    IJsonPlaceholderActionGetPosts,
-    IJsonPlaceholderActionGetPostsError,
-    IJsonPlaceholderActionGetPostsSuccess, IJsonPlaceholderActionGetPostSuccess, IJsonPlaceholderActionResetState,
-    jsonPlaceholderActionGetPost,
-    jsonPlaceholderActionGetPosts,
-    jsonPlaceholderActionGetPostsError,
-    jsonPlaceholderActionGetPostsSuccess, jsonPlaceholderActionGetPostSuccess, jsonPlaceholderActionGetResetState
-} from './index'
 import {IJsonPlaceholder} from '../../../entities/jsonplaceholder.entity'
 import MockJsonPlaceholder from '../../../__tests__/mock/jsonplaceholder'
+import {JsonPlaceholderAction} from '../index'
 
 describe('jsonPlaceholder actions', () => {
 
-    it('jsonPlaceholderActionGetPosts', () => {
+    it('getPosts', () => {
 
-        const expected: IJsonPlaceholderActionGetPosts = {
-            type: EJsonPlaceholderActions.GetPosts
+        const expected: JsonPlaceholderAction.IGetPosts = {
+            type: JsonPlaceholderAction.EActions.GetPosts
         }
 
-        expect(jsonPlaceholderActionGetPosts()).toEqual(expected)
+        expect(JsonPlaceholderAction.getPosts()).toEqual(expected)
     })
 
-    it('jsonPlaceholderActionGetPostsSuccess', () => {
+    it('getPostsSuccess', () => {
         const payload: IJsonPlaceholder.ModelDTO[] = [
             MockJsonPlaceholder.modelDTO()
         ]
 
-        const expected: IJsonPlaceholderActionGetPostsSuccess = {
-            type: EJsonPlaceholderActions.GetPostsSuccess,
+        const expected: JsonPlaceholderAction.IGetPostsSuccess = {
+            type: JsonPlaceholderAction.EActions.GetPostsSuccess,
             payload
         }
 
-        expect(jsonPlaceholderActionGetPostsSuccess(payload)).toEqual(expected)
+        expect(JsonPlaceholderAction.getPostsSuccess(payload)).toEqual(expected)
     })
 
-    it('jsonPlaceholderActionGetPostsError', () => {
+    it('getPostsError', () => {
 
-        const expected: IJsonPlaceholderActionGetPostsError = {
-            type: EJsonPlaceholderActions.GetPostsError
+        const expected: JsonPlaceholderAction.IGetPostsError = {
+            type: JsonPlaceholderAction.EActions.GetPostsError
         }
 
-        expect(jsonPlaceholderActionGetPostsError()).toEqual(expected)
+        expect(JsonPlaceholderAction.getPostsError()).toEqual(expected)
     })
 
-    it('jsonPlaceholderActionGetPost', () => {
+    it('getPost', () => {
 
-        const expected: IJsonPlaceholderActionGetPost = {
-            type: EJsonPlaceholderActions.GetPost,
+        const expected: JsonPlaceholderAction.IGetPost = {
+            type: JsonPlaceholderAction.EActions.GetPost,
             payload: 1
         }
 
-        expect(jsonPlaceholderActionGetPost(1)).toEqual(expected)
+        expect(JsonPlaceholderAction.getPost(1)).toEqual(expected)
     })
 
-    it('jsonPlaceholderActionGetPostSuccess', () => {
+    it('getPostSuccess', () => {
         const payload: IJsonPlaceholder.ModelDTO = MockJsonPlaceholder.modelDTO()
 
-        const expected: IJsonPlaceholderActionGetPostSuccess = {
-            type: EJsonPlaceholderActions.GetPostSuccess,
+        const expected: JsonPlaceholderAction.IGetPostSuccess = {
+            type: JsonPlaceholderAction.EActions.GetPostSuccess,
             payload
         }
 
-        expect(jsonPlaceholderActionGetPostSuccess(payload)).toEqual(expected)
+        expect(JsonPlaceholderAction.getPostSuccess(payload)).toEqual(expected)
     })
 
-    it('jsonPlaceholderActionGetResetState', () => {
+    it('resetState', () => {
 
-        const expected: IJsonPlaceholderActionResetState = {
-            type: EJsonPlaceholderActions.ResetState
+        const expected: JsonPlaceholderAction.IResetState = {
+            type: JsonPlaceholderAction.EActions.ResetState
         }
 
-        expect(jsonPlaceholderActionGetResetState()).toEqual(expected)
+        expect(JsonPlaceholderAction.resetState()).toEqual(expected)
     })
 })

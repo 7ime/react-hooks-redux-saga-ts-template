@@ -1,37 +1,36 @@
-import {IJsonPlaceholderState, initialJsonPlaceholderState} from '../state'
-import {EJsonPlaceholderActions, IJsonPlaceholderActions} from '../action'
+import {JsonPlaceholderAction, JsonPlaceholderState} from '../index'
 
-export const jsonPlaceholderReducer = (state: IJsonPlaceholderState = initialJsonPlaceholderState,
-                                       action: IJsonPlaceholderActions): IJsonPlaceholderState => {
+export const reducer = (state: JsonPlaceholderState.IState = JsonPlaceholderState.initialState,
+                        action: JsonPlaceholderAction.IActions): JsonPlaceholderState.IState => {
     switch (action.type) {
-        case EJsonPlaceholderActions.GetPosts: {
+        case JsonPlaceholderAction.EActions.GetPosts: {
             return {
                 ...state,
                 isLoadingPosts: true
             }
         }
-        case EJsonPlaceholderActions.GetPostsSuccess: {
+        case JsonPlaceholderAction.EActions.GetPostsSuccess: {
             return {
                 ...state,
                 isLoadingPosts: false,
                 posts: action.payload
             }
         }
-        case EJsonPlaceholderActions.GetPostsError: {
+        case JsonPlaceholderAction.EActions.GetPostsError: {
             return {
                 ...state,
                 isLoadingPosts: false,
                 isGetPostsError: true
             }
         }
-        case EJsonPlaceholderActions.GetPostSuccess: {
+        case JsonPlaceholderAction.EActions.GetPostSuccess: {
             return {
                 ...state,
                 post: action.payload
             }
         }
-        case EJsonPlaceholderActions.ResetState: {
-            return initialJsonPlaceholderState
+        case JsonPlaceholderAction.EActions.ResetState: {
+            return JsonPlaceholderState.initialState
         }
         default:
             return state

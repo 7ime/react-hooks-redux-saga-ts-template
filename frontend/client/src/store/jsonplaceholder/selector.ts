@@ -1,21 +1,18 @@
-// import {IAppState} from '../state/app.state'
+import {IAppState} from '../app-reducer'
 // import {createSelector} from 'reselect'
-// import {IPeopleState} from '../state/people.state'
-// import {IGender} from '../../models/shared.model'
-// import {IPeople} from '../../entities/people.entity'
+// import {IJsonPlaceholderState} from './state'
 //
-// const selectPeopleState = (state: IAppState) => state.people
+// const selectJsonPlaceholderState = (state: IAppState) => state.jsonPlaceholder
 //
-// export const selectTotalCountOfPeople = createSelector(
-//     selectPeopleState,
-//     (state: IPeopleState): number | null => {
-//         if (state.list) {
-//             return state.list.length
-//         }
-//
-//         return null
+// export const selectTotalCountOfPosts = createSelector(
+//     selectJsonPlaceholderState,
+//     (state: IJsonPlaceholderState): number | null => {
+//         return state.posts ? state.posts.length : null
 //     }
 // )
+
+
+
 //
 // const selectGender = (_: IAppState, gender: IGender) => gender
 //
