@@ -10,10 +10,9 @@ interface IProps {
 }
 
 const Hooks = (props: IProps) => {
-    const [count, setCount] = React.useState<number>(0)
-
     const dispatch = useDispatch()
-    const countOfPosts: Maybe<number> = useSelector(JsonPlaceholderSelector.totalCountOfPosts)
+    const countOfPosts: Maybe<number> = useSelector(JsonPlaceholderSelector.getTotalCountOfPosts)
+    const posts: Maybe<IJsonPlaceholder.Model[]> = useSelector(JsonPlaceholderSelector.makeGetCertainNumberOfPosts(10))
 
     React.useEffect(() => {
         dispatch(JsonPlaceholderAction.getPosts())
@@ -28,6 +27,22 @@ const Hooks = (props: IProps) => {
         <div className={css.content}>
             {
                 countOfPosts !== null ? <h4>Count of posts: {countOfPosts}</h4> : null
+            }
+            {
+                posts ? (
+                    <div className={css.list}>
+                        {
+                            posts.map(({id, title, body}, index) => {
+                                return (
+                                    <div key={id} className={css.item}>
+                                        <div className={css.title}>{index + 1}: {title}</div>
+                                        <div className={css.text}>{body}</div>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+                ) : null
             }
         </div>
     )

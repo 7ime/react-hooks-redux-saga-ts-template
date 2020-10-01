@@ -1,28 +1,27 @@
 import {createSelector} from 'reselect'
 import {IAppState} from '../../app-reducer'
-import {JsonPlaceholderState} from '../index'
+import {IJsonPlaceholder} from '../../../entities/jsonplaceholder'
+import {Maybe} from '../../../toolbox/custom-types'
 
-const selectState = (state: IAppState) => state.jsonPlaceholder
+const getState = (state: IAppState) => state.jsonPlaceholder
 
-export const totalCountOfPosts = createSelector(
-    selectState,
-    (state: JsonPlaceholderState.IState): number | null => {
-        return state.posts ? state.posts.length : null
+export const getPosts = createSelector(
+    getState,
+    state => state.posts
+)
+
+export const getTotalCountOfPosts = createSelector(
+    getPosts,
+    (posts): number | null => {
+        return posts ? posts.length : null
     }
 )
 
-
-
-//
-// const selectGender = (_: IAppState, gender: IGender) => gender
-//
-// export const selectPeopleByGender = createSelector(
-//     [selectPeopleState, selectGender],
-//     (state: IPeopleState, gender: IGender): IPeople.Model[] | null => {
-//         if (state.list) {
-//             return state.list.filter(item => item.gender === gender)
-//         }
-//
-//         return null
-//     }
-// )
+export const makeGetCertainNumberOfPosts = (count: number) => {
+    return createSelector(
+        getPosts,
+        (posts): Maybe<IJsonPlaceholder.Model[]> => {
+            return posts ? posts.slice(0, count) : null
+        }
+    )
+}
