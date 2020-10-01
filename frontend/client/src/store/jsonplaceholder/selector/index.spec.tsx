@@ -5,7 +5,7 @@ import MockAppState from '../../../__tests__/mock/app-state'
 
 describe('jsonPlaceholder selector', () => {
     it('getTotalCountOfPosts when posts not exist', () => {
-        const state: IAppState = MockAppState.initialAppState
+        const state: IAppState = MockAppState.initialAppState()
 
         const result = JsonPlaceholderSelector.getTotalCountOfPosts(state)
         expect(result).toBeNull()
@@ -13,7 +13,7 @@ describe('jsonPlaceholder selector', () => {
 
     it('getTotalCountOfPosts when posts exist', () => {
         const state: IAppState = {
-            ...MockAppState.initialAppState,
+            ...MockAppState.initialAppState(),
             jsonPlaceholder: {
                 ...JsonPlaceholderState.initialState,
                 posts: [MockJsonPlaceholder.modelDTO()]
