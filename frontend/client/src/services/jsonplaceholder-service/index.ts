@@ -1,7 +1,7 @@
 import {IFetcher} from '../../api/fetcher/model'
 import Paths from '../../api/paths'
 import {IJsonPlaceholderService} from './model'
-import {injectPropertyFetcher} from '../../injects/injects-fetcher'
+import {injectPropertyFetcher} from '../../toolbox/injects/injects-fetcher'
 import {IJsonPlaceholder} from '../../entities/jsonplaceholder.entity'
 
 export default class JsonPlaceholderService implements IJsonPlaceholderService {

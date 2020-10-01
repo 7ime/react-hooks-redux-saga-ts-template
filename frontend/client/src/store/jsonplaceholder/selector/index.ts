@@ -1,15 +1,15 @@
+import {createSelector} from 'reselect'
 import {IAppState} from '../../app-reducer'
-// import {createSelector} from 'reselect'
-// import {IJsonPlaceholderState} from './state'
-//
-// const selectJsonPlaceholderState = (state: IAppState) => state.jsonPlaceholder
-//
-// export const selectTotalCountOfPosts = createSelector(
-//     selectJsonPlaceholderState,
-//     (state: IJsonPlaceholderState): number | null => {
-//         return state.posts ? state.posts.length : null
-//     }
-// )
+import {JsonPlaceholderState} from '../index'
+
+const selectState = (state: IAppState) => state.jsonPlaceholder
+
+export const totalCountOfPosts = createSelector(
+    selectState,
+    (state: JsonPlaceholderState.IState): number | null => {
+        return state.posts ? state.posts.length : null
+    }
+)
 
 
 

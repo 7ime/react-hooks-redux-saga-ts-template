@@ -1,30 +1,24 @@
 import * as React from 'react'
 import {Helmet} from 'react-helmet'
+import css from './index.module.scss'
+import HomePresentation from './components/home-presentation'
+import {IRouting} from '../../../routing/model'
 
-import './index.scss'
-import BemShaper from '../../../bem/bem-shaper'
-import {EBemClassNames} from '../../../bem/bem-class-names'
-import HomePresentation from './components/presentional/home-presentation'
+interface IProps extends IRouting.Props {
 
-const bem = new BemShaper(EBemClassNames.homeScene)
-
-export default class HomeScene extends React.Component {
-
-    render() {
-        const classNames = [
-            EBemClassNames.scene,
-            bem.block
-        ].join(' ').trim()
-
-        return (
-            <React.Fragment>
-                <Helmet>
-                    <title>Home Page</title>
-                </Helmet>
-                <div className={classNames}>
-                    <HomePresentation/>
-                </div>
-            </React.Fragment>
-        )
-    }
 }
+
+const HomeScene = (props: IProps) => {
+    return (
+        <React.Fragment>
+            <Helmet>
+                <title>Home Page</title>
+            </Helmet>
+            <div className={'container'}>
+                <HomePresentation/>
+            </div>
+        </React.Fragment>
+    )
+}
+
+export default HomeScene

@@ -1,0 +1,33 @@
+@import '~@styles/variables/colors.module.scss';
+@import '~@styles/variables/shared.module.scss';
+
+.homePresentation {
+    margin-top: 20rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .title {
+        text-align: center;
+        font-size: 3rem;
+        font-weight: 700;
+    }
+
+    .list {
+        margin-top: 2rem;
+        display: flex;
+    }
+
+    .item {
+        padding: 0.5rem 3rem;
+        border-left: 1px solid $grey_light_40;
+
+        &:last-child {
+            border-right: 1px solid $grey_light_40;
+        }
+    }
+
+    .link {
+        color: $primary;
+    }
+}

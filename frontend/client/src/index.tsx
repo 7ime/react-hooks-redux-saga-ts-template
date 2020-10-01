@@ -9,7 +9,7 @@ import '@styles/global.scss'
 import getAppStore from './store'
 import getService from './services'
 import {ServiceProvider} from './components/context/service-context'
-import HelmetSet from './components/containers/helmet-set'
+import HelmetSet from './components/common/helmet-set'
 import App from './components/app'
 
 ReactDOM.render((
