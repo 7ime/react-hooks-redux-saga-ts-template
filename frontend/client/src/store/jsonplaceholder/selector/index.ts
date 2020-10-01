@@ -1,4 +1,4 @@
-import {IAppState} from '../app-reducer'
+import {IAppState} from '../../app-reducer'
 // import {createSelector} from 'reselect'
 // import {IJsonPlaceholderState} from './state'
 //

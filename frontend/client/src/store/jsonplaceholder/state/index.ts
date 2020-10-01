@@ -1,5 +1,5 @@
-import {Maybe} from '../../toolbox/custom-types'
-import {IJsonPlaceholder} from '../../entities/jsonplaceholder.entity'
+import {Maybe} from '../../../toolbox/custom-types'
+import {IJsonPlaceholder} from '../../../entities/jsonplaceholder.entity'
 
 export interface IState {
     posts: Maybe<IJsonPlaceholder.Model[]>
