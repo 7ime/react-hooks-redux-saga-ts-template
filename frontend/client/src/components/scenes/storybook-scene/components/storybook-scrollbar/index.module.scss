@@ -4,14 +4,14 @@
 .content {
     display: flex;
     flex-direction: column;
-    background: #ffffff;
 }
 
-.list {
-    display: flex;
-    flex-direction: column;
+.wrapper {
+    max-height: 20rem;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
-.item {
-    margin-bottom: 1rem;
+.inner {
+
 }

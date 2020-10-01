@@ -20,5 +20,6 @@ export default class Routes {
         static buttons = () => '/storybook/buttons'
         static loaders = () => '/storybook/loaders'
         static typography = () => '/storybook/typography'
+        static scrollbar = () => '/storybook/scrollbar'
     }
 }

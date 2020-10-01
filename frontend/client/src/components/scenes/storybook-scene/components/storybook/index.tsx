@@ -16,6 +16,7 @@ const Storybook = (props: IProps) => {
             <div className={css.item} onClick={() => {history.push(Routes.storybook.typography())}}>Typography</div>
             <div className={css.item} onClick={() => {history.push(Routes.storybook.buttons())}}>Button</div>
             <div className={css.item} onClick={() => {history.push(Routes.storybook.loaders())}}>Loader</div>
+            <div className={css.item} onClick={() => {history.push(Routes.storybook.scrollbar())}}>Scrollbar</div>
             <div className={css.item}>Paginator</div>
             <div className={css.item}>Modal</div>
             <div className={css.item}>Popup</div>
