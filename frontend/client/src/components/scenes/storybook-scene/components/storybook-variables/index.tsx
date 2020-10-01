@@ -12,7 +12,7 @@ interface IProps {
 
 const StorybookVariables = (props: IProps) => {
     return (
-        <div className={css.content}>
+        <div className={cssCommon.content}>
             <div className={cssCommon.subtitle}>Colors:</div>
 
             <div className={css.list}>

@@ -8,7 +8,7 @@ interface IProps {
 
 const StorybookTypography = (props: IProps) => {
     return (
-        <div className={css.content}>
+        <div className={cssCommon.content}>
             <div className={cssCommon.subtitle}>Titles:</div>
 
             <div className={css.list}>

@@ -1,6 +1,7 @@
 import * as React from 'react'
 import classnames from 'classnames'
 import css from './index.module.scss'
+import cssCommon from '../../styles/common.module.scss'
 
 interface IProps {
 
@@ -8,7 +9,7 @@ interface IProps {
 
 const StorybookScrollbar = (props: IProps) => {
     return (
-        <div className={css.content}>
+        <div className={cssCommon.content}>
             <div className={classnames(css.wrapper, 'scrollbar')}>
                 <div className={css.inner}>
                     However, there are some differences between the selectors passed to useSelector() and a mapState function:

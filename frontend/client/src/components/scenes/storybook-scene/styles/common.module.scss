@@ -1,6 +1,15 @@
 @import '~@styles/variables/colors.module.scss';
 @import '~@styles/variables/shared.module.scss';
 
+.content {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 2rem 3rem;
+    border: 1px solid $grey_light_20;
+    border-radius: $bdrs;
+}
+
 .title {
   font-size: 2rem;
   margin-bottom: 2.5rem;
