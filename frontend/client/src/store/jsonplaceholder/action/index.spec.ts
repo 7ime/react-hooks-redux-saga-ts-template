@@ -1,4 +1,4 @@
-import {IJsonPlaceholder} from '../../../entities/jsonplaceholder.entity'
+import {IJsonPlaceholder} from '../../../entities/jsonplaceholder'
 import MockJsonPlaceholder from '../../../__tests__/mock/jsonplaceholder'
 import {JsonPlaceholderAction} from '../index'
 

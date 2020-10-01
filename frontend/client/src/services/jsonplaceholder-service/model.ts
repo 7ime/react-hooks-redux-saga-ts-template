@@ -1,4 +1,4 @@
-import {IJsonPlaceholder} from '../../entities/jsonplaceholder.entity'
+import {IJsonPlaceholder} from '../../entities/jsonplaceholder'
 
 export interface IJsonPlaceholderService {
     getPost(id: number): Promise<IJsonPlaceholder.ModelDTO>
