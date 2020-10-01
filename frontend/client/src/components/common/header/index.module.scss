@@ -15,7 +15,7 @@
         font-weight: 600;
 
         &.is_active {
-            background-color: $primary;
+            background-color: $grey_dark_50;
             color: #fff;
         }
 
@@ -25,7 +25,6 @@
         }
 
         &:hover {
-            background-color: $yellow;
             color: $text_c;
         }
     }

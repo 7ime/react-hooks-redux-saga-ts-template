@@ -5,7 +5,7 @@ import {linksTechnologies} from './data'
 const HomePresentation = () => {
     return (
         <div className={css.homePresentation}>
-            <h2>This template uses:</h2>
+            <div className={css.title}>This template uses:</div>
 
             <div className={css.list}>
                 {
