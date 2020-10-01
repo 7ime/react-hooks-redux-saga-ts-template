@@ -6,8 +6,9 @@ import {ELoaderPosition} from '../../../../../constants/shared'
 import CSSModules from '../../../../../toolbox/css-modules'
 import css from '../../styles/button.module.scss'
 
-const Button = (props: IButton.ButtonProps) => {
+const ButtonLink = (props: IButton.ButtonLinkProps) => {
     const {
+        href = '#',
         loader,
         loaderPosition = ELoaderPosition.center,
         mods = [],
@@ -27,11 +28,11 @@ const Button = (props: IButton.ButtonProps) => {
     )
 
     return (
-        <button className={classNames} {...restProps}>
+        <a href={href} className={classNames} {...restProps}>
             {children}
             {loader && <div className={css.loaderComponent}><Loader/></div>}
-        </button>
+        </a>
     )
 }
 
-export default Button
+export default ButtonLink

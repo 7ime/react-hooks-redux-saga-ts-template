@@ -10,6 +10,7 @@ import StorybookVariables from './components/storybook-variables'
 import StorybookLoaders from './components/storybook-loaders'
 import StorybookTypography from './components/storybook-typography'
 import StorybookScrollbar from './components/storybook-scrollbar'
+import StorybookButtons from './components/storybook-buttons'
 
 interface IProps extends IRouting.Props {
 
@@ -43,6 +44,7 @@ const StorybookScene = (props: IProps) => {
                     <Route path={Routes.storybook.typography()} exact component={StorybookTypography} />
                     <Route path={Routes.storybook.loaders()} exact component={StorybookLoaders} />
                     <Route path={Routes.storybook.scrollbar()} exact component={StorybookScrollbar} />
+                    <Route path={Routes.storybook.buttons()} exact component={StorybookButtons} />
                     <Redirect from='*' to={Routes.storybook.variables()}/>
                 </Switch>
             </div>

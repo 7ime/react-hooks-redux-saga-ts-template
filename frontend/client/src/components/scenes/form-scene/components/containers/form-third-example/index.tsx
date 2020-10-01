@@ -193,7 +193,6 @@ class FormThirdExample extends React.Component<IProps, IState> {
                     </div>
 
                     <Button type={'submit'}
-                            mixes={[bem.block]}
                             disabled={this.state.isDisabledSubmit}
                             loader={this.state.isSending}
                             loaderPosition={ELoaderPosition.left}

@@ -94,9 +94,7 @@ class FormSecondExample extends React.Component<IProps, {}> {
                         </FormControlContainer>
                     </div>
 
-                    <Button type={'submit'}
-                            mixes={[bem.block]}
-                    >Submit</Button>
+                    <Button type={'submit'}>Submit</Button>
                 </FormContainer>
             </div>
         )
