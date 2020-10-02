@@ -48,9 +48,10 @@ const Input = (props: IProps) => {
                         </div>
                     )
                 }
-                {isSuccess && successMessage ? <div className={css.successContainer}>{successMessage}</div> : null}
-                {isError && errorMessage ? <div className={css.errorContainer}>{errorMessage}</div> : null}
             </div>
+
+            {isSuccess && successMessage ? <div className={css.successContainer}>{successMessage}</div> : null}
+            {isError && errorMessage ? <div className={css.errorContainer}>{errorMessage}</div> : null}
         </div>
     )
 }
