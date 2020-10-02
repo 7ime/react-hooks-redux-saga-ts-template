@@ -106,6 +106,7 @@ const StorybookFields = (props: IProps) => {
                 <div className={css.item}>
                     <Textarea label={'Error'}
                               value={valueForTextarea}
+                              rows={10}
                               onChange={handleChangeValueForTextarea}
                               error={React.useMemo(() => [true, 'Test error message'], [])}/>
                 </div>

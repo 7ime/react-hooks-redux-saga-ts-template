@@ -119,6 +119,10 @@
         align-items: center;
     }
 
+    .controlWrapTextArea {
+
+    }
+
     .control {
         font-family: $font;
         width: 100%;
@@ -141,7 +145,6 @@
 
     .controlTextarea {
         display: block;
-        height: 15rem;
         resize: none;
         padding: 0 1.5rem;
         margin: 1.8rem 0;

@@ -10,7 +10,8 @@ interface IProps extends ITextField.TextareaProps {
 
 const Textarea = (props: IProps) => {
     const {
-        label
+        label,
+        rows = 5
     } = props
 
     const {
@@ -31,13 +32,14 @@ const Textarea = (props: IProps) => {
     return (
         <div className={classNames}>
             <label className={css.label}>{label}</label>
-            <div className={classnames(css.controlWrap, css.controlWrapInput)}
+            <div className={classnames(css.controlWrap, css.controlWrapTextArea)}
                  onFocus={handleFocus}
                  onBlur={handleBlur}
                  tabIndex={0}>
                 <textarea className={classnames(css.control, css.controlTextarea, 'scrollbar')}
                        onChange={handleChange}
                        autoFocus={autofocus}
+                       rows={rows}
                        tabIndex={-1}
                        ref={nodeEl}
                        value={value}/>

@@ -12,7 +12,7 @@ export namespace ITextField {
     }
 
     export interface TextareaProps extends BaseProps {
-
+        rows?: number
     }
 
     export interface InputProps extends BaseProps {
