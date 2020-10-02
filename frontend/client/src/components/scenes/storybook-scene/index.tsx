@@ -11,6 +11,7 @@ import StorybookLoaders from './components/storybook-loaders'
 import StorybookTypography from './components/storybook-typography'
 import StorybookScrollbar from './components/storybook-scrollbar'
 import StorybookButtons from './components/storybook-buttons'
+import StorybookFields from './components/storybook-fields'
 
 interface IProps extends IRouting.Props {
 
@@ -24,6 +25,7 @@ const getSubTitle = (url: string) => {
         case Routes.storybook.loaders(): return 'loaders'
         case Routes.storybook.typography(): return 'typography'
         case Routes.storybook.scrollbar(): return 'scrollbar'
+        case Routes.storybook.fields(): return 'fields'
     }
 }
 
@@ -45,6 +47,7 @@ const StorybookScene = (props: IProps) => {
                     <Route path={Routes.storybook.loaders()} exact component={StorybookLoaders} />
                     <Route path={Routes.storybook.scrollbar()} exact component={StorybookScrollbar} />
                     <Route path={Routes.storybook.buttons()} exact component={StorybookButtons} />
+                    <Route path={Routes.storybook.fields()} exact component={StorybookFields} />
                     <Redirect from='*' to={Routes.storybook.variables()}/>
                 </Switch>
             </div>

@@ -14,5 +14,6 @@ export default class Routes {
         static loaders = () => '/storybook/loaders'
         static typography = () => '/storybook/typography'
         static scrollbar = () => '/storybook/scrollbar'
+        static fields = () => '/storybook/fields'
     }
 }

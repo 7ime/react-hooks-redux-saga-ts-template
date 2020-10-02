@@ -1,5 +1,5 @@
 import * as React from 'react'
-// import BemShaper from '../../../../bem/bem-shaper'
+// import BemShaper from '../.const./../../bem/bem-shaper'
 // import {EBemClassNames} from '../../../../bem/bem-class-names'
 // import {ITextField} from '../model'
 //

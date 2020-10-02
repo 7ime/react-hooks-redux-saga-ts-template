@@ -17,17 +17,7 @@ const Storybook = (props: IProps) => {
             <div className={css.item} onClick={() => {history.push(Routes.storybook.buttons())}}>Button</div>
             <div className={css.item} onClick={() => {history.push(Routes.storybook.loaders())}}>Loader</div>
             <div className={css.item} onClick={() => {history.push(Routes.storybook.scrollbar())}}>Scrollbar</div>
-            <div className={css.item}>Paginator</div>
-            <div className={css.item}>Modal</div>
-            <div className={css.item}>Popup</div>
-            <div className={css.item}>Textfield</div>
-            <div className={css.item}>Radio</div>
-            <div className={css.item}>Checkbox</div>
-            <div className={css.item}>Toggle</div>
-            <div className={css.item}>Select</div>
-            <div className={css.item}>Dropdown</div>
-            <div className={css.item}>Tooltip</div>
-            <div className={css.item}>Tabs</div>
+            <div className={css.item} onClick={() => {history.push(Routes.storybook.fields())}}>Fields</div>
         </div>
     )
 }

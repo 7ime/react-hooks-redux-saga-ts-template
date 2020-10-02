@@ -1,50 +1,20 @@
 import * as React from 'react'
-import {Maybe} from '../../../../toolbox/custom-types'
-import {IFormExternalManage} from '../../../../modules/form-module/shared'
+import {IFieldValidationStatus} from '../../../../models/field-validation-status'
 
 export namespace ITextField {
-    export interface BaseProps {
+    export interface BaseProps extends IFieldValidationStatus {
         label: string
-
-        mods?: string[]
-        mixes?: string[]
-
-        externalManage?: IFormExternalManage<string>
-
         disabled?: boolean
+        focused?: boolean
 
-        error?: string | null
+        onChange?(event: React.ChangeEvent<HTMLInputElement>): unknown
     }
 
     export interface TextareaProps extends BaseProps {
         defaultValue?: string
     }
 
-    export interface InputBaseProps extends BaseProps {
+    export interface InputProps extends BaseProps {
         value?: string
-    }
-
-    export interface InputProps extends InputBaseProps {
-
-    }
-
-    export interface InputPasswordProps extends InputBaseProps {
-
-    }
-    
-    export interface InputInjectPropsBase {
-        innerRef: React.RefObject<HTMLInputElement>
-        value: string
-        onChange(event: React.ChangeEvent<HTMLInputElement>): unknown
-        isFocused: boolean
-        clearValue(): unknown
-    }
-
-    export interface InputInjectProps extends InputInjectPropsBase {
-
-    }
-
-    export interface InputPasswordInjectProps extends InputInjectPropsBase {
-
     }
 }
