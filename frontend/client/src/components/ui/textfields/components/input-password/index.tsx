@@ -1,88 +1,85 @@
 import * as React from 'react'
-// import BemShaper from '../../../../../bem/bem-shaper'
-// import {EBemClassNames} from '../../../../../bem/bem-class-names'
-// import withInput from '../../hoc-helpers/with-input'
-// import {ITextField} from '../../model'
-//
-// const bem = new BemShaper(EBemClassNames.textfield)
-//
-// interface IProps extends ITextField.InputPasswordInjectProps {
-//
-// }
-//
-// enum EIconTypePassword {
-//     eyeOff = 'eye-off',
-//     eye = 'eye'
-// }
-//
-// interface IState {
-//     type: string
-//     iconTypePassword: EIconTypePassword
-// }
-//
-// class InputPassword extends React.PureComponent<IProps, IState> {
-//     state = {
-//         type: 'password',
-//         iconTypePassword: EIconTypePassword.eyeOff
-//     }
-//
-//     handlerChangeType = () => {
-//         const {type} = this.state
-//
-//         let newType = 'password'
-//         let newIconTypePassword = EIconTypePassword.eyeOff
-//
-//         if (type === 'password') {
-//             newType = 'text'
-//             newIconTypePassword = EIconTypePassword.eye
-//         }
-//
-//         this.setState({
-//             type: newType,
-//             iconTypePassword: newIconTypePassword
-//         })
-//     }
-//
-//     render() {
-//         const {innerRef, isFocused, clearValue, ...dynamicProps} = this.props
-//         const {type, iconTypePassword} = this.state
-//
-//         const classNames = [
-//             bem.elem('control'),
-//             bem.elem('control', 'input')
-//         ].join(' ').trim()
-//
-//         return (
-//             <React.Fragment>
-//                 <input
-//                     {...dynamicProps}
-//                     ref={innerRef}
-//                     type={type}
-//                     className={classNames}
-//                 />
-//                 {
-//                     isFocused && (
-//                         <div className={bem.elem('triggers')}>
-//                             < div
-//                                 onMouseDown={this.handlerChangeType}
-//                                 className={[
-//                                     bem.elem('trigger'),
-//                                     bem.elem('trigger', iconTypePassword),
-//                                 ].join(' ').trim()}
-//                             />
-//                             <div
-//                                 onMouseDown={clearValue}
-//                                 className={[
-//                                     bem.elem('trigger'),
-//                                     bem.elem('trigger', 'clear'),
-//                                 ].join(' ').trim()}
-//                             />
-//                         </div>
-//                     )
-//                 }
-//             </React.Fragment>
-//         )
-//     }
-// }
-//
-// export default withInput<ITextField.InputPasswordProps>(InputPassword)
+import classnames from 'classnames'
+import {ITextField} from '../../model'
+import css from '../../styles/textfield.module.scss'
+import {useTextField} from '../../hooks/use-textfield'
+
+enum EType {
+    password = 'password',
+    text = 'text',
+}
+
+interface IProps extends ITextField.InputProps {
+
+}
+
+const InputPassword = (props: IProps) => {
+    const {
+        clearValue,
+        label
+    } = props
+
+    const {
+        handleFocus,
+        handleBlur,
+        handleChange,
+        isError,
+        errorMessage,
+        isSuccess,
+        successMessage,
+        value,
+        isFocused,
+        nodeEl,
+        autofocus,
+        classNames
+    } = useTextField<HTMLInputElement>(props)
+
+    const [type, setType] = React.useState(EType.password)
+
+    const handlerChangeType = React.useCallback(() => {
+        const newType = type === EType.password ? EType.text : EType.password
+
+        setType(newType)
+    }, [type])
+
+    const handleClearValue = React.useCallback(() => {
+        clearValue && clearValue()
+    }, [])
+
+    const classNamesForTriggerPassword = classnames(
+        css.trigger,
+        {[css.triggerEye]: type === EType.password},
+        {[css.triggerEyeOff]: type === EType.text},
+    )
+
+    return (
+        <div className={classNames}>
+            <label className={css.label}>{label}</label>
+            <div className={classnames(css.controlWrap, css.controlWrapInput)}
+                 onFocus={handleFocus}
+                 onBlur={handleBlur}
+                 tabIndex={0}>
+                <input className={classnames(css.control, css.controlInput)}
+                       onChange={handleChange}
+                       autoFocus={autofocus}
+                       ref={nodeEl}
+                       value={value}
+                       tabIndex={-1}
+                       type={type}/>
+                {
+                    isFocused && clearValue && (
+                        <div className={css.triggers}>
+                            <div className={classNamesForTriggerPassword} onMouseDown={handlerChangeType}/>
+                            <div className={classnames(css.trigger, css.triggerClear)} onMouseDown={handleClearValue}/>
+                        </div>
+                    )
+                }
+            </div>
+
+            {isSuccess && successMessage && <div className={css.successContainer}>{successMessage}</div>}
+            {isError && errorMessage && <div className={css.errorContainer}>{errorMessage}</div>}
+        </div>
+    )
+}
+
+export default React.memo(InputPassword)

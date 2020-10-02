@@ -3,6 +3,7 @@ import css from './index.module.scss'
 import cssCommon from '../../styles/common.module.scss'
 import Input from '../../../../ui/textfields/components/input'
 import Textarea from '../../../../ui/textfields/components/textarea'
+import InputPassword from '../../../../ui/textfields/components/input-password'
 
 interface IProps {
 
@@ -37,6 +38,12 @@ const StorybookFields = (props: IProps) => {
 
     const handleChangeSuccessValue = React.useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
         setSuccessValue(event.target.value)
+    }, [])
+
+    const [passwordValue, setPasswordValue] = React.useState('')
+
+    const handlePasswordValue = React.useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+        setPasswordValue(event.target.value)
     }, [])
 
     const [valueForTextarea, setValueForTextarea] = React.useState('Anything')
@@ -84,6 +91,13 @@ const StorybookFields = (props: IProps) => {
                            clearValue={() => {setAutofocusValue('')}}
                            onChange={handleChangeAutofocusValue}
                            autofocus/>
+                </div>
+
+                <div className={css.item}>
+                    <InputPassword label={'Password'}
+                           value={passwordValue}
+                           clearValue={() => {setPasswordValue('')}}
+                           onChange={handlePasswordValue}/>
                 </div>
             </div>
 
