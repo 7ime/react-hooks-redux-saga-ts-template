@@ -8,17 +8,17 @@ import '@styles/global.scss'
 
 import getAppStore from './store'
 import getService from './services'
-import {ServiceProvider} from './components/context/service-context'
+import ServiceContext from './components/context/service-context'
 import HelmetSet from './components/common/helmet-set'
 import App from './components/app'
 
 ReactDOM.render((
     <Provider store={getAppStore()}>
-        <ServiceProvider value={getService()}>
+        <ServiceContext.Provider value={getService()}>
             <BrowserRouter>
                 <HelmetSet/>
                 <App/>
             </BrowserRouter>
-        </ServiceProvider>
+        </ServiceContext.Provider>
     </Provider>
 ), document.getElementById('root'))

@@ -1,14 +1,13 @@
 import * as React from 'react'
-
 import {IService} from '../../../services/model'
-import {ServiceConsumer} from '../../context/service-context'
+import ServiceContext from '../../context/service-context'
 
 export type IMapServicesToProps = (service: IService) => Partial<IService>
 
 export const withService = (mapServicesToProps: IMapServicesToProps) => (Wrapped: any) => {
     return (props: any) => {
         return (
-            <ServiceConsumer>
+            <ServiceContext.Consumer>
                 {
                     (service: IService) => {
                         const servicesProps = mapServicesToProps(service)
@@ -16,7 +15,7 @@ export const withService = (mapServicesToProps: IMapServicesToProps) => (Wrapped
                         return <Wrapped {...props} {...servicesProps}/>
                     }
                 }
-            </ServiceConsumer>
+            </ServiceContext.Consumer>
         )
     }
 }
