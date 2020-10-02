@@ -2,6 +2,7 @@ import * as React from 'react'
 import css from './index.module.scss'
 import cssCommon from '../../styles/common.module.scss'
 import Input from '../../../../ui/textfields/components/input'
+import Textarea from '../../../../ui/textfields/components/textarea'
 
 interface IProps {
 
@@ -38,6 +39,12 @@ const StorybookFields = (props: IProps) => {
         setSuccessValue(event.target.value)
     }, [])
 
+    const [valueForTextarea, setValueForTextarea] = React.useState('Anything')
+
+    const handleChangeValueForTextarea = React.useCallback((event: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setValueForTextarea(event.target.value)
+    }, [])
+
     return (
         <div className={cssCommon.content}>
             <div className={cssCommon.subtitle}>Inputs:</div>
@@ -48,14 +55,6 @@ const StorybookFields = (props: IProps) => {
                            value={defaultValue}
                            clearValue={() => {setDefaultValue('')}}
                            onChange={handleChangeDefaultValue}/>
-                </div>
-
-                <div className={css.item}>
-                    <Input label={'Autofocus'}
-                           value={autofocusValue}
-                           clearValue={() => {setAutofocusValue('')}}
-                           onChange={handleChangeAutofocusValue}
-                           autofocus/>
                 </div>
 
                 <div className={css.item}>
@@ -76,6 +75,45 @@ const StorybookFields = (props: IProps) => {
                     <Input label={'Success'}
                            value={successValue}
                            onChange={handleChangeSuccessValue}
+                           success={React.useMemo(() => [true, 'Test success message'], [])}/>
+                </div>
+
+                <div className={css.item}>
+                    <Input label={'Autofocus'}
+                           value={autofocusValue}
+                           clearValue={() => {setAutofocusValue('')}}
+                           onChange={handleChangeAutofocusValue}
+                           autofocus/>
+                </div>
+            </div>
+
+            <div className={cssCommon.subtitle}>Textareas:</div>
+
+            <div className={css.list}>
+                <div className={css.item}>
+                    <Textarea label={'Default'}
+                              value={valueForTextarea}
+                              onChange={handleChangeValueForTextarea}/>
+                </div>
+
+                <div className={css.item}>
+                    <Textarea label={'Disabled'}
+                              disabled
+                              value={valueForTextarea}
+                              onChange={handleChangeValueForTextarea}/>
+                </div>
+
+                <div className={css.item}>
+                    <Textarea label={'Error'}
+                              value={valueForTextarea}
+                              onChange={handleChangeValueForTextarea}
+                              error={React.useMemo(() => [true, 'Test error message'], [])}/>
+                </div>
+
+                <div className={css.item}>
+                    <Textarea label={'Success'}
+                           value={valueForTextarea}
+                           onChange={handleChangeValueForTextarea}
                            success={React.useMemo(() => [true, 'Test success message'], [])}/>
                 </div>
             </div>

@@ -66,6 +66,18 @@
 
     &.is_disabled {
         pointer-events: none;
+        opacity: 0.5;
+        user-select: none;
+
+        .label {
+            color: $grey_light_70;
+        }
+
+        .controlWrap {
+            &:before {
+                opacity: 0;
+            }
+        }
     }
 
     .label {

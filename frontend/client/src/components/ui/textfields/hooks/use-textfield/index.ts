@@ -3,21 +3,20 @@ import * as React from 'react'
 import classnames from 'classnames'
 import css from '../../styles/textfield.module.scss'
 
-export const useTextField = (props: ITextField.BaseProps) => {
+export const useTextField = <T extends {value: string, focus(): unknown}>(props: ITextField.BaseProps) => {
     const {
         autofocus = false,
         disabled = false,
         value: inputValue = '',
         error = [false, null],
         success = [false, null],
-        onChange,
-        clearValue
+        onChange
     } = props
 
     const [isError, errorMessage] = error
     const [isSuccess, successMessage] = success
 
-    const inputEl = React.useRef<HTMLInputElement>(null)
+    const nodeEl = React.useRef<T>(null)
     const [value, setValue] = React.useState('')
     const [isFocused, setFocus] = React.useState(autofocus)
     const [isBlur, setBlur] = React.useState(true)
@@ -36,9 +35,9 @@ export const useTextField = (props: ITextField.BaseProps) => {
     )
 
     const handleFocus = React.useCallback(() => {
-        const node = inputEl.current
+        const node = nodeEl.current
 
-        if (node) {
+        if (node && !disabled) {
             node.focus()
         }
 
@@ -47,25 +46,20 @@ export const useTextField = (props: ITextField.BaseProps) => {
     }, [])
 
     const handleBlur = React.useCallback(() => {
-        const node = inputEl.current
+        const node = nodeEl.current
 
         setBlur(!(node !== null && node.value))
         setFocus(false)
     }, [])
 
-    const handleChange = React.useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = React.useCallback((event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         onChange(event)
-    }, [])
-
-    const handleClearValue = React.useCallback(() => {
-        clearValue && clearValue()
     }, [])
 
     return {
         handleFocus,
         handleBlur,
         handleChange,
-        handleClearValue,
         isError,
         errorMessage,
         isSuccess,
@@ -73,7 +67,7 @@ export const useTextField = (props: ITextField.BaseProps) => {
         isBlur,
         value,
         isFocused,
-        inputEl,
+        nodeEl,
         autofocus,
         classNames
     }

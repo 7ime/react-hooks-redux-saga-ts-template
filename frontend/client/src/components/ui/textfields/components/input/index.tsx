@@ -18,17 +18,20 @@ const Input = (props: IProps) => {
         handleFocus,
         handleBlur,
         handleChange,
-        handleClearValue,
         isError,
         errorMessage,
         isSuccess,
         successMessage,
         value,
         isFocused,
-        inputEl,
+        nodeEl,
         autofocus,
         classNames
-    } = useTextField(props)
+    } = useTextField<HTMLInputElement>(props)
+
+    const handleClearValue = React.useCallback(() => {
+        clearValue && clearValue()
+    }, [])
 
     return (
         <div className={classNames}>
@@ -40,8 +43,9 @@ const Input = (props: IProps) => {
                 <input className={classnames(css.control, css.controlInput)}
                        onChange={handleChange}
                        autoFocus={autofocus}
-                       ref={inputEl}
+                       ref={nodeEl}
                        value={value}
+                       tabIndex={-1}
                        type={'text'}/>
                 {
                     isFocused && clearValue && (

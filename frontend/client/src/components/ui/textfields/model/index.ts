@@ -7,8 +7,7 @@ export namespace ITextField {
         disabled?: boolean
         autofocus?: boolean
 
-        onChange(event: React.ChangeEvent<HTMLInputElement>): unknown
-        clearValue?(): unknown
+        onChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): unknown
         value: string
     }
 
@@ -17,6 +16,6 @@ export namespace ITextField {
     }
 
     export interface InputProps extends BaseProps {
-
+        clearValue?(): unknown
     }
 }
