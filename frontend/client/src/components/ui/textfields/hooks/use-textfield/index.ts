@@ -35,7 +35,7 @@ export const useTextField = (props: ITextField.BaseProps) => {
         {[css.is_focused]: isFocused},
     )
 
-    const handleFocus = () => {
+    const handleFocus = React.useCallback(() => {
         const node = inputEl.current
 
         if (node) {
@@ -44,22 +44,22 @@ export const useTextField = (props: ITextField.BaseProps) => {
 
         setBlur(false)
         setFocus(true)
-    }
+    }, [])
 
-    const handleBlur = () => {
+    const handleBlur = React.useCallback(() => {
         const node = inputEl.current
 
         setBlur(!(node !== null && node.value))
         setFocus(false)
-    }
+    }, [])
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = React.useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
         onChange(event)
-    }
+    }, [])
 
-    const handleClearValue = () => {
+    const handleClearValue = React.useCallback(() => {
         clearValue && clearValue()
-    }
+    }, [])
 
     return {
         handleFocus,

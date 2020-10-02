@@ -10,33 +10,33 @@ interface IProps {
 const StorybookFields = (props: IProps) => {
     const [defaultValue, setDefaultValue] = React.useState('')
 
-    const handleChangeDefaultValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChangeDefaultValue = React.useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
         setDefaultValue(event.target.value)
-    }
+    }, [])
 
     const [autofocusValue, setAutofocusValue] = React.useState('')
 
-    const handleChangeAutofocusValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChangeAutofocusValue = React.useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
         setAutofocusValue(event.target.value)
-    }
+    }, [])
 
     const [disabledValue, setDisabledValue] = React.useState('999+')
 
-    const handleChangeDisabledValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChangeDisabledValue = React.useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
         setDisabledValue(event.target.value)
-    }
+    }, [])
 
     const [errorValue, setErrorValue] = React.useState('')
 
-    const handleChangeErrorValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChangeErrorValue = React.useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
         setErrorValue(event.target.value)
-    }
+    }, [])
 
     const [successValue, setSuccessValue] = React.useState('Jhon')
 
-    const handleChangeSuccessValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChangeSuccessValue = React.useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
         setSuccessValue(event.target.value)
-    }
+    }, [])
 
     return (
         <div className={cssCommon.content}>
@@ -69,14 +69,14 @@ const StorybookFields = (props: IProps) => {
                     <Input label={'Error'}
                            value={errorValue}
                            onChange={handleChangeErrorValue}
-                           error={[true, 'Test error message']}/>
+                           error={React.useMemo(() => [true, 'Test error message'], [])}/>
                 </div>
 
                 <div className={css.item}>
                     <Input label={'Success'}
                            value={successValue}
                            onChange={handleChangeSuccessValue}
-                           success={[true, 'Test success message']}/>
+                           success={React.useMemo(() => [true, 'Test success message'], [])}/>
                 </div>
             </div>
         </div>
