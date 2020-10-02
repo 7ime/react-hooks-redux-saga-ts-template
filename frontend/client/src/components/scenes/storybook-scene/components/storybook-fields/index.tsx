@@ -8,29 +8,75 @@ interface IProps {
 }
 
 const StorybookFields = (props: IProps) => {
+    const [defaultValue, setDefaultValue] = React.useState('')
+
+    const handleChangeDefaultValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setDefaultValue(event.target.value)
+    }
+
+    const [autofocusValue, setAutofocusValue] = React.useState('')
+
+    const handleChangeAutofocusValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setAutofocusValue(event.target.value)
+    }
+
+    const [disabledValue, setDisabledValue] = React.useState('999+')
+
+    const handleChangeDisabledValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setDisabledValue(event.target.value)
+    }
+
+    const [errorValue, setErrorValue] = React.useState('')
+
+    const handleChangeErrorValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setErrorValue(event.target.value)
+    }
+
+    const [successValue, setSuccessValue] = React.useState('Jhon')
+
+    const handleChangeSuccessValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSuccessValue(event.target.value)
+    }
+
     return (
         <div className={cssCommon.content}>
             <div className={cssCommon.subtitle}>Inputs:</div>
 
             <div className={css.list}>
                 <div className={css.item}>
-                    <Input label={'Default'}/>
+                    <Input label={'Default'}
+                           value={defaultValue}
+                           clearValue={() => {setDefaultValue('')}}
+                           onChange={handleChangeDefaultValue}/>
                 </div>
 
                 <div className={css.item}>
-                    <Input label={'Focused'} focused/>
+                    <Input label={'Autofocus'}
+                           value={autofocusValue}
+                           clearValue={() => {setAutofocusValue('')}}
+                           onChange={handleChangeAutofocusValue}
+                           autofocus/>
                 </div>
 
                 <div className={css.item}>
-                    <Input label={'Disabled'} disabled/>
+                    <Input label={'Disabled'}
+                           value={disabledValue}
+                           onChange={handleChangeDisabledValue}
+                           disabled/>
                 </div>
 
                 <div className={css.item}>
-                    <Input label={'Error'} error={[true, 'Test error message']}/>
+                    <Input label={'Error'}
+                           value={errorValue}
+                           onChange={handleChangeErrorValue}
+                           error={[true, 'Test error message']}/>
                 </div>
 
                 <div className={css.item}>
-                    <Input label={'Success'} success={[true, 'Test success message']}/>
+                    <Input label={'Success'}
+                           value={successValue}
+                           onChange={handleChangeSuccessValue}
+                           success={[true, 'Test success message']}/>
                 </div>
             </div>
         </div>

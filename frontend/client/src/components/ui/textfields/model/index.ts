@@ -5,16 +5,18 @@ export namespace ITextField {
     export interface BaseProps extends IFieldValidationStatus {
         label: string
         disabled?: boolean
-        focused?: boolean
+        autofocus?: boolean
 
-        onChange?(event: React.ChangeEvent<HTMLInputElement>): unknown
+        onChange(event: React.ChangeEvent<HTMLInputElement>): unknown
+        clearValue?(): unknown
+        value: string
     }
 
     export interface TextareaProps extends BaseProps {
-        defaultValue?: string
+
     }
 
     export interface InputProps extends BaseProps {
-        value?: string
+
     }
 }
