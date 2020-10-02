@@ -71,6 +71,7 @@
     "ts-loader": "^6.0.4",
     "tslint": "^6.0.0",
     "tslint-react": "^4.2.0",
+    "tslint-react-hooks": "^2.2.2",
     "typescript": "^3.5.3",
     "url-loader": "^2.1.0",
     "webpack": "^4.39.1",
