@@ -15,5 +15,7 @@ export default class Routes {
         static typography = () => '/storybook/typography'
         static scrollbar = () => '/storybook/scrollbar'
         static fields = () => '/storybook/fields'
+        static radios = () => '/storybook/radios'
+        static checkboxes = () => '/storybook/checkboxes'
     }
 }

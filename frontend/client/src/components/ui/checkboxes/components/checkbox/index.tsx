@@ -1,82 +1,76 @@
 import * as React from 'react'
-// import {ICheckbox} from '../../model'
-// import {EBemClassNames} from '../../../../../bem/bem-class-names'
-// import BemShaper from '../../../../../bem/bem-shaper'
-// import {v4 as uuid} from 'uuid'
-//
-// const bem = new BemShaper(EBemClassNames.checkbox)
-//
-// interface IState {
-//     value: boolean
-// }
-//
-// class Checkbox extends React.PureComponent<ICheckbox.Props, IState> {
-//     state = {
-//         value: typeof this.props.value === 'boolean' ? this.props.value : false
-//     }
-//
-//     static getDerivedStateFromProps(props: ICheckbox.Props, state: IState) {
-//         if (props.externalManage) {
-//             return {
-//                 value: props.externalManage.value ? props.externalManage.value : false
-//             }
-//         }
-//
-//         return null
-//     }
-//
-//     private handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-//         this.setValue(event.target.checked)
-//     }
-//
-//     private setValue = (newValue: boolean) => {
-//         if (this.props.externalManage) {
-//             this.props.externalManage.onUpdateValue(newValue)
-//         } else {
-//             this.setState({
-//                 value: newValue
-//             })
-//         }
-//     }
-//
-//     render() {
-//         const {
-//             children,
-//             mods = [],
-//             mixes = [],
-//             disabled,
-//             error
-//         } = this.props
-//
-//         const {value} = this.state
-//
-//         const classNames = [
-//             bem.block,
-//             bem.mods(mods),
-//             bem.mixes(mixes),
-//             value && bem.is('checked'),
-//             error && bem.is('error'),
-//             disabled && bem.is('disabled')
-//         ].join(' ').trim()
-//
-//         const uuidCheckbox = uuid()
-//
-//         return (
-//             <div className={classNames}>
-//                 <label htmlFor={uuidCheckbox} className={bem.elem('content')}>
-//                     <input type='checkbox'
-//                            onChange={this.handleChange}
-//                            className={bem.elem('control')}
-//                            checked={value}
-//                            id={uuidCheckbox}
-//                     />
-//                     <div className={bem.elem('pseudo-control')}/>
-//                     <div className={bem.elem('description')}>{children}</div>
-//                 </label>
-//                 {error && <div className={bem.elem('error-container')}>{error}</div>}
-//             </div>
-//         )
-//     }
-// }
-//
-// export default Checkbox
+import classnames from 'classnames'
+import {v4 as uuid} from 'uuid'
+import {ICheckbox} from '../../model'
+import css from '../../styles/checkbox.module.scss'
+import MessageValidationContainer from '../../../message-validation-container'
+import CSSModules from '../../../../../toolbox/css-modules'
+
+interface IProps extends ICheckbox.Props {
+
+}
+
+const Checkbox = (props: IProps) => {
+    const {
+        value: checkboxValue = false,
+        mods = [],
+        disabled = false,
+        error = [false, null],
+        success = [false, null],
+        children,
+        onChange
+    } = props
+
+    const [isError, errorMessage] = error
+    const [isSuccess, successMessage] = success
+
+    const [value, setValue] = React.useState(checkboxValue)
+    const [uuidCheckbox, setUuidCheckbox] = React.useState(uuid())
+
+    React.useEffect(() => {
+        setValue(checkboxValue)
+    }, [checkboxValue])
+
+    const handleChange = React.useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+        onChange(event)
+    }, [])
+
+    const modsCssModules = CSSModules.extractClassNamesForArray(mods, css)
+
+    const classNames = classnames(
+        css.checkbox,
+        modsCssModules,
+        {[css.is_checked]: value},
+        {[css.is_disabled]: disabled},
+        {[css.is_error]: isError},
+        {[css.is_success]: isSuccess},
+    )
+
+    return (
+        <div className={classNames}>
+            <label htmlFor={uuidCheckbox} className={css.content}>
+                <input type='checkbox'
+                    onChange={handleChange}
+                    className={css.control}
+                    checked={value}
+                    id={uuidCheckbox}
+                />
+                <div className={css.pseudoControl}/>
+                <div className={css.description}>{children}</div>
+            </label>
+
+            {isSuccess && successMessage && (
+                <MessageValidationContainer parentClass={css.messageContainer}
+                                            mods={['success']}
+                                            messageList={successMessage}/>
+            )}
+            {isError && errorMessage && (
+                <MessageValidationContainer parentClass={css.messageContainer}
+                                            mods={['error']}
+                                            messageList={errorMessage}/>
+            )}
+        </div>
+    )
+}
+
+export default React.memo(Checkbox)

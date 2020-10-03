@@ -1,15 +1,16 @@
 import * as React from 'react'
-import {IFormExternalManage} from '../../../../modules/form-module/shared'
+import {IFieldValidationStatus} from '../../../../models/field-validation-status'
 
-export namespace ICheckbox {
-    export interface Props {
+export namespace ICheckbox{
+    type Mod = 'primary' | 'secondary'
+
+    export interface Props extends IFieldValidationStatus {
+        value: boolean
         children: React.ReactChild | React.ReactNode
-        mods?: string[]
-        mixes?: string[]
 
+        mods?: Mod[]
         disabled?: boolean
-        value?: string
-        error?: string | null
-        externalManage?: IFormExternalManage<boolean>
+
+        onChange(event: React.ChangeEvent<HTMLInputElement>): unknown
     }
 }

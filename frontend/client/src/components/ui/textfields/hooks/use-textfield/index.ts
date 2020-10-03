@@ -17,7 +17,7 @@ export const useTextField = <T extends {value: string, focus(): unknown}>(props:
     const [isSuccess, successMessage] = success
 
     const nodeEl = React.useRef<T>(null)
-    const [value, setValue] = React.useState('')
+    const [value, setValue] = React.useState(inputValue)
     const [isFocused, setFocus] = React.useState(autofocus)
     const [isBlur, setBlur] = React.useState(true)
 

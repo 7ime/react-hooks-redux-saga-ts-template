@@ -15,6 +15,8 @@ const links = [
     ['Loader', Routes.storybook.loaders()],
     ['Scrollbar', Routes.storybook.scrollbar()],
     ['Fields', Routes.storybook.fields()],
+    ['Checkboxes', Routes.storybook.checkboxes()],
+    ['Radios', Routes.storybook.radios()],
 ]
 
 const Storybook = (props: IProps) => {
