@@ -2,6 +2,7 @@ import * as React from 'react'
 import css from './index.module.scss'
 import cssCommon from '../../styles/common.module.scss'
 import Checkbox from '../../../../ui/checkboxes/components/checkbox'
+import {useMemoizedMods} from '../../../../hook-helpers/use-memoized-mods'
 
 interface IProps {
 
@@ -34,7 +35,7 @@ const StorybookCheckboxes = (props: IProps) => {
 
     return (
         <div className={cssCommon.content}>
-            <div className={cssCommon.subtitle}>Inputs:</div>
+            <div className={cssCommon.subtitle}>Checkboxes:</div>
 
             <div className={css.list}>
                 <div className={css.item}>
@@ -46,14 +47,14 @@ const StorybookCheckboxes = (props: IProps) => {
                 <div className={css.item}>
                     <div className={css.itemTitle}>Primary:</div>
                     <Checkbox value={defaultValue}
-                              mods={React.useMemo(() => ['primary'], [])}
+                              mods={useMemoizedMods(['primary'])}
                               onChange={handleChangeDefaultValue}>You agree to the privacy policy</Checkbox>
                 </div>
 
                 <div className={css.item}>
                     <div className={css.itemTitle}>Secondary:</div>
                     <Checkbox value={defaultValue}
-                              mods={React.useMemo(() => ['secondary'], [])}
+                              mods={useMemoizedMods(['secondary'])}
                               onChange={handleChangeDefaultValue}>You agree to the privacy policy</Checkbox>
                 </div>
 
