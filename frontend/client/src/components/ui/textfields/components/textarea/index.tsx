@@ -3,6 +3,7 @@ import classnames from 'classnames'
 import {ITextField} from '../../model'
 import css from '../../styles/textfield.module.scss'
 import {useTextField} from '../../hooks/use-textfield'
+import MessageValidationContainer from '../../../../common/message-validation-container'
 
 interface IProps extends ITextField.TextareaProps {
 
@@ -45,8 +46,16 @@ const Textarea = (props: IProps) => {
                        value={value}/>
             </div>
 
-            {isSuccess && successMessage && <div className={css.successContainer}>{successMessage}</div>}
-            {isError && errorMessage && <div className={css.errorContainer}>{errorMessage}</div>}
+            {isSuccess && successMessage && (
+                <MessageValidationContainer parentClass={css.messageContainer}
+                                            mods={['success']}
+                                            messageList={successMessage}/>
+            )}
+            {isError && errorMessage && (
+                <MessageValidationContainer parentClass={css.messageContainer}
+                                            mods={['error']}
+                                            messageList={errorMessage}/>
+            )}
         </div>
     )
 }

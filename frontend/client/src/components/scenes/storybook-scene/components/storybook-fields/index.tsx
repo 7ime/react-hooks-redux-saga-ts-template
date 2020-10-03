@@ -75,14 +75,14 @@ const StorybookFields = (props: IProps) => {
                     <Input label={'Error'}
                            value={errorValue}
                            onChange={handleChangeErrorValue}
-                           error={React.useMemo(() => [true, 'Test error message'], [])}/>
+                           error={React.useMemo(() => [true, ['Test error message']], [])}/>
                 </div>
 
                 <div className={css.item}>
                     <Input label={'Success'}
                            value={successValue}
                            onChange={handleChangeSuccessValue}
-                           success={React.useMemo(() => [true, 'Test success message'], [])}/>
+                           success={React.useMemo(() => [true, ['Test success message']], [])}/>
                 </div>
 
                 <div className={css.item}>
@@ -122,14 +122,14 @@ const StorybookFields = (props: IProps) => {
                               value={valueForTextarea}
                               rows={10}
                               onChange={handleChangeValueForTextarea}
-                              error={React.useMemo(() => [true, 'Test error message'], [])}/>
+                              error={React.useMemo(() => [true, ['Test error message']], [])}/>
                 </div>
 
                 <div className={css.item}>
                     <Textarea label={'Success'}
                            value={valueForTextarea}
                            onChange={handleChangeValueForTextarea}
-                           success={React.useMemo(() => [true, 'Test success message'], [])}/>
+                           success={React.useMemo(() => [true, ['Test success message']], [])}/>
                 </div>
             </div>
         </div>

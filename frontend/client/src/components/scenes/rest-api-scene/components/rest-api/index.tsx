@@ -19,15 +19,21 @@ const RestApi = (props: IProps) => {
 
 
     React.useEffect(() => {
-        dispatch(JsonPlaceholderAction.getPost(1))
-        dispatch(JsonPlaceholderAction.getPosts())
+        const fetchData = async() => {
+            dispatch(JsonPlaceholderAction.getPost(1))
+            dispatch(JsonPlaceholderAction.getPosts())
 
-        jsonPlaceholderService.deletePost(1)
+            await jsonPlaceholderService.deletePost(1)
+        }
 
+        fetchData()
+    }, [])
+
+    React.useEffect(() => {
         return () => {
             dispatch(JsonPlaceholderAction.resetState())
         }
-    }, [0])
+    }, [])
 
     return (
         <div className={css.content}>

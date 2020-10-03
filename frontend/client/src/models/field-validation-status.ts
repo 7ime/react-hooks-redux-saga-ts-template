@@ -1,4 +1,6 @@
+export type IMessageFormatValidation = [boolean, string[] | null]
+
 export interface IFieldValidationStatus {
-    error?: [boolean, string | null]
-    success?: [boolean, string | null]
+    error?: IMessageFormatValidation
+    success?: IMessageFormatValidation
 }
