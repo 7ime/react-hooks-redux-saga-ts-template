@@ -34,7 +34,9 @@ const RadioGroup = (props: IRadio.GroupProps) => {
                         onChange: handleChange,
                         checked,
                         disabled,
-                        name
+                        name,
+                        error,
+                        success
                     })
                 })
             }

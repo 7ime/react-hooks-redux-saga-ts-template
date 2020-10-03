@@ -8,20 +8,20 @@
         pointer-events: none;
     }
 
-    &__content {
+    .content {
         display: inline-flex;
         position: relative;
         padding-left: 3rem;
     }
 
-    &__description {
+    .description {
         position: relative;
         cursor: pointer;
         font-weight: 600;
         font-size: 1.6rem;
     }
 
-    &__pseudo-control {
+    .pseudoControl {
         cursor: pointer;
         position: absolute;
         top: 0;
@@ -40,7 +40,7 @@
             content: '';
             width: 1.2rem;
             height: 1.2rem;
-            background-color: $primary;
+            background-color: $grey_light_70;
             border-radius: 50%;
             top: 50%;
             left: 50%;
@@ -49,14 +49,51 @@
     }
 
     &.is_checked {
-        .radio__pseudo-control {
+        .pseudoControl {
             &:before {
                 opacity: 1;
             }
         }
     }
 
-    &__control {
+    &.primary {
+        .pseudoControl {
+            &:before {
+                background-color: $primary;
+            }
+        }
+    }
+
+    &.secondary {
+        .pseudoControl {
+            &:before {
+                background-color: $secondary;
+            }
+        }
+    }
+
+    &.is_success {
+        .pseudoControl {
+            border-color: $green;
+
+            &:before {
+                background-color: $green;
+            }
+        }
+    }
+
+    &.is_error {
+        .pseudoControl {
+            border-color: $red;
+
+            &:before {
+                background-color: $red;
+            }
+        }
+    }
+
+
+    .control {
         display: none;
     }
 }
