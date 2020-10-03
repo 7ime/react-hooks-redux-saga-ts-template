@@ -59,12 +59,12 @@ const Input = (props: IProps) => {
 
             {isSuccess && successMessage && (
                 <MessageValidationContainer parentClass={css.messageContainer}
-                                            mods={['success']}
+                                            type={'success'}
                                             messageList={successMessage}/>
             )}
             {isError && errorMessage && (
                 <MessageValidationContainer parentClass={css.messageContainer}
-                                            mods={['error']}
+                                            type={'error'}
                                             messageList={errorMessage}/>
             )}
         </div>

@@ -1,27 +1,28 @@
 import * as React from 'react'
 import classnames from 'classnames'
 import css from './index.module.scss'
-import CSSModules from '../../../toolbox/css-modules'
-
-type IMod = 'error' | 'success'
 
 interface IProps {
-    mods?: IMod[]
+    type?: 'error' | 'success'
     parentClass?: string
     messageList: string[]
 }
 
 const MessageValidationContainer = (props: IProps) => {
     const {
-        mods = [],
+        type = '',
         parentClass,
         messageList
     } = props
 
-    const modsCssModules = CSSModules.extractClassNamesForArray(mods, css)
+    const classNames = classnames(
+        css.list,
+        {[css[type]]: type},
+        parentClass
+    )
 
     return (
-        <div className={classnames(css.list, ...modsCssModules, parentClass)}>
+        <div className={classNames}>
             {
                 messageList.map((msg) => (<div key={msg} className={css.item}>{msg}</div>))
             }
