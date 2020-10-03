@@ -10,11 +10,7 @@ enum EType {
     text = 'text',
 }
 
-interface IProps extends ITextField.InputProps {
-
-}
-
-const InputPassword = (props: IProps) => {
+const InputPassword = (props: ITextField.InputProps) => {
     const {
         onReset,
         label

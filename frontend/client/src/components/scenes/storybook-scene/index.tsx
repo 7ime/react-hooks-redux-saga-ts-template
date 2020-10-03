@@ -13,6 +13,7 @@ import StorybookScrollbar from './components/storybook-scrollbar'
 import StorybookButtons from './components/storybook-buttons'
 import StorybookFields from './components/storybook-fields'
 import StorybookCheckboxes from './components/storybook-checkboxes'
+import StorybookRadios from './components/storybook-radios'
 
 interface IProps extends IRouting.Props {
 
@@ -37,6 +38,7 @@ const StorybookScene = (props: IProps) => {
                     <Route path={Routes.storybook.buttons()} exact component={StorybookButtons} />
                     <Route path={Routes.storybook.fields()} exact component={StorybookFields} />
                     <Route path={Routes.storybook.checkboxes()} exact component={StorybookCheckboxes} />
+                    <Route path={Routes.storybook.radios()} exact component={StorybookRadios} />
                     <Redirect from='*' to={Routes.storybook.variables()}/>
                 </Switch>
             </div>

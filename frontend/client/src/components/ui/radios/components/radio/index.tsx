@@ -1,4 +1,11 @@
 import * as React from 'react'
+import {IRadio} from '../../model'
+
+const Radio = (props: IRadio.ButtonProps) => {
+    return null
+}
+
+export default React.memo(Radio)
 // import {EBemClassNames} from '../../../../../bem/bem-class-names'
 // import BemShaper from '../../../../../bem/bem-shaper'
 // import {v4 as uuid} from 'uuid'

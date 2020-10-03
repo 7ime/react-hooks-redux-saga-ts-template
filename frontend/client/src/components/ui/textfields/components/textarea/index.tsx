@@ -5,11 +5,7 @@ import css from '../../styles/textfield.module.scss'
 import {useTextField} from '../../hooks/use-textfield'
 import MessageValidationContainer from '../../../message-validation-container'
 
-interface IProps extends ITextField.TextareaProps {
-
-}
-
-const Textarea = (props: IProps) => {
+const Textarea = (props: ITextField.TextareaProps) => {
     const {
         label,
         rows = 5

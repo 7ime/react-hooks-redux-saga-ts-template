@@ -1,4 +1,11 @@
 import * as React from 'react'
+import {IRadio} from '../../model'
+
+const RadioGroup = (props: IRadio.GroupProps) => {
+    return null
+}
+
+export default React.memo(RadioGroup)
 // import {IRadio} from '../../model'
 // import BemShaper from '../../../../../bem/bem-shaper'
 // import {EBemClassNames} from '../../../../../bem/bem-class-names'

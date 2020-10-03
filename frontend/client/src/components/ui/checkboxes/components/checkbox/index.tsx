@@ -5,11 +5,7 @@ import {ICheckbox} from '../../model'
 import css from '../../styles/checkbox.module.scss'
 import MessageValidationContainer from '../../../message-validation-container'
 
-interface IProps extends ICheckbox.Props {
-
-}
-
-const Checkbox = (props: IProps) => {
+const Checkbox = (props: ICheckbox.Props) => {
     const {
         value: checkboxValue = false,
         type = '',

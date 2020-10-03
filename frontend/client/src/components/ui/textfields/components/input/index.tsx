@@ -5,11 +5,7 @@ import css from '../../styles/textfield.module.scss'
 import {useTextField} from '../../hooks/use-textfield'
 import MessageValidationContainer from '../../../message-validation-container'
 
-interface IProps extends ITextField.InputProps {
-
-}
-
-const Input = (props: IProps) => {
+const Input = (props: ITextField.InputProps) => {
     const {
         onReset,
         label
