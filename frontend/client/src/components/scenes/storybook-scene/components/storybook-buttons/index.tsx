@@ -20,19 +20,19 @@ const StorybookButtons = (props: IProps) => {
                 </div>
 
                 <div className={css.item}>
-                    <Button mods={['primary']}>Primary</Button>
+                    <Button type={'primary'}>Primary</Button>
                 </div>
 
                 <div className={css.item}>
-                    <ButtonLink mods={['secondary']}>Secondary (Link)</ButtonLink>
+                    <ButtonLink type={'secondary'}>Secondary (Link)</ButtonLink>
                 </div>
 
                 <div className={css.item}>
-                    <Button mods={['attention']}>Attention</Button>
+                    <Button type={'attention'}>Attention</Button>
                 </div>
 
                 <div className={css.item}>
-                    <Button mods={['warning']}>Warning</Button>
+                    <Button type={'warning'}>Warning</Button>
                 </div>
             </div>
 
@@ -40,19 +40,19 @@ const StorybookButtons = (props: IProps) => {
 
             <div className={css.list}>
                 <div className={css.item}>
-                    <Button loader loaderPosition={ELoaderPosition.left} mods={['secondary']}>Loader Left</Button>
+                    <Button loader loaderPosition={ELoaderPosition.left} type={'secondary'}>Loader Left</Button>
                 </div>
 
                 <div className={css.item}>
-                    <Button loader mods={['secondary']}>Loader Middle</Button>
+                    <Button loader type={'secondary'}>Loader Middle</Button>
                 </div>
 
                 <div className={css.item}>
-                    <ButtonLink loader loaderPosition={ELoaderPosition.right} mods={['primary']}>Loader Right (Link)</ButtonLink>
+                    <ButtonLink loader loaderPosition={ELoaderPosition.right} type={'primary'}>Loader Right (Link)</ButtonLink>
                 </div>
 
                 <div className={css.item}>
-                    <Button loader mods={['primary']} disabled>Loader Disabled</Button>
+                    <Button loader type={'primary'} disabled>Loader Disabled</Button>
                 </div>
             </div>
 
@@ -68,7 +68,7 @@ const StorybookButtons = (props: IProps) => {
 
             <div className={css.list}>
                 <div className={css.item}>
-                    <Button mods={['round', 'primary']}>Round</Button>
+                    <Button type={'primary'} shape={'round'}>Round</Button>
                 </div>
             </div>
         </div>

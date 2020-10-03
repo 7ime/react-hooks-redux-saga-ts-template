@@ -4,12 +4,11 @@ import {ELoaderPosition} from '../../../../constants/shared'
 namespace IButton {
     export type LoaderPosition = ELoaderPosition
     export type Target = '_blank' | '_self' | '_parent' | '_top'
-    export type ButtonType = 'button' | 'submit'
-
-    export type Mods = 'primary' | 'secondary' | 'warning' | 'round' | 'attention'
+    export type HTMLType = 'button' | 'submit' | 'reset'
 
     interface BaseProps {
-        mods?: Mods[]
+        type?: 'primary' | 'secondary' | 'warning' | 'attention'
+        shape?: 'round'
         loader?: boolean
         loaderPosition?: LoaderPosition
         disabled?: boolean
@@ -24,7 +23,7 @@ namespace IButton {
     }
 
     export interface ButtonProps extends BaseProps {
-        type?: ButtonType
+        htmlType?: HTMLType
     }
 
     export interface ButtonLinkProps extends BaseProps {

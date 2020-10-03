@@ -24,4 +24,4 @@ const Loader = (props: ILoader.Props) => {
     )
 }
 
-export default Loader
+export default React.memo(Loader)

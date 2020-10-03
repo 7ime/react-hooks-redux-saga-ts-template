@@ -3,7 +3,6 @@ import classnames from 'classnames'
 import IButton from '../../model'
 import Loader from '../../../loaders/components/loader'
 import {ELoaderPosition} from '../../../../../constants/shared'
-import CSSModules from '../../../../../toolbox/css-modules'
 import css from '../../styles/button.module.scss'
 
 const ButtonLink = (props: IButton.ButtonLinkProps) => {
@@ -11,17 +10,17 @@ const ButtonLink = (props: IButton.ButtonLinkProps) => {
         href = '#',
         loader,
         loaderPosition = ELoaderPosition.center,
-        mods = [],
+        type = '',
+        shape = '',
         disabled,
         children,
         ...restProps
     } = props
 
-    const modsCssModules = CSSModules.extractClassNamesForArray(mods, css)
-
     const classNames = classnames(
         css.button,
-        ...modsCssModules,
+        {[css[type]]: type},
+        {[css[shape]]: shape},
         {[css.is_disabled]: disabled},
         {[css.loader]: loader},
         {[css[`loader_${loaderPosition}`]]: loader},
@@ -35,4 +34,4 @@ const ButtonLink = (props: IButton.ButtonLinkProps) => {
     )
 }
 
-export default ButtonLink
+export default React.memo(ButtonLink)

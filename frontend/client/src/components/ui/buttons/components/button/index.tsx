@@ -3,35 +3,35 @@ import classnames from 'classnames'
 import IButton from '../../model'
 import Loader from '../../../loaders/components/loader'
 import {ELoaderPosition} from '../../../../../constants/shared'
-import CSSModules from '../../../../../toolbox/css-modules'
 import css from '../../styles/button.module.scss'
 
 const Button = (props: IButton.ButtonProps) => {
     const {
         loader,
         loaderPosition = ELoaderPosition.center,
-        mods = [],
+        type = '',
+        shape = '',
+        htmlType = 'button',
         disabled,
         children,
         ...restProps
     } = props
 
-    const modsCssModules = CSSModules.extractClassNamesForArray(mods, css)
-
     const classNames = classnames(
         css.button,
-        ...modsCssModules,
+        {[css[type]]: type},
+        {[css[shape]]: shape},
         {[css.is_disabled]: disabled},
         {[css.loader]: loader},
         {[css[`loader_${loaderPosition}`]]: loader},
     )
 
     return (
-        <button className={classNames} {...restProps}>
+        <button className={classNames} {...restProps} type={htmlType}>
             {children}
             {loader && <div className={css.loaderComponent}><Loader/></div>}
         </button>
     )
 }
 
-export default Button
+export default React.memo(Button)
