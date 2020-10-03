@@ -4,7 +4,6 @@ import {v4 as uuid} from 'uuid'
 import {ICheckbox} from '../../model'
 import css from '../../styles/checkbox.module.scss'
 import MessageValidationContainer from '../../../message-validation-container'
-import CSSModules from '../../../../../toolbox/css-modules'
 
 interface IProps extends ICheckbox.Props {
 
@@ -13,7 +12,7 @@ interface IProps extends ICheckbox.Props {
 const Checkbox = (props: IProps) => {
     const {
         value: checkboxValue = false,
-        mods = [],
+        type = '',
         disabled = false,
         error = [false, null],
         success = [false, null],
@@ -35,11 +34,9 @@ const Checkbox = (props: IProps) => {
         onChange(event)
     }, [])
 
-    const modsCssModules = CSSModules.extractClassNamesForArray(mods, css)
-
     const classNames = classnames(
         css.checkbox,
-        modsCssModules,
+        {[css[type]]: type},
         {[css.is_checked]: value},
         {[css.is_disabled]: disabled},
         {[css.is_error]: isError},

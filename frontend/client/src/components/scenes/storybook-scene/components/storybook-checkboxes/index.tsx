@@ -2,7 +2,6 @@ import * as React from 'react'
 import css from './index.module.scss'
 import cssCommon from '../../styles/common.module.scss'
 import Checkbox from '../../../../ui/checkboxes/components/checkbox'
-import {useMemoizedProp} from '../../../../hook-helpers/use-memoized-prop'
 
 interface IProps {
 
@@ -47,14 +46,14 @@ const StorybookCheckboxes = (props: IProps) => {
                 <div className={css.item}>
                     <div className={css.itemTitle}>Primary:</div>
                     <Checkbox value={defaultValue}
-                              mods={useMemoizedProp(['primary'])}
+                              type={'primary'}
                               onChange={handleChangeDefaultValue}>You agree to the privacy policy</Checkbox>
                 </div>
 
                 <div className={css.item}>
                     <div className={css.itemTitle}>Secondary:</div>
                     <Checkbox value={defaultValue}
-                              mods={useMemoizedProp(['secondary'])}
+                              type={'secondary'}
                               onChange={handleChangeDefaultValue}>You agree to the privacy policy</Checkbox>
                 </div>
 
