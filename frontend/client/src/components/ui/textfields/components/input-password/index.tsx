@@ -15,7 +15,7 @@ interface IProps extends ITextField.InputProps {
 
 const InputPassword = (props: IProps) => {
     const {
-        clearValue,
+        onReset,
         label
     } = props
 
@@ -42,8 +42,8 @@ const InputPassword = (props: IProps) => {
         setType(newType)
     }, [type])
 
-    const handleClearValue = React.useCallback(() => {
-        clearValue && clearValue()
+    const handleReset = React.useCallback(() => {
+        onReset && onReset()
     }, [])
 
     const classNamesForTriggerPassword = classnames(
@@ -67,10 +67,10 @@ const InputPassword = (props: IProps) => {
                        tabIndex={-1}
                        type={type}/>
                 {
-                    isFocused && clearValue && (
+                    isFocused && onReset && (
                         <div className={css.triggers}>
                             <div className={classNamesForTriggerPassword} onMouseDown={handlerChangeType}/>
-                            <div className={classnames(css.trigger, css.triggerClear)} onMouseDown={handleClearValue}/>
+                            <div className={classnames(css.trigger, css.triggerClear)} onMouseDown={handleReset}/>
                         </div>
                     )
                 }

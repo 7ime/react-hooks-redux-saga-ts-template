@@ -60,7 +60,7 @@ const StorybookFields = (props: IProps) => {
                 <div className={css.item}>
                     <Input label={'Default'}
                            value={defaultValue}
-                           clearValue={() => {setDefaultValue('')}}
+                           onReset={() => {setDefaultValue('')}}
                            onChange={handleChangeDefaultValue}/>
                 </div>
 
@@ -88,7 +88,7 @@ const StorybookFields = (props: IProps) => {
                 <div className={css.item}>
                     <Input label={'Autofocus'}
                            value={autofocusValue}
-                           clearValue={() => {setAutofocusValue('')}}
+                           onReset={() => {setAutofocusValue('')}}
                            onChange={handleChangeAutofocusValue}
                            autofocus/>
                 </div>
@@ -96,7 +96,7 @@ const StorybookFields = (props: IProps) => {
                 <div className={css.item}>
                     <InputPassword label={'Password'}
                            value={passwordValue}
-                           clearValue={() => {setPasswordValue('')}}
+                           onReset={() => {setPasswordValue('')}}
                            onChange={handlePasswordValue}/>
                 </div>
             </div>

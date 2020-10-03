@@ -16,6 +16,6 @@ export namespace ITextField {
     }
 
     export interface InputProps extends BaseProps {
-        clearValue?(): unknown
+        onReset?(): unknown
     }
 }

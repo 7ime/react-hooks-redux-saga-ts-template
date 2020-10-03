@@ -10,7 +10,7 @@ interface IProps extends ITextField.InputProps {
 
 const Input = (props: IProps) => {
     const {
-        clearValue,
+        onReset,
         label
     } = props
 
@@ -29,8 +29,8 @@ const Input = (props: IProps) => {
         classNames
     } = useTextField<HTMLInputElement>(props)
 
-    const handleClearValue = React.useCallback(() => {
-        clearValue && clearValue()
+    const handleReset = React.useCallback(() => {
+        onReset && onReset()
     }, [])
 
     return (
@@ -48,9 +48,9 @@ const Input = (props: IProps) => {
                        tabIndex={-1}
                        type={'text'}/>
                 {
-                    isFocused && clearValue && (
+                    isFocused && onReset && (
                         <div className={css.triggers}>
-                            <div className={classnames(css.trigger, css.triggerClear)} onMouseDown={handleClearValue}/>
+                            <div className={classnames(css.trigger, css.triggerClear)} onMouseDown={handleReset}/>
                         </div>
                     )
                 }
