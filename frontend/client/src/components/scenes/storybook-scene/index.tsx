@@ -17,20 +17,7 @@ interface IProps extends IRouting.Props {
 
 }
 
-const getSubTitle = (url: string) => {
-    switch (url) {
-        case Routes.storybook.root(): return ''
-        case Routes.storybook.variables(): return 'variables'
-        case Routes.storybook.buttons(): return 'buttons'
-        case Routes.storybook.loaders(): return 'loaders'
-        case Routes.storybook.typography(): return 'typography'
-        case Routes.storybook.scrollbar(): return 'scrollbar'
-        case Routes.storybook.fields(): return 'fields'
-    }
-}
-
 const StorybookScene = (props: IProps) => {
-    const subTitle = getSubTitle(props.location.pathname)
 
     return (
         <React.Fragment>
@@ -38,10 +25,10 @@ const StorybookScene = (props: IProps) => {
                 <title>Storybook</title>
             </Helmet>
             <div className={'container'}>
-                <div className={css.title}>Storybook <span>{subTitle ? '- ' + subTitle : ''}</span></div>
-
+                <div className={css.title}>Storybook</div>
+                <Storybook/>
+                <br/>
                 <Switch>
-                    <Route path={Routes.storybook.root()} exact component={Storybook} />
                     <Route path={Routes.storybook.variables()} exact component={StorybookVariables} />
                     <Route path={Routes.storybook.typography()} exact component={StorybookTypography} />
                     <Route path={Routes.storybook.loaders()} exact component={StorybookLoaders} />

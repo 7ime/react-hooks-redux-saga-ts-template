@@ -7,7 +7,7 @@
     grid-auto-rows: 10rem;
     grid-gap: 10px;
 
-    .item {
+    .link {
         cursor: pointer;
         user-select: none;
         background-color: $blue_light_20;
@@ -15,5 +15,10 @@
         justify-content: center;
         align-items: center;
         border-radius: $bdrs;
+        color: $text_c;
+
+        &.is_active {
+            box-shadow: 0 0 0 2px $blue;
+        }
     }
 }
