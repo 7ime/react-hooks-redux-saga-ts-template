@@ -46,6 +46,23 @@ const StorybookRadios = (props: IProps) => {
                     </RadioGroup>
                 </div>
 
+                <div className={css.item}>
+                    <div className={css.itemTitle}>Disabled one radio button:</div>
+
+                    <RadioGroup value={primaryValue} onChange={handleChangePrimaryValue} name={'gender'}>
+                        <Radio value={'male'} disabled type={'primary'}>Male</Radio>
+                        <Radio value={'female'} type={'primary'}>Divided by</Radio>
+                    </RadioGroup>
+                </div>
+
+                <div className={css.item}>
+                    <div className={css.itemTitle}>Disabled radio group:</div>
+
+                    <RadioGroup value={primaryValue} disabled onChange={handleChangePrimaryValue} name={'gender'}>
+                        <Radio value={'male'} type={'primary'}>Male</Radio>
+                        <Radio value={'female'} type={'primary'}>Divided by</Radio>
+                    </RadioGroup>
+                </div>
 
                 <div className={css.item}>
                     <div className={css.itemTitle}>Error:</div>
