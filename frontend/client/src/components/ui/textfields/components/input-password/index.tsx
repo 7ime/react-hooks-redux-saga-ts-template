@@ -49,8 +49,8 @@ const InputPassword = (props: IProps) => {
 
     const classNamesForTriggerPassword = classnames(
         css.trigger,
-        {[css.triggerEye]: type === EType.password},
-        {[css.triggerEyeOff]: type === EType.text},
+        {[css.triggerEye]: type === EType.text},
+        {[css.triggerEyeOff]: type === EType.password},
     )
 
     return (
