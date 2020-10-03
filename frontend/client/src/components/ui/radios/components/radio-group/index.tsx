@@ -32,11 +32,11 @@ const RadioGroup = (props: IRadio.GroupProps) => {
 
                     return React.cloneElement<IRadio.ButtonProps>(child, {
                         onChange: handleChange,
+                        name,
                         checked: child.props.checked || checked,
                         disabled: child.props.disabled || disabled,
-                        name,
-                        error,
-                        success
+                        error: child.props.error || error,
+                        success: child.props.success || success
                     })
                 })
             }
