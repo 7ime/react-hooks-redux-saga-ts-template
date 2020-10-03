@@ -45,6 +45,35 @@ const StorybookRadios = (props: IProps) => {
                         <Radio value={'female'} type={'primary'}>Divided by</Radio>
                     </RadioGroup>
                 </div>
+
+
+                <div className={css.item}>
+                    <div className={css.itemTitle}>Error:</div>
+
+                    <RadioGroup value={defaultValue}
+                                onChange={handleChangeDefaultValue}
+                                name={'error'}
+                                error={[true, ['test error message']]}>
+                        <Radio value={'+'}>Plus</Radio>
+                        <Radio value={'/'}>Divided by</Radio>
+                        <Radio value={'*'}>Times</Radio>
+                        <Radio value={'-'}>Minus</Radio>
+                    </RadioGroup>
+                </div>
+
+                <div className={css.item}>
+                    <div className={css.itemTitle}>Success:</div>
+
+                    <RadioGroup value={defaultValue}
+                                onChange={handleChangeDefaultValue}
+                                name={'success'}
+                                success={[true, ['test success message']]}>
+                        <Radio value={'+'}>Plus</Radio>
+                        <Radio value={'/'}>Divided by</Radio>
+                        <Radio value={'*'}>Times</Radio>
+                        <Radio value={'-'}>Minus</Radio>
+                    </RadioGroup>
+                </div>
             </div>
         </div>
     )

@@ -1,8 +1,41 @@
 import * as React from 'react'
 import {IRadio} from '../../model'
+import css from '../../styles/radio-group.module.scss'
+import MessageValidationContainer from '../../../message-validation-container'
 
 const RadioGroup = (props: IRadio.GroupProps) => {
-    return null
+    const {
+        value,
+        name,
+        children,
+        error = [false, null],
+        success = [false, null],
+        onChange
+    } = props
+
+    const [isError, errorMessage] = error
+    const [isSuccess, successMessage] = success
+
+    const handleChange = React.useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+        onChange(event)
+    }, [])
+
+    return (
+        <div className={css.radioGroup}>
+
+
+            {isSuccess && successMessage && (
+                <MessageValidationContainer parentClass={css.messageContainer}
+                                            type={'success'}
+                                            messageList={successMessage}/>
+            )}
+            {isError && errorMessage && (
+                <MessageValidationContainer parentClass={css.messageContainer}
+                                            type={'error'}
+                                            messageList={errorMessage}/>
+            )}
+        </div>
+    )
 }
 
 export default React.memo(RadioGroup)
