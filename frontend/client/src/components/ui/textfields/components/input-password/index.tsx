@@ -3,7 +3,7 @@ import classnames from 'classnames'
 import {ITextField} from '../../model'
 import css from '../../styles/textfield.module.scss'
 import {useTextField} from '../../hooks/use-textfield'
-import MessageValidationContainer from '../../../../common/message-validation-container'
+import MessageValidationContainer from '../../../message-validation-container'
 
 enum EType {
     password = 'password',
