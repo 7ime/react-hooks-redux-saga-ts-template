@@ -20,7 +20,7 @@ const RadioGroup = (props: IRadio.GroupProps) => {
 
     const handleChange = React.useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
         onChange(event)
-    }, [])
+    }, [onChange])
 
     return (
         <div className={css.radioGroup}>
