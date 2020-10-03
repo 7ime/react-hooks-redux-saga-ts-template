@@ -9,7 +9,7 @@ interface IProps {
 }
 
 const StorybookCheckboxes = (props: IProps) => {
-    const [defaultValue, setDefaultValue] = React.useState(false)
+    const [defaultValue, setDefaultValue] = React.useState(true)
 
     const handleChangeDefaultValue = React.useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
         setDefaultValue(event.target.checked)
