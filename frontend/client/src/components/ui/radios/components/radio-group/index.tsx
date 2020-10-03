@@ -8,6 +8,7 @@ const RadioGroup = (props: IRadio.GroupProps) => {
         value,
         name,
         children,
+        disabled,
         error = [false, null],
         success = [false, null],
         onChange
@@ -20,9 +21,11 @@ const RadioGroup = (props: IRadio.GroupProps) => {
         onChange(event)
     }, [])
 
+    console.log(children)
+
     return (
         <div className={css.radioGroup}>
-
+            {children}
 
             {isSuccess && successMessage && (
                 <MessageValidationContainer parentClass={css.messageContainer}

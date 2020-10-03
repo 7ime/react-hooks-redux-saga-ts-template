@@ -2,6 +2,7 @@ import * as React from 'react'
 import {IRadio} from '../../model'
 
 const Radio = (props: IRadio.ButtonProps) => {
+    console.log(props.children)
     return null
 }
 

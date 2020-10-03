@@ -39,41 +39,41 @@ const StorybookCheckboxes = (props: IProps) => {
             <div className={css.list}>
                 <div className={css.item}>
                     <div className={css.itemTitle}>Default:</div>
-                    <Checkbox value={defaultValue}
+                    <Checkbox checked={defaultValue}
                               onChange={handleChangeDefaultValue}>You agree to the privacy policy</Checkbox>
                 </div>
 
                 <div className={css.item}>
                     <div className={css.itemTitle}>Primary:</div>
-                    <Checkbox value={defaultValue}
+                    <Checkbox checked={defaultValue}
                               type={'primary'}
                               onChange={handleChangeDefaultValue}>You agree to the privacy policy</Checkbox>
                 </div>
 
                 <div className={css.item}>
                     <div className={css.itemTitle}>Secondary:</div>
-                    <Checkbox value={defaultValue}
+                    <Checkbox checked={defaultValue}
                               type={'secondary'}
                               onChange={handleChangeDefaultValue}>You agree to the privacy policy</Checkbox>
                 </div>
 
                 <div className={css.item}>
                     <div className={css.itemTitle}>Disabled:</div>
-                    <Checkbox value={disabledValue}
+                    <Checkbox checked={disabledValue}
                               disabled
                               onChange={handleChangeDisabledValue}>You agree to the privacy policy</Checkbox>
                 </div>
 
                 <div className={css.item}>
                     <div className={css.itemTitle}>Error:</div>
-                    <Checkbox value={errorValue}
+                    <Checkbox checked={errorValue}
                               error={React.useMemo(() => [true, ['test error message']], [])}
                               onChange={handleChangeErrorValue}>You agree to the privacy policy</Checkbox>
                 </div>
 
                 <div className={css.item}>
                     <div className={css.itemTitle}>Success:</div>
-                    <Checkbox value={successValue}
+                    <Checkbox checked={successValue}
                               success={React.useMemo(() => [true, ['test success message']], [])}
                               onChange={handleChangeSuccessValue}>You agree to the privacy policy</Checkbox>
                 </div>

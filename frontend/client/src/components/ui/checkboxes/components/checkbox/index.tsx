@@ -7,7 +7,7 @@ import MessageValidationContainer from '../../../message-validation-container'
 
 const Checkbox = (props: ICheckbox.Props) => {
     const {
-        value: checkboxValue = false,
+        checked: externalChecked = false,
         type = '',
         disabled = false,
         error = [false, null],
@@ -19,12 +19,12 @@ const Checkbox = (props: ICheckbox.Props) => {
     const [isError, errorMessage] = error
     const [isSuccess, successMessage] = success
 
-    const [value, setValue] = React.useState(checkboxValue)
+    const [checked, setChecked] = React.useState(externalChecked)
     const [uuidCheckbox, setUuidCheckbox] = React.useState(uuid())
 
     React.useEffect(() => {
-        setValue(checkboxValue)
-    }, [checkboxValue])
+        setChecked(externalChecked)
+    }, [externalChecked])
 
     const handleChange = React.useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
         onChange(event)
@@ -33,7 +33,7 @@ const Checkbox = (props: ICheckbox.Props) => {
     const classNames = classnames(
         css.checkbox,
         {[css[type]]: type},
-        {[css.is_checked]: value},
+        {[css.is_checked]: checked},
         {[css.is_disabled]: disabled},
         {[css.is_error]: isError},
         {[css.is_success]: isSuccess},
@@ -45,7 +45,7 @@ const Checkbox = (props: ICheckbox.Props) => {
                 <input type='checkbox'
                     onChange={handleChange}
                     className={css.control}
-                    checked={value}
+                    checked={checked}
                     id={uuidCheckbox}
                 />
                 <div className={css.pseudoControl}/>

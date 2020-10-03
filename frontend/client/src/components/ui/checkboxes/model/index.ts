@@ -3,7 +3,7 @@ import {IFieldValidationStatus} from '../../../../models/field-validation-status
 
 export namespace ICheckbox{
     export interface Props extends IFieldValidationStatus {
-        value: boolean
+        checked: boolean
         children: React.ReactChild | React.ReactNode
 
         type?: 'primary' | 'secondary'
