@@ -3,7 +3,6 @@ import {IFieldValidationStatus} from '../../../../models/field-validation-status
 
 export namespace IRadio {
     interface BaseProps extends IFieldValidationStatus{
-        children: React.ReactChild | React.ReactNode
         disabled?: boolean
     }
 
@@ -13,6 +12,7 @@ export namespace IRadio {
         checked?: boolean
         name?: string
 
+        children: React.ReactChild | React.ReactNode
         onChange?(event: React.ChangeEvent<HTMLInputElement>): unknown
     }
 
@@ -20,6 +20,7 @@ export namespace IRadio {
         value: string | null
         name: string
 
+        children: React.FunctionComponentElement<ButtonProps>[]
         onChange(event: React.ChangeEvent<HTMLInputElement>): unknown
     }
 }
