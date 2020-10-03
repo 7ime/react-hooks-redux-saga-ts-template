@@ -19,10 +19,10 @@ const Header = (props: IProps) => {
                              activeClassName={css.is_active}
                              className={css.link}
                     >Home Page</NavLink>
-                    <NavLink to={Routes.hooks.root()}
+                    <NavLink to={Routes.restApi.root()}
                              activeClassName={css.is_active}
                              className={css.link}
-                    >Hooks Page</NavLink>
+                    >Rest Api</NavLink>
                     <NavLink to={Routes.storybook.root()}
                              activeClassName={css.is_active}
                              className={css.link}

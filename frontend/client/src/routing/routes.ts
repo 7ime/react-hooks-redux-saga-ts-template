@@ -3,8 +3,8 @@ export default class Routes {
         static root = () => '/'
     }
 
-    static hooks = class {
-        static root = () => '/hooks'
+    static restApi = class {
+        static root = () => '/rest-api'
     }
 
     static storybook = class {

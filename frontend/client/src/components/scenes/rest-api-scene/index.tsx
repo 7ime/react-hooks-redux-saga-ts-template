@@ -2,23 +2,23 @@ import * as React from 'react'
 import {Helmet} from 'react-helmet'
 import {IRouting} from '../../../routing/model'
 import css from 'index.module.scss'
-import Hooks from './components/hooks'
+import RestApi from './components/rest-api'
 
 interface IProps extends IRouting.Props {
 
 }
 
-const HooksScene = (props: IProps) => {
+const RestApiScene = (props: IProps) => {
     return (
         <React.Fragment>
             <Helmet>
-                <title>Hooks Page</title>
+                <title>Rest Api</title>
             </Helmet>
             <div className={'container'}>
-                <Hooks/>
+                <RestApi/>
             </div>
         </React.Fragment>
     )
 }
 
-export default HooksScene
+export default RestApiScene

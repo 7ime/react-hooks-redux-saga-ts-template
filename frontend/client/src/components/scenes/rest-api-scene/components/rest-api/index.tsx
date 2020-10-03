@@ -4,23 +4,24 @@ import css from './index.module.scss'
 import {JsonPlaceholderAction, JsonPlaceholderSelector} from '../../../../../store/jsonplaceholder'
 import {IJsonPlaceholder} from '../../../../../entities/jsonplaceholder'
 import {Maybe} from '../../../../../toolbox/custom-types'
-import {useGetPosts} from '../../hooks/use-get-posts'
 import ServiceContext from '../../../../context/service-context'
 
 interface IProps {
 
 }
 
-const Hooks = (props: IProps) => {
+const RestApi = (props: IProps) => {
     const dispatch = useDispatch()
-    const countOfPosts: Maybe<number> = useSelector(JsonPlaceholderSelector.getTotalCountOfPosts)
     const {jsonPlaceholderService} = React.useContext(ServiceContext)
+
+    const countOfPosts: Maybe<number> = useSelector(JsonPlaceholderSelector.getTotalCountOfPosts)
     const posts: Maybe<IJsonPlaceholder.Model[]> = useSelector(JsonPlaceholderSelector.makeGetCertainNumberOfPosts(10))
 
-    useGetPosts()
 
     React.useEffect(() => {
         dispatch(JsonPlaceholderAction.getPost(1))
+        dispatch(JsonPlaceholderAction.getPosts())
+
         jsonPlaceholderService.deletePost(1)
 
         return () => {
@@ -34,7 +35,7 @@ const Hooks = (props: IProps) => {
                 countOfPosts !== null ? <h4>Count of posts: {countOfPosts}</h4> : null
             }
             {
-                posts ? (
+                posts && (
                     <div className={css.list}>
                         {
                             posts.map(({id, title, body}, index) => {
@@ -47,10 +48,10 @@ const Hooks = (props: IProps) => {
                             })
                         }
                     </div>
-                ) : null
+                )
             }
         </div>
     )
 }
 
-export default Hooks
+export default RestApi
