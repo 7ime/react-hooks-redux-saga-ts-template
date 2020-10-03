@@ -1,8 +1,7 @@
 namespace ILoader {
-    export type Mods = 'primary' | 'secondary' | 'small' | 'large'
-
     export interface Props {
-        mods?: Mods[]
+        type?: 'primary' | 'secondary'
+        size?: 'small' | 'large'
     }
 }
 

@@ -20,12 +20,12 @@ const StorybookLoaders = (props: IProps) => {
 
                 <div className={css.item}>
                     <div className={css.itemTitle}>Primary</div>
-                    <Loader mods={['primary']}/>
+                    <Loader type={'primary'}/>
                 </div>
 
                 <div className={css.item}>
                     <div className={css.itemTitle}>Secondary</div>
-                    <Loader mods={['secondary']}/>
+                    <Loader type={'secondary'}/>
                 </div>
             </div>
 
@@ -34,7 +34,7 @@ const StorybookLoaders = (props: IProps) => {
             <div className={css.list}>
                 <div className={css.item}>
                     <div className={css.itemTitle}>Large</div>
-                    <Loader mods={['large']}/>
+                    <Loader size={'large'}/>
                 </div>
 
                 <div className={css.item}>
@@ -44,7 +44,7 @@ const StorybookLoaders = (props: IProps) => {
 
                 <div className={css.item}>
                     <div className={css.itemTitle}>Small</div>
-                    <Loader mods={['small']}/>
+                    <Loader size={'small'}/>
                 </div>
             </div>
         </div>
