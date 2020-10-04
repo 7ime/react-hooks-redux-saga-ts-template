@@ -41,7 +41,7 @@ const StorybookScene = (props: IProps) => {
                     <Route path={Routes.storybook.checkboxes()} exact component={StorybookCheckboxes} />
                     <Route path={Routes.storybook.radios()} exact component={StorybookRadios} />
                     <Route path={Routes.storybook.ecosystem()} exact component={StorybookEcosystem} />
-                    <Redirect from='*' to={Routes.storybook.variables()}/>
+                    <Redirect from='*' to={Routes.storybook.ecosystem()}/>
                 </Switch>
             </div>
         </React.Fragment>
