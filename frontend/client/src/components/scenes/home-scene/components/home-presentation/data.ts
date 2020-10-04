@@ -60,7 +60,19 @@ export const linksTechnologies = [
         title: 'Lodash'
     },
     {
-        link: 'https://momentjs.com/',
-        title: 'Moment.js'
-    }
+        link: 'https://www.i18next.com/',
+        title: 'i18next'
+    },
+    {
+        link: 'https://github.com/i18next/react-i18next',
+        title: 'react-i18next'
+    },
+    {
+        link: 'https://github.com/i18next/i18next-http-backend',
+        title: 'i18next-http-backend'
+    },
+    {
+        link: 'https://github.com/i18next/i18next-browser-languageDetector',
+        title: 'i18next-browser-languageDetector'
+    },
 ]
