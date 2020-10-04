@@ -17,5 +17,6 @@ export default class Routes {
         static fields = () => '/storybook/fields'
         static radios = () => '/storybook/radios'
         static checkboxes = () => '/storybook/checkboxes'
+        static ecosystem = () => '/storybook/ecosystem'
     }
 }

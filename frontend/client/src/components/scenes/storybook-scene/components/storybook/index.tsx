@@ -9,6 +9,7 @@ interface IProps {
 }
 
 const links = [
+    ['Ecosystem', Routes.storybook.ecosystem()],
     ['Variables', Routes.storybook.variables()],
     ['Typography', Routes.storybook.typography()],
     ['Button', Routes.storybook.buttons()],
