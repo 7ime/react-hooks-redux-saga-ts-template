@@ -9,6 +9,7 @@ describe('testing fn invariant', () => {
 
     it('error', () => {
         const message = 'error message'
+
         expect(() => invariant(false, message)).toThrowError(message)
     })
 })
