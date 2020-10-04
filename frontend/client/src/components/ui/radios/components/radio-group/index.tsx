@@ -1,4 +1,5 @@
 import * as React from 'react'
+import classnames from 'classnames'
 import {IRadio} from '../../model'
 import css from '../../styles/radio-group.module.scss'
 import MessageValidationContainer from '../../../message-validation-container'
@@ -12,7 +13,8 @@ const RadioGroup = (props: IRadio.GroupProps) => {
         disabled,
         error = [false, null],
         success = [false, null],
-        onChange
+        onChange,
+        parentClass
     } = props
 
     const [isError, errorMessage] = error
@@ -23,7 +25,7 @@ const RadioGroup = (props: IRadio.GroupProps) => {
     }, [onChange])
 
     return (
-        <div className={css.radioGroup}>
+        <div className={classnames(css.radioGroup, parentClass)}>
             {
                 React.Children.map(children, (child) => {
                     invariant(React.isValidElement(child), 'child element of the radio group is not valid')

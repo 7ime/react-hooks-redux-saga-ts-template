@@ -14,7 +14,8 @@ const Radio = (props: IRadio.ButtonProps) => {
         value,
         children,
         name,
-        onChange
+        onChange,
+        parentClass
     } = props
 
     const [isError] = error
@@ -38,6 +39,7 @@ const Radio = (props: IRadio.ButtonProps) => {
         {[css.is_disabled]: disabled},
         {[css.is_error]: isError},
         {[css.is_success]: isSuccess},
+        parentClass
     )
 
     return (

@@ -30,10 +30,10 @@ const StorybookRadios = (props: IProps) => {
                     <div className={css.itemTitle}>Default:</div>
 
                     <RadioGroup value={defaultValue} onChange={handleChangeDefaultValue} name={'math'}>
-                        <Radio value={'+'}>Plus</Radio>
-                        <Radio value={'/'}>Divided by</Radio>
-                        <Radio value={'*'}>Times</Radio>
-                        <Radio value={'-'}>Minus</Radio>
+                        <Radio value={'+'} parentClass={css.radio}>Plus</Radio>
+                        <Radio value={'/'} parentClass={css.radio}>Divided by</Radio>
+                        <Radio value={'*'} parentClass={css.radio}>Times</Radio>
+                        <Radio value={'-'} parentClass={css.radio}>Minus</Radio>
                     </RadioGroup>
                 </div>
 

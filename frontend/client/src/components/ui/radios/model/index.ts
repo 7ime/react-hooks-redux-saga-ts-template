@@ -1,8 +1,9 @@
 import * as React from 'react'
 import {IFieldValidationStatus} from '../../../../models/field-validation-status'
+import {IParentClass} from '@models/shared'
 
 export namespace IRadio {
-    interface BaseProps extends IFieldValidationStatus{
+    interface BaseProps extends IFieldValidationStatus, IParentClass {
         disabled?: boolean
     }
 
@@ -13,6 +14,7 @@ export namespace IRadio {
         name?: string
 
         children: React.ReactChild | React.ReactNode
+
         onChange?(event: React.ChangeEvent<HTMLInputElement>): unknown
     }
 
@@ -21,6 +23,7 @@ export namespace IRadio {
         name: string
 
         children: React.FunctionComponentElement<ButtonProps>[]
+
         onChange(event: React.ChangeEvent<HTMLInputElement>): unknown
     }
 }
