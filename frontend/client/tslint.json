@@ -4,6 +4,12 @@
         "tslint-react",
         "tslint-react-hooks"
     ],
+    "linterOptions": {
+        "exclude": [
+            "*.json",
+            "**/*.json"
+        ]
+    },
     "rules": {
         "react-hooks-nesting": "error",
         "quotemark": [

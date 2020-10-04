@@ -1,6 +1,11 @@
-export const I18NEXT_LOCAL_STORAGE_LANG_KEY = 'LANG_KEY'
+export const LOCAL_STORAGE_LANG_KEY = 'LANG_KEY'
 
-export const I18NEXT_DETECTION_OPTIONS = {
+export const DETECTION_OPTIONS = {
     cashes: ['localStorage'],
-    lookupLocalStorage: I18NEXT_LOCAL_STORAGE_LANG_KEY
+    lookupLocalStorage: LOCAL_STORAGE_LANG_KEY
+}
+
+export enum ELocalizationLanguages {
+    RU = 'RU',
+    EN = 'EN'
 }

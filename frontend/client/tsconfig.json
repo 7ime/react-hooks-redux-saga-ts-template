@@ -42,6 +42,7 @@
             "@services/*": ["./src/services/*"],
             "@store/*": ["./src/store/*"],
             "@toolbox/*": ["./src/toolbox/*"],
+            "@locales/*": ["./src/locales/*"],
             "@__tests__/*": ["./src/tests/*"]
         }
     },
