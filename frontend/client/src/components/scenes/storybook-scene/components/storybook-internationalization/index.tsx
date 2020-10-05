@@ -3,7 +3,6 @@ import css from './index.module.scss'
 import cssCommon from '../../styles/common.module.scss'
 import {useTranslation} from 'react-i18next'
 import {ENameSpaces} from '@internationalization/namespaces'
-import {ELocalesStorybookKeys} from '@internationalization/locales-keys/storybook'
 import {ELocalizationLanguages} from '@constants/i18next'
 import Button from '@components/ui/buttons/components/button'
 
@@ -20,11 +19,11 @@ const StorybookInternationalization = (props: IProps) => {
 
     return (
         <div className={cssCommon.content}>
-            <div className={cssCommon.title}>{t(`${ENameSpaces.storybook}:${ELocalesStorybookKeys.title}`)}</div>
+            <div className={cssCommon.title}>{t(`${ENameSpaces.storybook}:title`)}</div>
 
             <div className={css.content}>
-                <h4 className={css.subTitle}>{t(`${ENameSpaces.storybook}:${ELocalesStorybookKeys.content}.subTitle`)}</h4>
-                <div className={css.description}>{t(`${ENameSpaces.storybook}:${ELocalesStorybookKeys.content}.description`)}</div>
+                <h4 className={css.subTitle}>{t(`${ENameSpaces.storybook}:content.subTitle`)}</h4>
+                <div className={css.description}>{t(`${ENameSpaces.storybook}:content.description`)}</div>
             </div>
 
             <div className={css.footer}>
