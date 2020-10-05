@@ -14,6 +14,7 @@ const Button = (props: IButton.ButtonProps) => {
         htmlType = 'button',
         disabled,
         children,
+        parentClass,
         ...restProps
     } = props
 
@@ -24,6 +25,7 @@ const Button = (props: IButton.ButtonProps) => {
         {[css.is_disabled]: disabled},
         {[css.loader]: loader},
         {[css[`loader_${loaderPosition}`]]: loader},
+        parentClass
     )
 
     return (

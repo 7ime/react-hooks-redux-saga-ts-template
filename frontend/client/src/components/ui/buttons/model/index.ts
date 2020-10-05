@@ -1,12 +1,13 @@
 import * as React from 'react'
 import {ELoaderPosition} from '../../../../constants/shared'
+import {IParentClass} from '@models/shared'
 
 namespace IButton {
     export type LoaderPosition = ELoaderPosition
     export type Target = '_blank' | '_self' | '_parent' | '_top'
     export type HTMLType = 'button' | 'submit' | 'reset'
 
-    interface BaseProps {
+    interface BaseProps extends IParentClass {
         type?: 'primary' | 'secondary' | 'warning' | 'attention'
         shape?: 'round'
         loader?: boolean

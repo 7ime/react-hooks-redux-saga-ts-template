@@ -14,6 +14,7 @@ const ButtonLink = (props: IButton.ButtonLinkProps) => {
         shape = '',
         disabled,
         children,
+        parentClass,
         ...restProps
     } = props
 
@@ -24,6 +25,7 @@ const ButtonLink = (props: IButton.ButtonLinkProps) => {
         {[css.is_disabled]: disabled},
         {[css.loader]: loader},
         {[css[`loader_${loaderPosition}`]]: loader},
+        parentClass
     )
 
     return (
