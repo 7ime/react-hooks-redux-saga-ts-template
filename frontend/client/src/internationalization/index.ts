@@ -2,18 +2,7 @@ import i18next from 'i18next'
 import {initReactI18next} from 'react-i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
 import {ELocalizationLanguages, LOCAL_STORAGE_LANG_KEY} from '@constants/i18next'
-
-import translationEN from '@locales/en/translation.json'
-import translationRU from '@locales/ru/translation.json'
-
-const resources = {
-    [ELocalizationLanguages.EN]: {
-        translation: translationEN,
-    },
-    [ELocalizationLanguages.RU]: {
-        translation: translationRU,
-    },
-}
+import {internationalizationResources} from '@internationalization/resources'
 
 i18next
     .use(initReactI18next)
@@ -27,7 +16,7 @@ i18next
         interpolation: {
             escapeValue: false
         },
-        resources
+        resources: internationalizationResources
     })
 
 export default i18next

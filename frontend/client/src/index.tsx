@@ -10,7 +10,7 @@ import getService from './services'
 import ServiceContext from './components/context/service-context'
 import HelmetSet from './components/common/helmet-set'
 import App from './components/app'
-import './i18next'
+import '@internationalization/index'
 
 ReactDOM.render((
     <Provider store={getAppStore()}>
