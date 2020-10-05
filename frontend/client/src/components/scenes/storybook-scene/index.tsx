@@ -15,6 +15,7 @@ import StorybookFields from './components/storybook-fields'
 import StorybookCheckboxes from './components/storybook-checkboxes'
 import StorybookRadios from './components/storybook-radios'
 import StorybookEcosystem from '@components/scenes/storybook-scene/components/storybook-ecosystem'
+import StorybookInternationalization from '@components/scenes/storybook-scene/components/storybook-internationalization'
 
 interface IProps extends IRouting.Props {
 
@@ -41,6 +42,7 @@ const StorybookScene = (props: IProps) => {
                     <Route path={Routes.storybook.checkboxes()} exact component={StorybookCheckboxes} />
                     <Route path={Routes.storybook.radios()} exact component={StorybookRadios} />
                     <Route path={Routes.storybook.ecosystem()} exact component={StorybookEcosystem} />
+                    <Route path={Routes.storybook.internationalization()} exact component={StorybookInternationalization} />
                     <Redirect from='*' to={Routes.storybook.ecosystem()}/>
                 </Switch>
             </div>

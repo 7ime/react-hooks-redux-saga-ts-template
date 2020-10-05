@@ -18,6 +18,7 @@ const links = [
     ['Fields', Routes.storybook.fields()],
     ['Checkboxes', Routes.storybook.checkboxes()],
     ['Radios', Routes.storybook.radios()],
+    ['Internationalization', Routes.storybook.internationalization()],
 ]
 
 const Storybook = (props: IProps) => {
