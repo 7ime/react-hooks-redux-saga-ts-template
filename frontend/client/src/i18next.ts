@@ -15,21 +15,19 @@ const resources = {
     },
 }
 
-const initI18next = () => {
-    i18next
-        .use(initReactI18next)
-        .use(LanguageDetector)
-        .init({
-            detection: {
-                cashes: ['localStorage'],
-                lookupLocalStorage: LOCAL_STORAGE_LANG_KEY
-            },
-            fallbackLng: ELocalizationLanguages.EN,
-            interpolation: {
-                escapeValue: false
-            },
-            resources
-        })
-}
+i18next
+    .use(initReactI18next)
+    .use(LanguageDetector)
+    .init({
+        detection: {
+            cashes: ['localStorage'],
+            lookupLocalStorage: LOCAL_STORAGE_LANG_KEY
+        },
+        fallbackLng: ELocalizationLanguages.EN,
+        interpolation: {
+            escapeValue: false
+        },
+        resources
+    })
 
-export default initI18next
+export default i18next
