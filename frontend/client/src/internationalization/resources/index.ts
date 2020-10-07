@@ -1,10 +1,10 @@
 import {RequiredFields} from '@toolbox/custom-types'
+import {EI18nLanguages, EI18nNameSpaces} from '@constants/internationalization'
 
 import localesWelcomeEN from '@internationalization/locales/en/welcome.json'
 import localesWelcomeRU from '@internationalization/locales/ru/welcome.json'
 import localesStorybookEN from '@internationalization/locales/en/storybook.json'
 import localesStorybookRU from '@internationalization/locales/ru/storybook.json'
-import {EI18nLanguages, EI18nNameSpaces} from '@constants/internationalization'
 
 export type IInternationalizationResources = RequiredFields<EI18nLanguages, RequiredFields<EI18nNameSpaces, Object>>
 
