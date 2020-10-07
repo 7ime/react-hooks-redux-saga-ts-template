@@ -1,5 +1,9 @@
-const path = require('path');
-const customConfig = require('../configs/webpack/dev.config.js')();
+const devConfig = require('../configs/webpack/dev.config.js')();
+const proConfig = require('../configs/webpack/prod.config.js')();
+
+const customConfig = process.env.NODE_ENV === 'production' ? proConfig : devConfig;
+
+const excludeOneOfFromRules = (rules) => rules.filter(rule => !('oneOf' in rule))
 
 module.exports = {
     stories: ['../src/stories/*.stories.@(tsx|ts)'],
@@ -15,7 +19,7 @@ module.exports = {
             ...config,
             module: {
                 ...config.module,
-                rules: customConfig.module.rules
+                rules: excludeOneOfFromRules(customConfig.module.rules)
             },
             resolve: {
                 ...config.resolve,
