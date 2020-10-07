@@ -20,7 +20,7 @@ module.exports = {
             '@store': resolvePath(paths.source + '/store'),
             '@toolbox': resolvePath(paths.source + '/toolbox'),
             '@i18n': resolvePath(paths.source + '/i18n'),
-            '@__tests__': resolvePath(paths.source + '/tests')
+            '@__tests__': resolvePath(paths.source + '/__tests__')
         }
     },
 };
