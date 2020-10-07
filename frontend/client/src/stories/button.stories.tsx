@@ -9,3 +9,7 @@ export default {
 export const Default = () => {
     return <Button>Default</Button>
 }
+
+export const Primary = () => {
+    return <Button type={'primary'}>Primary</Button>
+}
