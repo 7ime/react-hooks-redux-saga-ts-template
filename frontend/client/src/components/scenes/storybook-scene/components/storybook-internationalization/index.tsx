@@ -3,7 +3,7 @@ import css from './index.module.scss'
 import cssCommon from '../../styles/common.module.scss'
 import {useTranslation} from 'react-i18next'
 import Button from '@components/ui/buttons/components/button'
-import {EI18nLanguages, EI18nNameSpaces} from '@constants/internationalization'
+import {EI18nLanguages, EI18nNameSpaces} from '@constants/i18n'
 
 interface IProps {
 

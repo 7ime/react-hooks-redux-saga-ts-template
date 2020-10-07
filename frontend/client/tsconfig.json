@@ -42,7 +42,7 @@
             "@services/*": ["./src/services/*"],
             "@store/*": ["./src/store/*"],
             "@toolbox/*": ["./src/toolbox/*"],
-            "@internationalization/*": ["./src/internationalization/*"],
+            "@i18n/*": ["./src/i18n/*"],
             "@__tests__/*": ["./src/tests/*"]
         }
     },

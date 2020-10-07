@@ -2,7 +2,7 @@ import * as React from 'react'
 import css from './index.module.scss'
 import StorybookEcosystem from '@components/scenes/storybook-scene/components/storybook-ecosystem'
 import {useTranslation} from 'react-i18next'
-import {EI18nNameSpaces} from '@constants/internationalization'
+import {EI18nNameSpaces} from '@constants/i18n'
 
 const HomePresentation = () => {
     const {t} = useTranslation()

@@ -19,7 +19,7 @@ module.exports = {
             '@services': resolvePath(paths.source + '/services'),
             '@store': resolvePath(paths.source + '/store'),
             '@toolbox': resolvePath(paths.source + '/toolbox'),
-            '@internationalization': resolvePath(paths.source + '/internationalization'),
+            '@i18n': resolvePath(paths.source + '/i18n'),
             '@__tests__': resolvePath(paths.source + '/tests')
         }
     },
