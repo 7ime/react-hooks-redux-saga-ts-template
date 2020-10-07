@@ -1,7 +1,7 @@
 import {createSelector} from 'reselect'
 import {IAppState} from '../../app-reducer'
-import {IJsonPlaceholder} from '../../../entities/jsonplaceholder'
-import {Maybe} from '../../../toolbox/custom-types'
+import {IJsonPlaceholder} from '@entities/jsonplaceholder'
+import {Maybe} from '@toolbox/custom-types'
 
 const getState = (state: IAppState) => state.jsonPlaceholder
 

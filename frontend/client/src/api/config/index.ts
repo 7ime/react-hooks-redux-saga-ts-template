@@ -1,4 +1,4 @@
-import {environment} from '../../toolbox/environment'
+import {environment} from '@toolbox/environment'
 
 export const configuration = Object.freeze(
     {

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {IService} from '../../../services/model'
+import {IService} from '@services/model'
 import ServiceContext from '../../context/service-context'
 
 export type IMapServicesToProps = (service: IService) => Partial<IService>

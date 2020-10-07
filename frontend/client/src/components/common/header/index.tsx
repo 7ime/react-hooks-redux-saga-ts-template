@@ -2,8 +2,8 @@ import * as React from 'react'
 import {NavLink, withRouter} from 'react-router-dom'
 
 import css from './index.module.scss'
-import Routes from '../../../routing/routes'
-import {IRouting} from '../../../routing/model'
+import Routes from '@routing/routes'
+import {IRouting} from '@routing/model'
 
 interface IProps extends IRouting.Props {
 

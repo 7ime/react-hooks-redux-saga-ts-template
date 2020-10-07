@@ -2,7 +2,7 @@ import * as React from 'react'
 import css from './index.module.scss'
 import {useHistory} from 'react-router'
 import {NavLink} from 'react-router-dom'
-import Routes from '../../../../../routing/routes'
+import Routes from '@routing/routes'
 
 interface IProps {
 

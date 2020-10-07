@@ -1,4 +1,4 @@
-import {EPosition} from '../../constants/shared'
+import {EPosition} from '@constants/shared'
 import {isNumber} from '../is-number'
 
 export const insertByPosition = (arr: number[], id: number, anchor?: number, position?: EPosition) => {

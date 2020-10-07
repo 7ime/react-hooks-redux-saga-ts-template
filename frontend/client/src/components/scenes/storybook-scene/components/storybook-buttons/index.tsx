@@ -2,7 +2,7 @@ import * as React from 'react'
 import css from './index.module.scss'
 import cssCommon from '../../styles/common.module.scss'
 import Button from '../../../../ui/buttons/components/button'
-import {ELoaderPosition} from '../../../../../constants/shared'
+import {ELoaderPosition} from '@constants/shared'
 import ButtonLink from '../../../../ui/buttons/components/button-link'
 
 interface IProps {

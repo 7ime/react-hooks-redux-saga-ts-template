@@ -1,10 +1,10 @@
 import * as React from 'react'
 import {Redirect, Route, Switch} from 'react-router-dom'
 import Header from '../common/header'
-import {routers} from '../../routing/router'
-import {IRouting} from '../../routing/model'
+import {routers} from '@routing/router'
+import {IRouting} from '@routing/model'
 import css from './index.module.scss'
-import Routes from '../../routing/routes'
+import Routes from '@routing/routes'
 import Loader from '../ui/loaders/components/loader'
 
 const getLoaderElem = () => {

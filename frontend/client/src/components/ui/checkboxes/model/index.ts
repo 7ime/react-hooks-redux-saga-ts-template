@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {IFieldValidationStatus} from '../../../../models/field-validation-status'
+import {IFieldValidationStatus} from '@models/field-validation-status'
 
 export namespace ICheckbox{
     export interface Props extends IFieldValidationStatus {

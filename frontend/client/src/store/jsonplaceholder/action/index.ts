@@ -1,4 +1,4 @@
-import {IJsonPlaceholder} from '../../../entities/jsonplaceholder'
+import {IJsonPlaceholder} from '@entities/jsonplaceholder'
 import {IAction} from '../../model'
 
 export enum EActions {

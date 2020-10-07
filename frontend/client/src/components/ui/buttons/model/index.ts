@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {ELoaderPosition} from '../../../../constants/shared'
+import {ELoaderPosition} from '@constants/shared'
 import {IParentClass} from '@models/shared'
 
 namespace IButton {

@@ -2,8 +2,8 @@ import * as React from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import css from './index.module.scss'
 import {JsonPlaceholderAction, JsonPlaceholderSelector} from '../../../../../store/jsonplaceholder'
-import {IJsonPlaceholder} from '../../../../../entities/jsonplaceholder'
-import {Maybe} from '../../../../../toolbox/custom-types'
+import {IJsonPlaceholder} from '@entities/jsonplaceholder'
+import {Maybe} from '@toolbox/custom-types'
 import ServiceContext from '../../../../context/service-context'
 
 interface IProps {
