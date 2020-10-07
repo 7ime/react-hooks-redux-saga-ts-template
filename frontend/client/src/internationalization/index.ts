@@ -1,7 +1,7 @@
 import i18next from 'i18next'
 import {initReactI18next} from 'react-i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
-import {ELocalizationLanguages, LOCAL_STORAGE_LANG_KEY} from '@constants/i18next'
+import {EI18nLanguages, LOCAL_STORAGE_LANG_KEY} from '@constants/internationalization'
 import {internationalizationResources} from '@internationalization/resources'
 
 i18next
@@ -12,7 +12,7 @@ i18next
             cashes: ['localStorage'],
             lookupLocalStorage: LOCAL_STORAGE_LANG_KEY
         },
-        fallbackLng: ELocalizationLanguages.EN,
+        fallbackLng: EI18nLanguages.EN,
         interpolation: {
             escapeValue: false
         },
