@@ -17,16 +17,16 @@ addParameters({
           height: '1024px',
         },
       },
-      laptopSmall: {
-        name: 'Small Laptop',
+      laptop: {
+        name: 'Laptop',
         styles: {
-          width: '1280px',
-          height: '800px',
+          width: '1366px',
+          height: '768px',
         },
         type: 'desktop',
       },
-      laptopLarge: {
-        name: 'Large Laptop',
+      middleDesktop: {
+        name: 'Middle desktop',
         styles: {
           width: '1440px',
           height: '900px',
