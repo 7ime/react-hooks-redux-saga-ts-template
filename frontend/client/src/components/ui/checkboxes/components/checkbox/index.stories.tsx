@@ -62,22 +62,6 @@ export const Disabled = () => {
     )
 }
 
-export const Error = () => {
-    const [value, setValue] = React.useState(false)
-
-    const handleChange = React.useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-        setValue(event.target.checked)
-    }, [])
-
-    return (
-        <Checkbox checked={value}
-                  type={'secondary'}
-                  error={[true, ['test error message']]}
-                  disabled
-                  onChange={handleChange}>You agree to the privacy policy</Checkbox>
-    )
-}
-
 export const Success = () => {
     const [value, setValue] = React.useState(true)
 
@@ -89,6 +73,22 @@ export const Success = () => {
         <Checkbox checked={value}
                   type={'secondary'}
                   success={[true, ['test success message']]}
+                  disabled
+                  onChange={handleChange}>You agree to the privacy policy</Checkbox>
+    )
+}
+
+export const Error = () => {
+    const [value, setValue] = React.useState(false)
+
+    const handleChange = React.useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+        setValue(event.target.checked)
+    }, [])
+
+    return (
+        <Checkbox checked={value}
+                  type={'secondary'}
+                  error={[true, ['test error message']]}
                   disabled
                   onChange={handleChange}>You agree to the privacy policy</Checkbox>
     )
