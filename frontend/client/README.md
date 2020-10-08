@@ -61,3 +61,92 @@ npm run build-storybook
 * [Css modules](https://github.com/css-modules/css-modules) - To solve the css class namespace problem.
 * [Sass](https://sass-lang.com/) - CSS with superpowers.
 * [Storybook](https://storybook.js.org/) - Storybook is an open source tool for developing UI components in isolation.
+
+### Folder structure
+
+* storybook - setting up storybook
+* configs - configuration files for webpack, jest
+* dist - files of the production version of the app
+* static-storybook - files of the production version of the storybook
+* src - application code
+    * \__test__ - this folder stores auxiliary items for tests (the tests themselves are always written next to the components and functions and have the spec extension)
+    * api
+        * config - configuring for the api
+        * fetcher - implementation for interacting with the server
+        * paths - api paths
+    * components
+        * app - main component
+        * common - common components for the entire application
+        * context - for react contexts
+        * hoc-helpers - higher-order components for the entire app
+        * hook-helpers - reused hooks for the entire app
+        * scenes - analog of pages
+            ```
+                home-scene
+                    * components (for this scene)
+                        * presentation
+                            * index.ts
+                            * index.spec.ts
+                            * index.stories.tsx
+                    * index.tsx
+                    * index.spec.ts
+                    * index.stories.tsx
+                    * index.module.scss
+            ```
+        * ui - ui components (button, textfields etc)
+            ```
+                buttons
+                    * components
+                        * button
+                            * index.tsx
+                            * index.spec.ts
+                            * index.stories.tsx
+                        * buttonLink
+                            * index.tsx
+                            * index.spec.ts
+                            * index.stories.tsx
+                    * model
+                        * index.ts
+                    * styles
+                        * button.module.scss
+            ```
+    * constants - common constant
+    * entities - stores entity models and DTO that mostly come from the server
+    * helpers - clean reused functions
+    * i18n - setup, translations for internationalization
+    * models - various reused interfaces, types
+    * routing
+        * model - this file contains the model for routing
+        * router - this file responsible for connecting root (page) components
+        * routes - this file contains all the application paths
+    * services - services for interacting with the server for entities
+    * shared
+        *  fonts - contains fonts
+        *  images - contains images and icons
+        *  styles - contains global styles and variables
+        *  store - contains reducers, actions, selectors, sagas, states separately for each entity and their tests
+            ```
+                posts
+                    * action
+                        * index.ts
+                        * index.spec.ts
+                    * saga
+                        * index.ts
+                        * index.spec.ts
+                    * reducer
+                        * index.ts
+                        * index.spec.ts
+                    * selector
+                        * index.ts
+                        * index.spec.ts
+                    * state
+                        * index.ts
+            ```
+        * toolbox
+            * custom-types - own type
+            * environment - setting up the environment (prod, dev, test)
+            * injects - this folder contains decorators to embed the functionality
+            * middleware - redux middleware
+            * type-definitions - d.ts files
+            * utils - auxiliary tool
+
