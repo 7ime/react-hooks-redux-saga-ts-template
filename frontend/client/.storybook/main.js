@@ -3,10 +3,8 @@ const proConfig = require('../configs/webpack/prod.config.js')();
 
 const customConfig = process.env.NODE_ENV === 'production' ? proConfig : devConfig;
 
-const excludeOneOfFromRules = (rules) => rules.filter(rule => !('oneOf' in rule))
-
 module.exports = {
-    stories: ['../src/stories/*.stories.@(tsx|ts)'],
+    stories: ['../src/**/*.stories.@(tsx|ts)'],
     addons: [
         '@storybook/addon-docs',
         '@storybook/addon-actions',
@@ -19,7 +17,7 @@ module.exports = {
             ...config,
             module: {
                 ...config.module,
-                rules: excludeOneOfFromRules(customConfig.module.rules)
+                rules: customConfig.module.rules
             },
             resolve: {
                 ...config.resolve,

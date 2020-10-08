@@ -1,4 +1,5 @@
 import * as React from 'react'
+import '@styles/global.scss'
 import Button from '@components/ui/buttons/components/button'
 
 export default {

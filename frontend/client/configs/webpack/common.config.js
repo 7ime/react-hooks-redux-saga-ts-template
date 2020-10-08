@@ -3,7 +3,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 // helpers
 const {resolvePath} = require('./tools/helpers');
-const babelLoaderOptions = require('./tools/babel-loader-options');
 const paths = require('./tools/paths');
 const resolveAlias = require('./tools/resolve-alias');
 
@@ -100,14 +99,7 @@ module.exports = {
                         options: {
                             name: `${paths.fonts}/[name].[hash:8].[ext]`,
                         },
-                    },
-                    {
-                        exclude: [/\.(js|mjs|jsx|ts|tsx)$/, /\.html$/, /\.json$/, /\.(sa|sc|c)ss$/],
-                        loader: 'file-loader',
-                        options: {
-                            name: `${paths.other}/[name].[hash:8].[ext]`,
-                        },
-                    },
+                    }
                 ]
             }
         ]
