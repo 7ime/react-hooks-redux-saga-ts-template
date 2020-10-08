@@ -21,6 +21,22 @@ export const Default = () => {
     )
 }
 
+export const Autofocus = () => {
+    const [value, setValue] = React.useState('')
+
+    const handleChange = React.useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+        setValue(event.target.value)
+    }, [])
+
+    return (
+        <InputPassword label={'Autofocus'}
+                       value={value}
+                       autofocus
+                       onReset={() => {setValue('')}}
+                       onChange={handleChange}/>
+    )
+}
+
 export const WithValue = () => {
     const [value, setValue] = React.useState('test value')
 
@@ -47,22 +63,6 @@ export const Disabled = () => {
         <InputPassword label={'Disabled'}
                value={value}
                disabled
-               onReset={() => {setValue('')}}
-               onChange={handleChange}/>
-    )
-}
-
-export const Autofocus = () => {
-    const [value, setValue] = React.useState('')
-
-    const handleChange = React.useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-        setValue(event.target.value)
-    }, [])
-
-    return (
-        <InputPassword label={'Autofocus'}
-               value={value}
-               autofocus
                onReset={() => {setValue('')}}
                onChange={handleChange}/>
     )
