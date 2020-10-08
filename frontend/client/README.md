@@ -62,6 +62,31 @@ npm run build-storybook
 * [Sass](https://sass-lang.com/) - CSS with superpowers.
 * [Storybook](https://storybook.js.org/) - Storybook is an open source tool for developing UI components in isolation.
 
+### Testing
+##### Test files are created next to files of components, functions, and classes
+
+- For components
+```
+    button
+        * index.tsx
+        * index.spec.ts
+```
+
+- For functions or classes
+```
+    invariant
+        * index.ts
+        * index.spec.ts
+```
+
+### Storybook
+##### Stories files are created next to files of components
+```
+    button
+        * index.tsx
+        * index.stories.tsx
+```
+
 ### Folder structure
 
 * storybook - setting up storybook
@@ -69,7 +94,7 @@ npm run build-storybook
 * dist - files of the production version of the app
 * static-storybook - files of the production version of the storybook
 * src - application code
-    * \__test__ - this folder stores auxiliary items for tests (the tests themselves are always written next to the components and functions and have the spec extension)
+    * \__test__ - this folder stores auxiliary items for tests
     * api
         * config - configuring for the api
         * fetcher - implementation for interacting with the server
@@ -111,7 +136,7 @@ npm run build-storybook
                         * button.module.scss
             ```
     * constants - common constant
-    * entities - stores entity models and DTO that mostly come from the server
+    * entities - stores entity models and DTO that come from the server
     * helpers - clean reused functions
     * i18n - setup, translations for internationalization
     * models - various reused interfaces, types
@@ -124,29 +149,28 @@ npm run build-storybook
         *  fonts - contains fonts
         *  images - contains images and icons
         *  styles - contains global styles and variables
-        *  store - contains reducers, actions, selectors, sagas, states separately for each entity and their tests
-            ```
-                posts
-                    * action
-                        * index.ts
-                        * index.spec.ts
-                    * saga
-                        * index.ts
-                        * index.spec.ts
-                    * reducer
-                        * index.ts
-                        * index.spec.ts
-                    * selector
-                        * index.ts
-                        * index.spec.ts
-                    * state
-                        * index.ts
-            ```
-        * toolbox
-            * custom-types - own type
-            * environment - setting up the environment (prod, dev, test)
-            * injects - this folder contains decorators to embed the functionality
-            * middleware - redux middleware
-            * type-definitions - d.ts files
-            * utils - auxiliary tool
-
+    *  store - contains reducers, actions, selectors, sagas, states separately for each entity and their tests
+        ```
+            posts
+                * action
+                    * index.ts
+                    * index.spec.ts
+                * saga
+                    * index.ts
+                    * index.spec.ts
+                * reducer
+                    * index.ts
+                    * index.spec.ts
+                * selector
+                    * index.ts
+                    * index.spec.ts
+                * state
+                    * index.ts
+        ```
+    * toolbox
+        * custom-types - own type
+        * environment - setting up the environment (prod, dev, test)
+        * injects - this folder contains decorators to embed the functionality
+        * middleware - redux middleware
+        * type-definitions - d.ts files
+        * utils - auxiliary tool
