@@ -22,6 +22,7 @@
     box-shadow: none;
     transition: $transition;
     z-index: 1;
+    min-width: 20rem;
 
     &, &:visited {
         text-decoration: none;
