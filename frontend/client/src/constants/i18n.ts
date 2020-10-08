@@ -6,6 +6,5 @@ export enum EI18nLanguages {
 }
 
 export enum EI18nNameSpaces {
-    welcome = 'welcome',
-    storybook = 'storybook',
+    welcome = 'welcome'
 }

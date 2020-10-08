@@ -23,10 +23,6 @@ const Header = (props: IProps) => {
                              activeClassName={css.is_active}
                              className={css.link}
                     >Rest Api</NavLink>
-                    <NavLink to={Routes.storybook.root()}
-                             activeClassName={css.is_active}
-                             className={css.link}
-                    >Storybook</NavLink>
                 </div>
             </div>
         </div>
