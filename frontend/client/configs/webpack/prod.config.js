@@ -1,27 +1,13 @@
 const merge = require('webpack-merge');
-const TerserPlugin = require('terser-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
-const mode = 'production';
+const commonConfig = require('./common.config');
+const paths = require('./tools/paths');
+const plugins = require('./tools/plugins');
+
+const mode = 'production'
 process.env.NODE_ENV = mode;
 
-// helpers
-const {htmlWebpackPluginHelper} = require('./tools/helpers');
-const commonConfig = require('./common.config');
-
 module.exports = function (webpackEnv, argv) {
-    const configHtmlWebpackPlugin = {
-        minify: {
-            collapseWhitespace: true,
-            removeComments: true,
-            removeRedundantAttributes: true,
-            removeScriptTypeAttributes: true,
-            removeStyleLinkTypeAttributes: true,
-            useShortDoctype: true
-        }
-    }
-
     return merge(commonConfig, {
         bail: true,
         mode,
@@ -30,21 +16,23 @@ module.exports = function (webpackEnv, argv) {
             chunkFilename: '[name].[contenthash:8].bundle.js',
         },
         plugins: [
-            new CleanWebpackPlugin(),
-            ...htmlWebpackPluginHelper(configHtmlWebpackPlugin)
+            plugins.cleanWebpackPlugin(),
+            plugins.htmlWebpackPlugin( {
+                minify: {
+                    collapseWhitespace: true,
+                    removeComments: true,
+                    removeRedundantAttributes: true,
+                    removeScriptTypeAttributes: true,
+                    removeStyleLinkTypeAttributes: true,
+                    useShortDoctype: true
+                }
+            })
         ],
         optimization: {
             minimize: true,
             minimizer: [
-                new TerserPlugin({
-                    sourceMap: true,
-                    cache: true,
-                    parallel: true,
-                    terserOptions: {
-                        ecma: 5
-                    }
-                }),
-                new OptimizeCSSAssetsPlugin()
+                plugins.terserPlugin(),
+                plugins.optimizeCSSAssetsPlugin()
             ],
             splitChunks: {
                 chunks: 'all'

@@ -1,17 +1,14 @@
 const merge = require('webpack-merge');
 
-const mode = 'development';
-process.env.NODE_ENV = mode;
-
-// helpers
-const {htmlWebpackPluginHelper, resolvePath} = require('./tools/helpers');
+const {resolvePath} = require('./tools/helpers');
 const commonConfig = require('./common.config');
 const paths = require('./tools/paths');
+const plugins = require('./tools/plugins');
+
+const mode = 'development'
+process.env.NODE_ENV = mode;
 
 module.exports = function (webpackEnv, argv) {
-    const configHtmlWebpackPlugin = {
-        minify: false
-    }
 
     return merge(commonConfig, {
         mode,
@@ -20,7 +17,9 @@ module.exports = function (webpackEnv, argv) {
             chunkFilename: '[name].bundle.js'
         },
         plugins: [
-            ...htmlWebpackPluginHelper(configHtmlWebpackPlugin)
+            plugins.htmlWebpackPlugin({
+                minify: false
+            })
         ],
         devServer: {
             contentBase: resolvePath(paths.source),

@@ -1,24 +1,11 @@
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
-// helpers
 const {resolvePath} = require('./tools/helpers');
 const paths = require('./tools/paths');
-const resolveAlias = require('./tools/resolve-alias');
+const rules = require('./tools/rules');
+const extensions = require('./tools/extensions');
+const alias = require('./tools/alias');
+const plugins = require('./tools/plugins');
 
-const configForkTsCheckerWebpackPlugin = {
-    tsconfig: resolvePath('tsconfig.json'),
-    useTypescriptIncrementalApi: true,
-    checkSyntacticErrors: true,
-    formatter: 'codeframe',
-    silent: false,
-    tslint: true,
-    watch: 'src',
-    workers: 1,
-}
-
-const mode = process.env.NODE_ENV;
-const devMode = mode === 'development' ? true: false;
+const isDevMode = process.env.NODE_ENV === 'development';
 
 module.exports = {
     context: resolvePath(paths.source),
@@ -28,88 +15,27 @@ module.exports = {
     output: {
         path: resolvePath(paths.dist)
     },
-    resolve: resolveAlias.resolve,
+    resolve: {
+        alias,
+        extensions
+    },
     module: {
         strictExportPresence: true,
         rules: [
-            {
-                test: /\.js$/,
-                use: [
-                    {
-                        loader: 'babel-loader'
-                    }
-                ],
-                exclude: /node_modules/,
-            },
-            {
-                test: /\.tsx?$/,
-                use: [
-                    {
-                        loader: 'babel-loader'
-                    },
-                    {
-                        loader: 'ts-loader',
-                        options: {
-                            transpileOnly: true
-                        }
-                    }
-                ],
-                exclude: /node_modules/
-            },
-            {
-                test: /\.(sa|sc|c)ss$/,
-                use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            hmr: devMode,
-                        },
-                    },
-                    {
-                        loader: "css-loader",
-                        options: {
-                            importLoaders: 1,
-                            modules: {
-                                localIdentName: '[local]__[hash:base64:5]',
-                            }
-                        }
-                    },
-                    {
-                        loader: "sass-loader"
-                    }
-                ]
-            },
+            rules.jsFiles,
+            rules.tsFiles,
+            rules.cssFiles(isDevMode),
             {
                 oneOf: [
-                    {
-                        test: /\.(bmp|gif|jpe?g|svg|png)$/,
-                        use: [
-                            {
-                                loader: 'url-loader',
-                                options: {
-                                    limit: 10000,
-                                    name: `${paths.media}/[name].[hash:8].[ext]`,
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        test: /\.(woff|woff2|eot|ttf|otf)$/,
-                        loader: 'file-loader',
-                        options: {
-                            name: `${paths.fonts}/[name].[hash:8].[ext]`,
-                        },
-                    }
+                    rules.imgFiles,
+                    rules.fontFiles
                 ]
             }
         ]
     },
     plugins: [
-        new ForkTsCheckerWebpackPlugin(configForkTsCheckerWebpackPlugin),
-        new MiniCssExtractPlugin({
-            filename: devMode ? '[name].css' : '[name].[contenthash:8].css',
-            chunkFilename: devMode ? '[id].css' : '[id].[contenthash:8].css'
-        }),
+        plugins.forkTsCheckerWebpackPlugin(),
+        plugins.miniCssExtractPlugin(isDevMode),
     ],
     performance: {
         hints: false

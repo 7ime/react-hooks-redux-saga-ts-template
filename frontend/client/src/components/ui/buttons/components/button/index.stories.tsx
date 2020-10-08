@@ -1,6 +1,5 @@
 import * as React from 'react'
-import '@styles/global.scss'
-import Button from '@components/ui/buttons/components/button'
+import Button from '@components/ui/buttons/components/button/index'
 
 export default {
     title: 'Button',
@@ -13,4 +12,8 @@ export const Default = () => {
 
 export const Primary = () => {
     return <Button type={'primary'}>Primary</Button>
+}
+
+export const Secondary = () => {
+    return <Button type={'secondary'}>Secondary</Button>
 }
