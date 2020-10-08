@@ -69,7 +69,7 @@ npm run build-storybook
 ```
     button
         * index.tsx
-        * index.spec.ts
+        * index.spec.tsx
 ```
 
 - For functions or classes
@@ -110,11 +110,11 @@ npm run build-storybook
                 home-scene
                     * components (for this scene)
                         * presentation
-                            * index.ts
-                            * index.spec.ts
+                            * index.tss
+                            * index.spec.tsx
                             * index.stories.tsx
                     * index.tsx
-                    * index.spec.ts
+                    * index.spec.tsx
                     * index.stories.tsx
                     * index.module.scss
             ```
@@ -124,11 +124,11 @@ npm run build-storybook
                     * components
                         * button
                             * index.tsx
-                            * index.spec.ts
+                            * index.spec.tsx
                             * index.stories.tsx
                         * buttonLink
                             * index.tsx
-                            * index.spec.ts
+                            * index.spec.tsx
                             * index.stories.tsx
                     * model
                         * index.ts
