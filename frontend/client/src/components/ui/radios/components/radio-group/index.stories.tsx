@@ -32,7 +32,7 @@ export const Error = () => {
     }, [])
 
     return (
-        <RadioGroup value={value} onChange={handleChange} name={'default'} error={[true, ['test error message']]}>
+        <RadioGroup value={value} onChange={handleChange} name={'error'} error={[true, ['test error message']]}>
             <Radio value={'+'} type={'primary'}>Plus</Radio>
             <Radio value={'/'} type={'primary'}>Divided by</Radio>
             <Radio value={'*'} type={'primary'}>Times</Radio>
@@ -49,7 +49,24 @@ export const Success = () => {
     }, [])
 
     return (
-        <RadioGroup value={value} onChange={handleChange} name={'default'} success={[true, ['test success message']]}>
+        <RadioGroup value={value} onChange={handleChange} name={'success'} success={[true, ['test success message']]}>
+            <Radio value={'+'} type={'primary'}>Plus</Radio>
+            <Radio value={'/'} type={'primary'}>Divided by</Radio>
+            <Radio value={'*'} type={'primary'}>Times</Radio>
+            <Radio value={'-'} type={'primary'}>Minus</Radio>
+        </RadioGroup>
+    )
+}
+
+export const Disabled = () => {
+    const [value, setValue] = React.useState('+')
+
+    const handleChange = React.useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+        setValue(event.target.value)
+    }, [])
+
+    return (
+        <RadioGroup value={value} disabled onChange={handleChange} name={'disabled'}>
             <Radio value={'+'} type={'primary'}>Plus</Radio>
             <Radio value={'/'} type={'primary'}>Divided by</Radio>
             <Radio value={'*'} type={'primary'}>Times</Radio>

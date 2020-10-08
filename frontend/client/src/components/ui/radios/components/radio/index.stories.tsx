@@ -24,3 +24,9 @@ export const Secondary = () => {
     )
 }
 
+export const Disabled = () => {
+    return (
+        <Radio value={'+'} checked disabled type={'secondary'}>Secondary</Radio>
+    )
+}
+
